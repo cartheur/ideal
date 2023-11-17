@@ -7,8 +7,8 @@ namespace Cartheur.Ideal
         static void Main(string[] args)
         {
             // Change this line to instantiate another existence:
-            IExistence existence = new Existence010();
-            //Existence existence = new Existence020();
+            //IExistence existence = new Existence010();
+            IExistence existence = new Existence020();
             //Existence existence = new Existence030();
             //Existence existence = new Existence031();
             //Existence existence = new Existence032();
