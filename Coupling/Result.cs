@@ -1,4 +1,4 @@
-﻿namespace Cartheur.Ideal.Coupling
+﻿namespace Ideal.Coupling
 {
     /// <summary>
     /// A result of an experience.

@@ -1,6 +1,6 @@
-﻿using Cartheur.Ideal.Existence;
+﻿using Ideal.Existence;
 
-namespace Cartheur.Ideal
+namespace Ideal
 {
     internal class Program
     {
@@ -8,8 +8,8 @@ namespace Cartheur.Ideal
         {
             // Change this line to instantiate another existence:
             //IExistence existence = new Existence010();
-            IExistence existence = new Existence020();
-            //Existence existence = new Existence030();
+            //IExistence existence = new Existence020();
+            IExistence existence = new Existence030();
             //Existence existence = new Existence031();
             //Existence existence = new Existence032();
             //Existence existence = new Existence040();

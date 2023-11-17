@@ -1,4 +1,4 @@
-namespace Cartheur.Ideal.Coupling.Interaction
+namespace Ideal.Coupling.Interaction
 {
     /// <summary>
     /// An Interaction020 is an Interaction010 with a valence.

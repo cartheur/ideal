@@ -1,7 +1,7 @@
-using Cartheur.Ideal.Coupling;
-using Cartheur.Ideal.Coupling.Interaction;
+using Ideal.Coupling;
+using Ideal.Coupling.Interaction;
 
-namespace Cartheur.Ideal.Existence
+namespace Ideal.Existence
 {
     /// <summary>
     ///  * An Existence020 is a sort of Existence010 in which each Interaction has a predefined Valence. When a given Experience is performed and a given Result is obtained, the corresponding Interaction is considered enacted.
@@ -11,7 +11,7 @@ namespace Cartheur.Ideal.Existence
     /// </summary>
     public class Existence020 : Existence010
     {
-        protected void InitExistence()
+        protected new void InitExistence()
         {
             Experiment e1 = AddOrGetExperience(LABEL_E1);
             Experiment e2 = AddOrGetExperience(LABEL_E2);
@@ -66,12 +66,10 @@ namespace Cartheur.Ideal.Existence
             return interaction;
         }
 
-
         protected new Interaction020 CreateInteraction(string label)
         {
             return new Interaction020(label);
         }
-
 
         protected new Interaction020 GetInteraction(string label)
         {

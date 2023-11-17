@@ -1,7 +1,7 @@
-﻿using Cartheur.Ideal.Coupling;
-using Cartheur.Ideal.Coupling.Interaction;
+﻿using Ideal.Coupling;
+using Ideal.Coupling.Interaction;
 
-namespace Cartheur.Ideal.Existence
+namespace Ideal.Existence
 {
     public class Existence010 : IExistence
     {

@@ -1,9 +1,9 @@
-﻿namespace Cartheur.Ideal.Coupling.Interaction
+﻿namespace Ideal.Coupling.Interaction
 {
     /// <summary>
     /// An interaction010 is the association of an experience with a result.
     /// </summary>
-    /// <seealso cref="Cartheur.Ideal.Coupling.Interaction.Interaction" />
+    /// <seealso cref="Ideal.Coupling.Interaction.Interaction" />
     public class Interaction010 : Interaction
     {
         protected string _label;
