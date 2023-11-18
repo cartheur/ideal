@@ -3,4 +3,6 @@ An ideal algorithm for control in the manner of Cybernetics. Translation: This i
 
 ## This branch
 
-This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm.
+This branch contains the modules 050 and 051 that expand upon code from the continuity of the previous branches.
+
+It deals with the phenomenon of radical interactionism.
