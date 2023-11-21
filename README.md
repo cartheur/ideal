@@ -25,7 +25,7 @@ To take this problem gradually, Lesson 3 begins with implementing an agent that 
 
 Figure 32 presents the principles of a rudimentary system that learns and exploits two-step regularities of interaction.
 
-[](/images/032-1.png)
+[Figure.32](/images/032-1.png)
 Figure 32: Rudimentary learning of regularities of interaction.
 
 On time step `t`, the agent enacts the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting et and receiving a result `rt` (Page 21). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions `i = ⟨e,r⟩` will be called primitive interactions to differentiate them from composite interactions.
