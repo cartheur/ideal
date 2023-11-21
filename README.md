@@ -126,6 +126,4 @@ In contrast, here is the famous big book that you do NOT need to read for this c
 
 You will find that it is at odds with the embodied paradigm by page iv (page 4 of the preface!) where it posits "the problem of AI is to describe and build agents that receive percepts from the environment and perform actions" (if you don't see the tension, 
 
-This ends Lesson 1. The participants of the IDEAL MOOC may go back to their session in Claroline Connect to answer a questionnaire about Lesson 1 and about the activity trace in Table 14.
-
 This ends Lesson 1.
