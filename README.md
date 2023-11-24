@@ -192,7 +192,7 @@ You can use it with the EnvironmentMaze to reproduce similar behaviors as in Vid
 Project 5: modified or new files since Project 4.
 
 ```
-Program.cs ← Change Main.java to instantiate Existence050.
+Program.cs ← Change to instantiate Existence050.
 existence / Existence050 ← The main loop of the algorithm.
 coupling / Experiment050 ← Now, an Experiment has a list of enacted interactions.
 environment / Environment ← The interface for the environments.
