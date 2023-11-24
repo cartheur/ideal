@@ -147,7 +147,7 @@ Figure 44 illustrates the implementation of the `learnCompositeInteraction()` fu
 ![Figure-44](/images/044-1.png)
 Figure 44: Recursive learning of composite interactions.
 
-Figure 44 distinguishes between the _Interaction Time_ (arrow at the bottom corresponding to the agent/environment coupling) and the _Decision Time_ (staircase shaped arrow corresponding to the proactive/reactive coupling that rises over time). The learning occurs at the level of the Decision Time to learn higher-level composite interactions on top of enacted composite interactions. In grey rectangles indicate the composite interactions that are learned or reinforced at the end of decision cycle $t_d$. The system learns the composite interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩ made of the sequence of the previous enacted composite interaction $e_{cd-1}$ and the last enacted composite interaction $e_{cd}$. This is similar to Page 32 except that the learning can apply to composite interactions rather than primitive interactions only. Additionally, the system learns the composite interaction ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩. This way, if $e_{cd-2}$ is enacted again, ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩ will be re-activated and will propose to enact its post-interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩. The system has thus learned to re-enact ⟨ $e_{cd-1}$, $e_{cd}$⟩ as a sequence, hence the self-programming effect. The higher-level composite interaction ⟨⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩, $e_{cd}$ ⟩ is also learned so that it can be re-activated in the context when ⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩ is enacted again, and propose its post-interaction $e_cd$.
+Figure 44 distinguishes between the _Interaction Time_ (arrow at the bottom corresponding to the agent/environment coupling) and the _Decision Time_ (staircase shaped arrow corresponding to the proactive/reactive coupling that rises over time). The learning occurs at the level of the Decision Time to learn higher-level composite interactions on top of enacted composite interactions. In grey rectangles indicate the composite interactions that are learned or reinforced at the end of decision cycle $t_d$. The system learns the composite interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩ made of the sequence of the previous enacted composite interaction $e_{cd-1}$ and the last enacted composite interaction $e_{cd}$. This is similar to Page 32 except that the learning can apply to composite interactions rather than primitive interactions only. Additionally, the system learns the composite interaction ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩. This way, if $e_{cd-2}$ is enacted again, ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩ will be re-activated and will propose to enact its post-interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩. The system has thus learned to re-enact ⟨ $e_{cd-1}$, $e_{cd}$⟩ as a sequence, hence the self-programming effect. The higher-level composite interaction ⟨⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩, $e_{cd}$ ⟩ is also learned so that it can be re-activated in the context when ⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩ is enacted again, and propose its post-interaction $e_{cd}$.
 
 ## Associating abstract experiments and results with composite interactions
 
@@ -159,17 +159,18 @@ If the `chooseExperiment()` function chooses experiment $e_a$, then the system t
 
 The next time the system considers choosing experiment $e_a$, it will compute the proclivity for $e_a$ based on the anticipation of succeeding enacting $i_c$ and getting result $r_a$, balanced with the anticipation of actually enacting $e_c$ and getting result $r_f$.
 
-As a result of this mechanism, composite interactions can have two forms: the sequential form ⟨pre-interaction,post-interaction⟩ and the abstract form ⟨experiment,result⟩. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the `|` symbol: `⟨EXPERIMENT|RESULT⟩`. We will use this notation in the trace in Page 46.
+As a result of this mechanism, composite interactions can have two forms: the sequential form `⟨pre-interaction,post-interaction⟩` and the abstract form `⟨experiment,result⟩`. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the `|` symbol: `⟨EXPERIMENT|RESULT⟩`. We will use this notation in the trace in Page 46.
 
 This mechanism is a critical step to implementing self-programming agents. Nevertheless, it opens many questions that remain to be addressed. For example, how to organize experiments and results to construct a coherent model of reality?
 
 ## Implementing a self-programming agent
+
 If you have no interest in programming then you can skip this page and proceed to the next page.
 
 Project 4 implements the algorithm described on Page 43 and Page 44 to let you run your first self-programming agent.
 
 ```
-main / Program ← Edit Main.java to instantiate Existence040.
+Program.cs ← Edit to instantiate Existence040.
 existence / Existence040
 coupling / Experiment040 ← Now, experiments have an intended interaction.
 coupling / interaction / Interaction040 ← Now, interactions have an experiment to perform.
@@ -178,15 +179,15 @@ coupling / interaction / Interaction040 ← Now, interactions have an experiment
 For Lesson 4, your programming activities are:
 
 1. Change `Program.cs` to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next page
-2. Change `Existance040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be pleased.
+2. Change `Existence040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be pleased.
 
 Lesson 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less (first-level composite interactions).
 
-However, `Existance040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next lesson with Radical Interactionism, which removes the notion of primitive experiments and considers all experiments as abstract.
+However, `Existence040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next lesson with _Radical Interactionism_, which removes the notion of primitive experiments and considers all experiments as abstract.
 
 ## Behavioral analysis of a self-programming agent
 
-Table 46 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to pages 44 and 45 to understand this trace. Observe that the system learns to be always PLEASED from Decision 23 (on Line 197) by alternatively enacting the composite interactions ⟨e2r1e2r2⟩ and ⟨e1r1e1r2⟩.
+Table 46 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to pages 44 and 45 to understand this trace. Observe that the system learns to be always `PLEASED` from Decision 23 (on Line 197) by alternatively enacting the composite interactions ⟨e2r1e2r2⟩ and ⟨e1r1e1r2⟩.
 
 ```
 Table 46: Activity trace of a rudimentary self-programming agent.
@@ -404,11 +405,11 @@ Table 46: Activity trace of a rudimentary self-programming agent.
 211    25: PLEASED
 
 ```
-Lines 1-2: predefined experiments are proposed with a default proclivity of `0`. Proposals are sorted by decreasing proclivity. The first proposed experiment is selected: e1. Lines 3-4: Decision 0: The interaction `e1r1` is enacted. The system is PAINED because this interaction has a negative valence (`-1`).
+Lines 1-2: predefined experiments are proposed with a default proclivity of `0`. Proposals are sorted by decreasing proclivity. The first proposed experiment is selected: `e1`. Lines 3-4: Decision 0: The interaction `e1r1` is enacted. The system is `PAINED` because this interaction has a negative valence (`-1`).
 
-Line 8: the first composite interaction ⟨`e1r1e1r2`⟩ is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted ⟨E1R1E1R2| (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨e1r1e1r2⟩ (Line 202).
+Line 8: the first composite interaction ⟨`e1r1e1r2`⟩ is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted ⟨`E1R1E1R2`| (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨`e1r1e1r2`⟩ (Line 202).
 
-On Decision 8, the experiment ⟨E1R2E1R1| was selected (Line 58), leading to the tentative enaction of composite interaction ⟨`e1r2e1r1`⟩. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result |E1R1⟩ is created, as well as the enacted interaction ⟨E1R2E1R1|E1R1⟩, using the notation introduced on Page 44.
+On Decision 8, the experiment ⟨`E1R2E1R1`| was selected (Line 58), leading to the tentative enaction of composite interaction ⟨`e1r2e1r1`⟩. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result |`E1R1`⟩ is created, as well as the enacted interaction ⟨`E1R2E1R1|E1R1`⟩, using the notation introduced on Page 44.
 
 ## Selected readings on self-programming
 
