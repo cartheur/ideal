@@ -1,8 +1,12 @@
 # ideal
 
-This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm. But it is not _exactly_ like RL.
+This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm.
 
-## Instructive Wiki
+Be forwarned that it is not _exactly_ like reinforcement learning, a shade that yields significantly different effects.
+
+## Code module
+
+Below you will find a description of the code base where and how to begin programming the _ideal_ algorithm in its entirety.
 
 # Section 1: An introduction to the embodied paradigm
 
