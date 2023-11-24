@@ -2,9 +2,9 @@ name: dotnet SDK
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "01-embodied-paradigm" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "01-embodied-paradigm" ]
 
 jobs:
 
