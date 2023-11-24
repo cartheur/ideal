@@ -10,7 +10,7 @@ Below you will find a description of the code base where and how to begin progra
 
 # Section 1: An introduction to the embodied paradigm
 
-The main message that we want to convey in Lesson 1 is:
+The primary "take home" message that establishes the paradigm is:
 
 `Do not consider the agent's input data as the agent's perception of its environment.`
 
