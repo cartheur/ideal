@@ -3,7 +3,7 @@ An ideal algorithm for control in the manner of Cybernetics. This branch contain
 
 ## Code module
 
-This branch contains the modules 030, 031, and 032 that expand upon the code of the previous branches.
+This branch contains the modules 030, 031, and 032 that expand upon the code from the continuity of the previous branches.
 
 # Section 3: An introduction to constructivist epistemology (theory of knowledge)
 
