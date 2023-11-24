@@ -28,7 +28,7 @@ Figure 32 presents the principles of a rudimentary system that learns and exploi
 ![Figure-32](/images/032-1.png)
 Figure 32: Rudimentary learning of regularities of interaction.
 
-On time step `t`, the agent enacts the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting et and receiving a result `rt` (Page 21). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions `i = ⟨e,r⟩` will be called primitive interactions to differentiate them from composite interactions.
+On time step `t`, the agent _enacts_ the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting et and receiving a result `rt` (Page 21). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions `i = ⟨e,r⟩` will be called primitive interactions to differentiate them from composite interactions.
 
 The enacted primitive interaction it activates previously learned composite interactions when it matches their pre-interaction. For example, if $i_t = a$ and if the composite interaction `⟨a,b⟩` has been learned before time `t`, then the composite interaction `⟨a,b⟩` is activated, meaning it is recalled from memory. Activated composite interactions propose their post-interaction's experiment, in this case: `b`'s experiment. If the sequence `⟨a,b⟩` corresponds to a regularity of interaction, then it is probable that the sequence `⟨a,b⟩` can be enacted again. Therefore, the agent can anticipate that performing `b`'s experiment will likely produce `b`'s result. The agent can thus base its choice of the next experiment on this anticipation.
 
@@ -69,7 +69,7 @@ Table 33-1: Main loop of an interactionally motivated algorithm that learns two-
 19     learnCompositeInteraction(contextInteraction, enactedInteraction)
 ```
 
-Table 33-1, lines 01 to 04 initialize the primitive interactions (similar to Page 23) to specify the agent's preferences. In this particular configuration, interactions whose result is `r1` have a negative valence, and interactions whose result is `r2` have a positive valence. 06: the previously enacted interaction is memorized as the context interaction. 07: computes anticipations in the context of the previous enacted interaction. 08: selects an experiment from the anticipations.
+Table 33-1, lines 01 to 04 initialize the primitive interactions (similar to Page 23) to specify the agent's preferences. In this particular configuration, interactions whose result is `r1` have a negative valence, and interactions whose result is `r2` have a positive valence. 06: the previously enacted interaction is memorized as the _context interaction_. 07: computes anticipations in the context of the previous enacted interaction. 08: selects an experiment from the anticipations.
 
 Lines 09 to 13 implement the environment. This new environment was designed to demonstrate the benefit of learning two-step regularities of interaction. If the experiment equals the previous experiment then result is `r1`, otherwise the result is `r2`.
 
@@ -101,7 +101,7 @@ Table 33-2: Pseudocode of a simple version.
 25         return another experiment than anticipation[0].interaction.experiment
 ```
 
-The `anticipate()` function checks for known composite interactions whose pre-interactions match the last enacted primitive interaction; we call these the activated composite interactions. A new object, anticipation, is created for each activated composite interaction. The activated composite interaction's post-interaction is associated with this anticipation as the anticipation's proposed interaction. The `selectExperiment()` function sorts the list of anticipations by decreasing valence of their proposed interaction. Then, it takes the fist anticipation (index [0]), which has the highest valence in the list. If this valence is positive, then the agent wants to re-enact this proposed interaction, leading to the agent choosing this proposed interaction's experiment.
+The `anticipate()` function checks for known composite interactions whose pre-interactions match the last enacted primitive interaction; we call these the activated composite interactions. A new object, _anticipation_, is created for each activated composite interaction. The activated composite interaction's post-interaction is associated with this anticipation as the anticipation's _proposed interaction_. The `selectExperiment()` function sorts the list of anticipations by decreasing valence of their proposed interaction. Then, it takes the fist anticipation (index [0]), which has the highest valence in the list. If this valence is positive, then the agent wants to re-enact this proposed interaction, leading to the agent choosing this proposed interaction's experiment.
 
 This solution works in a very simple environment that generates no competing anticipations. However, for environments that may generate competing anticipations, we want the agent to be able to balance competing anticipations based on their probabilities of realization. We may have an environment that, in a given context, makes all the four interactions likely to happen but with different probabilities. For example, in the context in which `e1r1` was enacted, both `e1` and `e2` may result sometimes in `r1` and sometimes in `r2`. But, e1 is more likely to result in `r2` than `e2`. To handle this kind of environment, we associate a weight to composite interactions, as shown in Table 33-3.
 
@@ -143,7 +143,7 @@ If you have no interest in programming, you can now proceed to the next page.
 Project 3 (files to modify or to add to Project 2)
 
 ```
-main / Program ← Uncomment the instructions to instantiate Existence030 or Existence031.
+Program.cs ← Uncomment the instructions to instantiate Existence030 or Existence031.
 existence / Existence030 ← The program that implements the algorithm in Tables 33-1 and 33-2.
 existence / Existence031 ← The program that implements the algorithm in Tables 33-1 and 33-3.
 agent / Anticipation ← An anticipation generated by the method computeAnticipations().
@@ -155,7 +155,7 @@ coupling / interaction / Interaction031 ← Interaction031s have a weight.
 
 For Lesson 3, your programming activities are:
 
-1. Change Main.java to instantiate `Existence030` and run it. Observe that the trace is similar to that in the next page.
+1. Change Program.cs to instantiate `Existence030` and run it. Observe that the trace is similar to that in the next page.
 2. Change `Existence030` to instantiate Environment010 instead of `Environment030` and run it. Observe that the modified `Existence030` also learns to get pleased when it implements `Environment010` instead of `Environment030`.
 3. Change `Program.cs` to instantiate `Existence031` and run it. Observe that it learns to be pleased in `Environment031`.
 4. Change `Existence031` to instantiate `Environment010` and then `Environment030` and run it. Observe that the modified `Existence031` also learns to be pleased when it implements `Environment010`, `Environment030`, and `Environment031`.
