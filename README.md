@@ -1,6 +1,8 @@
 # ideal
 
-*I*mplementation of *DE*velopment*A*l *L*earning | An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module.
+<p style="text-align: center;">-- *I*mplementation of *DE*velopment*A*l *L*earning --</p>
+
+An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module.
 
 Be forwarned that it is not _exactly_ like reinforcement learning, a shade that yields significantly different effects.
 
