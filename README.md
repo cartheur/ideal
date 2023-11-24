@@ -1,6 +1,8 @@
 # ideal
 
-<p style="text-align: center;">*I*mplementation of *DE*velopment*A*l *L*earning</p>
+<div style='text-align: center;'>
+  *I*mplementation of *DE*velopment*A*l *L*earning
+</div>
 
 An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module.
 
