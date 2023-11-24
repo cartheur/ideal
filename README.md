@@ -153,13 +153,13 @@ Figure 44 distinguishes between the _Interaction Time_ (arrow at the bottom corr
 
 When a new composite interaction $i_c$ is added to the set Id of known interactions at time $t_d$, a new abstract experiment ea is added to the set Ed of known experiments at time $t_d$, and a new abstract result $r_a$ is added to the set $R_d$ of known results at time $t_d$, such that $i_c = ⟨e_a,r_a⟩$.
 
-Abstract experiments are called abstract because the environment cannot process them directly. The environment (or robot's interface) is only programmed to interpret a predefined set of experiments that we now call concrete. To perform an abstract experiment ea, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction ic from which the abstract experiment ea was constructed.
+Abstract experiments are called _abstract_ because the environment cannot process them directly. The environment (or robot's interface) is only programmed to interpret a predefined set of experiments that we now call _concrete_. To perform an abstract experiment $e_a$, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction $i_c$ from which the abstract experiment $e_a$ was constructed.
 
-If the `chooseExperiment()` function chooses experiment ea, then the system tries to enact ic. If this tentative enaction fails and results in the enacted composite interaction ec ∈ Id+1, then the system creates the abstract result rf ∈ Rd+1, so that ec = ⟨ea,rf⟩ .
+If the `chooseExperiment()` function chooses experiment $e_a$, then the system tries to enact $i_c$. If this tentative enaction fails and results in the enacted composite interaction $e_c ∈ I_{d+1}$, then the system creates the abstract result $r_f ∈ R_{d+1}$, so that $e_c = ⟨e_a,r_f⟩$.
 
-The next time the system considers choosing experiment ea, it will compute the proclivity for ea based on the anticipation of succeeding enacting ic and getting result ra, balanced with the anticipation of actually enacting ec and getting result rf.
+The next time the system considers choosing experiment $e_a$, it will compute the proclivity for $e_a$ based on the anticipation of succeeding enacting $i_c$ and getting result $r_a$, balanced with the anticipation of actually enacting $e_c$ and getting result $r_f$.
 
-As a result of this mechanism, composite interactions can have two forms: the sequential form ⟨pre-interaction,post-interaction⟩ and the abstract form ⟨experiment,result⟩. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the "|" symbol: ⟨EXPERIMENT|RESULT⟩. We will use this notation in the trace in Page 46.
+As a result of this mechanism, composite interactions can have two forms: the sequential form ⟨pre-interaction,post-interaction⟩ and the abstract form ⟨experiment,result⟩. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the `|` symbol: `⟨EXPERIMENT|RESULT⟩`. We will use this notation in the trace in Page 46.
 
 This mechanism is a critical step to implementing self-programming agents. Nevertheless, it opens many questions that remain to be addressed. For example, how to organize experiments and results to construct a coherent model of reality?
 
