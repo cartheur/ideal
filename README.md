@@ -1,129 +1,51 @@
 # ideal
+An ideal algorithm for control in the manner of Cybernetics. This last section discussed different kinds of reseach pathways forward.
 
-This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm. But it is not _exactly_ like RL.
+## Code module
 
-## Instructive Wiki
+There are no code modules for this branch.
 
-# Section 1: An introduction to the embodied paradigm
+# Section 7: Research pathway to developmental artificial intelligence
 
-The main message that we want to convey in Lesson 1 is:
+The approach presented throughout this course suggests considering an intelligent system as a cognitive coupling between proactive and reactive components. We seek to design this cognitive coupling to generate a stream of data that represents increasingly intelligent behavior. We summarize this research approach with the following key concept:
 
-`Do not consider the agent's input data as the agent's perception of its environment.`
+`Design a cognitive coupling capable of generating an increasingly intelligent stream of activity as it develops.`
 
-The agent is not a passive observer of reality, but rather constructs a perception of reality through active interaction. The term embodied means that the agent must be a part of reality for this active interaction to happen.
+This research endeavor entails two difficulties:
+* designing an increasingly intelligent developmental cognitive coupling, and,
+* analyzing the stream of data that it generates to assess its level of intelligence.
 
-Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Lesson 1, however, we wish to introduce how this idea translates into the practical design of artificial agents and robots.
+## Designing increasingly intelligent developmental cognitive coupling
 
-## Agent and robot design according to the embodied paradigm
+You may have noticed that we have been designing the proactive and reactive components of the cognitive coupling in parallel. Figure 71 recapitulates the progressive improvement of this design over this course.
 
-The embodied paradigm suggests shifting perspective from:
-- the traditional view in which the agent interprets input data as if it represented the environment (Figure 12/left),
-to:
-- the embodied view in which the agent constructs a perception of the environment through the active experience of interaction (Figure 12/right).
+![Figure-71](/images/071-1.png)
+Figure 71: Pathway to designing increasingly intelligent developmental cognitive couplings.
 
-![Figure-12](/images/012-1.png)
-Figure 12: Embodied model (right) compared to the traditional model (left). In the traditional model, the cycle conceptually starts with observing the environment (black circle on the environment) and ends by acting on the environment (black arrow on the environment). In the embodied model, the cycle conceptually starts with the agent performing an experiment (black circle on the agent), and ends by the agent receiving the result of the experiment (black arrow on the agent).
+In Lesson 1, we began with a very simple coupling (Existence010 in Figure 71). We simply illustrated the fact that the proactive part of this coupling (then called the agent) had no direct access to the state of the reactive part (then called the environment).
 
-Most representations of the cycle agent/environment do not make explicit the conceptual starting point and end point of the cycle. Since the cycle revolves indefinitely, why should we care anyway?
+In Lesson 3, we reached a more complex cognitive coupling (Existence030) in which the reactive part offered simple sequential regularities, and the proactive part discovered, memorized, and exploited these regularities to satisfy inborn preferences. The cognitive coupling and the policy coupling where still superposed: we still considered the proactive component as being the agent and the reactive component as being the environment.
 
-We should care because, depending on the conceptual starting and end points, we design the agent's algorithm, the robot's sensors, or the simulated environment differently.
+In Lesson 5, the proactive component was able to construct new kinds of intentions (composite interactions) during runtime (Existence050). The reactive component was able to carry out these new kinds of intentions using a function called the Enacter in Figure 53 (renamed as the Sequential Controller in Figure 71). At this point, the distinction between the agent and the environment (policy coupling) no longer coincided with the distinction between the proactive and the reactive components (cognitive coupling). Instead, the agent included both the proactive component and the Sequential Controller element of the reactive component. Also, the environment became only a sub-part of the reactive component (called the Sequential Environment in Figure 71). We were able to connect our agent to the real world (Video 53). However, the agent (a robot) was only able to learn sequential regularities of interaction.
 
-In the traditional view, we design the agent's input (called observation o in Figure 12/left) as if it represented the environment's state. In the case of simulated environments, we implement o as a function of s, where s is the state of the environment (o = f(s) in Figure 12/left). In the case of robots, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
+The fact that a single cognitive-coupling cycle spans over several policy-coupling cycles (Page 53) allows the agent to control different time scales of interaction. Researchers in artificial intelligence widely acknowledge that this is a critical capacity that developmental agents should have. For example, Pfeifer & Bongard (2007) in How the body shapes the way we think? call this capacity the Time Scale Integration Principle: "... because sensory-motor processes, which take place in the short term, form the basis of development—which occurs over ontogenetic time—these different time scales must all be integrated in one and the same agent" (p175).
 
-In the embodied view, we design the agent's input (called result r in Figure 12/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state (r = f (e,s) in Figure 12/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
+In Lesson 6, we designed a more sophisticated policy coupling that endowed our agent with an inborn sense of three-dimensional space (ECA, Page 64). This spatial policy coupling allows our agent to autonomously construct rudimentary ontological knowledge. We are, however, still studying how this spatial policy coupling impacts the cognitive coupling. Specifically, we don't know yet how to integrate spatial information into the recursive model presented in Page 52; it is still unclear how higher-level composite interactions can recursively handle the spatial information σt and τt introduced in Page 64.
 
-## Agent implementation according to the embodied paradigm
+Overall, cognitive coupling represents the "subjective" viewpoint of the agent. The fact that the environment constitutes only a sub-part of the reactive component allows us to conceive agents capable of carrying out subjective activity, even though they are not actively interacting with the environment. That is, the element of the reactive component that is internal to the agent can generate Obtentions without necessarily involving active interaction with the physical environment. This capacity provides the foundation for internal cognitive activity, which researchers acknowledge as another critical capacity of cognitive systems. See: [Hesslow--Conscious thought as simulaton](/images/Hesslow--Conscious%20thought%20as%20simulaton.pdf).
 
-Table 13 presents the algorithm of a rudimentary embodied system.
+After addressing the remaining questions of Lesson 6 presented above, we envision continuing to explore more sophisticated cognitive couplings ("..." in Figure 71). There are multiple possibilities yet to explore, and there is room for multiple research teams to explore different directions in parallel. It will probably require many more developmental-AI enthusiasts like you to make new decisive breakthroughs!
 
-```
-Table 13: algorithm of a rudimentary embodied system.
+## Assessing the system's intelligence
 
-01   experiment = e1
-02   Loop(cycle++)
-03      if (mood = BORED)
-04         selfSatisfiedDuration = 0
-05         experiment = pickOtherExperiment(experiment)
-06      anticipatedResult = anticipate(experiment)
-07      if (experiment = e1)
-08         result = r1
-09      else
-10         result = r2
-11      recordTuple(experiment, result)
-12      if (result = anticipatedResult)
-13         mood = SELF-SATISFIED
-14         selfSatisfiedDuration++
-15      else
-16         mood = FRUSTRATED
-17         selfSatisfiedDuration = 0
-18      if (selfSatisfiedDuration > 3)
-19         mood = BORED
-20      print cycle, experiment, result, mood
-```
+As we presented in this course, we assess the level of intelligence of developmental agents using activity traces. Activity traces may consist of videos that show the agent's behavior. For a more precise analysis, however, we use printed activity traces made of sequential data that represent strips of the agent's activity. This sequential data can include data about the internal state of the proactive and reactive components, as well as elements of the Intentions and Obtentions generated on each interaction cycle.
 
+We submit activity traces to peer reviewers so they can judge the level of intelligence of our agents. We call this validation paradigm the ethological paradigm. It is inspired from methods used by ethologists to demonstrate animal intelligence (e.g., Martin & Bateson's (1993) Measuring Behaviour: An Introductory Guide).
 
-Table 13, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the anticipate(experiment) function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: e1 always yields r1, and other experiments always yield r2. Line 11: the agent records the tuple ⟨experiment, result⟩ in memory. Lines 12 to 17: if the result was anticipated correctly then the agent is self-satisfied, otherwise it is frustrated. Lines 18 and 19: if the agent has been self-satisfied for too long (arbitrarily 3 cycles), then it becomes bored.
+The ethological paradigm raises the question of defining consensual criteria to judge the extent to which behaviors can be considered cognitive or intelligent. For example, in Video 55, we argue that the emergence of active perception is an indicator of cognitive behaviors. In Video 41, we argue that the fact that different instances of agents develop different strategies to catch prey demonstrates the development of cognitive behaviors.
 
-Notably, this system implements a single program called Existence which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as we promised in the previous page.
+More generally, the scientific community needs to develop a consensus on the behavioral criteria that the community considers the most important. What kind of behaviors should we observe? What kind of progress should an agent make during its development? Should we observe specific developmental phases? etc. In answering these kinds of questions, the community will clarify what it is trying to achieve when designing developmental agents. We consider this effort of clarification, in itself, to be a contribution to developmental AI.
 
-If you have no interest in programming, then you can skip the rest of this page and proceed to the next page.
+To contribute to this effort, we have designed a web service tool to analyze and display the activity traces of artificial agents. We used this tool to display the traces in Videos 53 and 63-1. We are happy to share it with people interested in analyzing their agent's behaviors. It is freely available online, and has a user guide to help you personalize the visualization of your traces.
 
-If you an have interest in programming, but do not wish to do the optional programming activities, then we recommend you browse through Project 1 below, just to get a sense of how the code is organized.
-
-If you wish to do the optional programming activities, then your activity for lesson 1 is to install Project 1 in your favorite development environment (any IDE, for example, we use Eclipse), and run it. You should get a trace similar to that shown on the next page. If you do not like java, well, you may reprogram it in the language of your choice.
-
-To install Project 1, you can either:
-
-Check out the project from the svn repository using your favorite svn tool (for example, we use subclipse in Eclipse). For now, you can ignore all the code that is not listed below, or copy/paste or download the java files from the links below.
-Project 1:
-
-
-```
-Program.cs
-existence / Existence.cs
-existence / Existence010.cs ← the main program that implements the algorithm in Table 13.
-coupling / Experiment.cs
-coupling / Result.cs
-coupling / interaction / Interaction.cs ← a tuple ‹experiment, result› is called an interaction.
-coupling / interaction / Interaction010.cs
-```
-##Behavioral analysis of an embodied system based on its activity trace
-
-Table 14 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
-
-
-```
-Table 14: activity trace of a rudimentary embodied system.
-
-0: e1r1 FRUSTRATED
-1: e1r1 SELF-SATISFIED
-2: e1r1 SELF-SATISFIED
-3: e1r1 SELF-SATISFIED
-4: e1r1 BORED
-5: e2r2 FRUSTRATED
-6: e2r2 SELF-SATISFIED
-7: e2r2 SELF-SATISFIED
-8: e2r2 SELF-SATISFIED
-9: e2r2  BORED
-10: e1r1 SELF-SATISFIED
-```
-
-Your activity, for Lesson 1, is to understand the trace in Table 14. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
-
-## Readings about the embodied paradigm.
-
-For more information about the embodied paradigm, here is a short list of selected readings:
-
-The Wikipedia article on Embodied Cognition.
-* Georgeon & Cordier (2014). Inverting the interaction cycle to model embodied agents. Fifth International Conference on Biologically Inspired Cognitive Architectures (BICA2014). Boston.
-
-We wrote this paper after this lesson; it develops the same ideas in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
-* A book often considered as one of the founding references for embodied cognition: Varela, Thompson, and Rosch (1991). The Embodied Mind: Cognitive Science and Human Experience Cambridge, MA: The MIT Press.
-
-In contrast, here is the famous big book that you do NOT need to read for this course:
-
-* Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library. However, you will not need it for this course.
-
-You will find that it is at odds with the embodied paradigm by page iv (page 4 of the preface!) where it posits "the problem of AI is to describe and build agents that receive percepts from the environment and perform actions" (if you don't see the tension, 
-
-This ends Lesson 1.
+## This ends the the ideal wiki.
