@@ -407,9 +407,9 @@ Table 46: Activity trace of a rudimentary self-programming agent.
 ```
 Lines 1-2: predefined experiments are proposed with a default proclivity of `0`. Proposals are sorted by decreasing proclivity. The first proposed experiment is selected: `e1`. Lines 3-4: Decision 0: The interaction `e1r1` is enacted. The system is `PAINED` because this interaction has a negative valence (`-1`).
 
-Line 8: the first composite interaction ⟨`e1r1e1r2`⟩ is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted ⟨`E1R1E1R2`| (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨`e1r1e1r2`⟩ (Line 202).
+Line 8: the first composite interaction `⟨e1r1e1r2⟩` is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted `⟨E1R1E1R2|` (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨`e1r1e1r2`⟩ (Line 202).
 
-On Decision 8, the experiment ⟨`E1R2E1R1`| was selected (Line 58), leading to the tentative enaction of composite interaction ⟨`e1r2e1r1`⟩. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result |`E1R1`⟩ is created, as well as the enacted interaction ⟨`E1R2E1R1|E1R1`⟩, using the notation introduced on Page 44.
+On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to the tentative enaction of composite interaction `⟨e1r2e1r1⟩`. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result `|E1R1⟩` is created, as well as the enacted interaction `⟨E1R2E1R1|E1R1⟩`, using the notation introduced on Page 44.
 
 ## Selected readings on self-programming
 
@@ -417,4 +417,4 @@ On Decision 8, the experiment ⟨`E1R2E1R1`| was selected (Line 58), leading to 
 * Georgeon & Marshall (2013). Demonstrating sensemaking emergence in artificial agents: A method and an example. International Journal of Machine Consciousness, 5(2), pp 131-144.
 * An issue of AGI devoted to self-programming. Great reference to support self-programming! Thórisson, Nivel, Sanz, & Wang (2013). Approaches and Assumptions of Self-Programming in Achieving Artificial General Intelligence. Journal of Artificial General Intelligence. 3(3), 1-10.
 
-This ends Lesson 4 (it was the hardest!).
+This ends Lesson 4.
