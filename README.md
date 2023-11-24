@@ -151,7 +151,7 @@ Figure 44 distinguishes between the _Interaction Time_ (arrow at the bottom corr
 
 ## Associating abstract experiments and results with composite interactions
 
-When a new composite interaction ic is added to the set Id of known interactions at time td, a new abstract experiment ea is added to the set Ed of known experiments at time td, and a new abstract result ra is added to the set Rd of known results at time td, such that ic = ⟨ea,ra⟩.
+When a new composite interaction $i_c$ is added to the set Id of known interactions at time $t_d$, a new abstract experiment ea is added to the set Ed of known experiments at time $t_d$, and a new abstract result $r_a$ is added to the set $R_d$ of known results at time $t_d$, such that $i_c = ⟨e_a,r_a⟩$.
 
 Abstract experiments are called abstract because the environment cannot process them directly. The environment (or robot's interface) is only programmed to interpret a predefined set of experiments that we now call concrete. To perform an abstract experiment ea, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction ic from which the abstract experiment ea was constructed.
 
