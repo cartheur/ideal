@@ -1,129 +1,138 @@
 # ideal
+An ideal algorithm for control in the manner of Cybernetics. This branch contains details of cognitive architectures.
 
-This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm. But it is not _exactly_ like RL.
+## Code module
 
-## Instructive Wiki
+There are no code modules for this branch.
 
-# Section 1: An introduction to the embodied paradigm
+# Section 6: An introduction to developmental cognitive architectures
 
-The main message that we want to convey in Lesson 1 is:
+## Introduction to developmental cognitive architectures
 
-`Do not consider the agent's input data as the agent's perception of its environment.`
+On Page 53, we raised the issue of designing agents that can deal with more complex possibilities of interaction. We defined three levels of coupling: 1) cognitive coupling, 2) policy coupling, and 3) physical coupling.
 
-The agent is not a passive observer of reality, but rather constructs a perception of reality through active interaction. The term embodied means that the agent must be a part of reality for this active interaction to happen.
+So far, we have been working with a policy coupling that is discrete and small: for example, a set of 10 primitive interactions in Video 55. A legitimate question is: what would happen if the policy coupling contained a greater number of primitive interactions, or even if the policy coupling was modeled as a continuous space rather than a discrete set? More broadly, how does the algorithm scale up when the policy coupling gets more complex?
 
-Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Lesson 1, however, we wish to introduce how this idea translates into the practical design of artificial agents and robots.
+The answer is simple: the algorithm that we have been using thus far can't scale up when the complexity of the policy coupling increases arbitrarily. The scaling limitation is because the time to discover and exploit regularities of interaction increases exponentially as the number of primitive interactions increases, and as length of the regularities that are afforded by the policy coupling grows.
 
-## Agent and robot design according to the embodied paradigm
+To scale up towards "something more complex", we must examine what scaling problems we are facing and what "more complex results" we want to obtain.
 
-The embodied paradigm suggests shifting perspective from:
-- the traditional view in which the agent interprets input data as if it represented the environment (Figure 12/left),
-to:
-- the embodied view in which the agent constructs a perception of the environment through the active experience of interaction (Figure 12/right).
+Our demonstration in Video 53 shows that our algorithm can interact with the real world. However, it also shows that the behavior is still very rudimentary. This demonstration illustrates that our scaling problem consists of generating more sophisticated behaviors at the physical coupling level, but it does not involve dealing with an arbitrarily complex policy coupling.
 
-![Figure-12](/images/012-1.png)
-Figure 12: Embodied model (right) compared to the traditional model (left). In the traditional model, the cycle conceptually starts with observing the environment (black circle on the environment) and ends by acting on the environment (black arrow on the environment). In the embodied model, the cycle conceptually starts with the agent performing an experiment (black circle on the agent), and ends by the agent receiving the result of the experiment (black arrow on the agent).
+Indeed, we must deal with the complexity of the physical coupling because this complexity is imposed by the real world. The complexity of the policy coupling, however, is not imposed. We are free to design the policy coupling to suite our needs. We need a well-designed policy coupling that makes learning smarter behaviors possible when the robot interacts with the real world at the physical coupling level.
 
-Most representations of the cycle agent/environment do not make explicit the conceptual starting point and end point of the cycle. Since the cycle revolves indefinitely, why should we care anyway?
+Note that it is fortunate that we do not need to face an arbitrarily complex policy coupling because we have no reason to believe that an algorithm capable of scaling up with this complexity would even be possible. In contrast, the example of natural cognitive systems (animals and humans) illustrates that it is possible to deal with the complexity associated with the physical coupling. Even animals with modest computational resources (e.g., animals with small brains like insects and small vertebrates) exhibit relatively smart behaviors and complex learning in the real world.
 
-We should care because, depending on the conceptual starting and end points, we design the agent's algorithm, the robot's sensors, or the simulated environment differently.
+On Page 42, we discussed why the agent should construct a coherent model of the world on the basis of regularities of interactions that it discovers. The agent must learn that regularities of interaction are caused by entities that exist in the world. Knowledge of entities that exist in the world is called _ontological knowledge_.
 
-In the traditional view, we design the agent's input (called observation o in Figure 12/left) as if it represented the environment's state. In the case of simulated environments, we implement o as a function of s, where s is the state of the environment (o = f(s) in Figure 12/left). In the case of robots, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
+The terms _ontological_ and _ontology_ have the advantage of carrying with them centuries of discussions about the question "what is there in the world?", and about the possibility of even answering this question. See the Wikipedia article about [Ontology (philosophy)](https://en.wikipedia.org/wiki/Ontology), or [Willard Van Orman Quine's article](https://en.wikisource.org/wiki/On_What_There_Is) that examines this question not without humor. The Wikipedia article about [Ontology (information science)](https://en.wikipedia.org/wiki/Ontology_%28information_science%29) also gives an overview of how a designer can pre-encode ontological knowledge in a traditional AI system.
 
-In the embodied view, we design the agent's input (called result r in Figure 12/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state (r = f (e,s) in Figure 12/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
+For the purposes of this course, let us take from these philosophical discussions that ontological knowledge is always pragmatical. That is to say, people or groups of people construct ontological knowledge, and this construction process is fundamentally influenced by their motivations. In contrast with traditional AI, designers of developmental agents do not encode the agent with presupposed ontological knowledge, because, if they did so, the agent's ontological knowledge would not be grounded in the agent's experiences and motivations (it would not be the agent's knowledge but the designer's knowledge). Instead, the developmental AI approach aims at designing agents capable of constructing their own ontological knowledge on the basis of their experiences interacting with the world and with reference to their own motivations.
 
-## Agent implementation according to the embodied paradigm
+Let us also take from these philosphical discussions that entities of the world exist in the three-dimensional real space. This leads us to the conclusion that developmental agents should not only be sensitive to temporal regularities (as are our algorithms thus far), but also to spatial regularities; hence the key concept of Lesson 6:
 
-Table 13 presents the algorithm of a rudimentary embodied system.
+`Spatio-temporal regularities of interaction lead to ontological knowledge of the world.`
 
-```
-Table 13: algorithm of a rudimentary embodied system.
+To design agents that can construct ontological knowledge from spatio-sequential regularities of interaction, we draw inspiration from natural organisms. Natural organisms generally have inborn brain structures that encode space, preparing them to detect and learn spatio-sequential regularities of interaction. We design the policy coupling of our agents by pulling lessons from these natural brain structures, which leads us to a biologically-inspired developmental cognitive architecture.
 
-01   experiment = e1
-02   Loop(cycle++)
-03      if (mood = BORED)
-04         selfSatisfiedDuration = 0
-05         experiment = pickOtherExperiment(experiment)
-06      anticipatedResult = anticipate(experiment)
-07      if (experiment = e1)
-08         result = r1
-09      else
-10         result = r2
-11      recordTuple(experiment, result)
-12      if (result = anticipatedResult)
-13         mood = SELF-SATISFIED
-14         selfSatisfiedDuration++
-15      else
-16         mood = FRUSTRATED
-17         selfSatisfiedDuration = 0
-18      if (selfSatisfiedDuration > 3)
-19         mood = BORED
-20      print cycle, experiment, result, mood
-```
+## Developmental cognitive architecture
 
+There are many inborn brain structures that encode spatial information. For example, Gross & Graziano's (1995) Multiple representations of space in the brain discusses the encoding of spatial knowledge in primates. From these kinds of studies, we conclude that it is reasonable to endow our agent with a hard-coded spatial memory, rather then expecting spatial memory to emerge spontaneously. In so doing, we hard-code presupposed knowledge about the environment, namely, knowledge that the environment has a three-dimensional structure. By making this assumption, we restrict our scope to agents that indeed exist in a three-dimensional world, such as physical robots. We could probably not encode the same assumption with agents that exist in fancy abstract worlds, for example bots that crawl the internet.
 
-Table 13, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the anticipate(experiment) function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: e1 always yields r1, and other experiments always yield r2. Line 11: the agent records the tuple ⟨experiment, result⟩ in memory. Lines 12 to 17: if the result was anticipated correctly then the agent is self-satisfied, otherwise it is frustrated. Lines 18 and 19: if the agent has been self-satisfied for too long (arbitrarily 3 cycles), then it becomes bored.
+To remain consistent with constructivist epistemology, spatial memory should not encode presupposed ontological knowledge about the environment. Recall that the agent never knows which entities "as such" exist in the world, but only knows possibilities of interaction. Accordingly, our spatial memory only encodes the knowledge that certain interactions have been or can be enacted in certain regions of space. Using again the terms _experiment_ and _result_, the agent knows that, if it performed a certain experiment in a certain region of space, it would obtain a certain result, but the agent does not know the essence of the entity that occupies this region of space.
 
-Notably, this system implements a single program called Existence which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as we promised in the previous page.
+Radical interactionism, introduced in Lesson 5, facilitates the implementation of a constructivist spatial memory. In the RI formalism, spatial memory simply maintains the position of enacted interactions relative to the agent. Figure 62 shows our cognitive architecture implemented with RI.
 
-If you have no interest in programming, then you can skip the rest of this page and proceed to the next page.
+![Figure-62](/images/062-1.png)
+Figure 62: The Enactive Cognitive Architecture (ECA).
 
-If you an have interest in programming, but do not wish to do the optional programming activities, then we recommend you browse through Project 1 below, just to get a sense of how the code is organized.
+Bottom: the _Interaction Timeline_ shows the stream of interactions enacted over time. Enacted interactions are represented by colored symbols as shown on the bottom line of Figure 42. Here, enacted interactions come from the example in Video 41: green trapezoids represent _turning towards a prey_, green squares represent _stepping towards a prey_, blue squares represent _eating a prey_.
 
-If you wish to do the optional programming activities, then your activity for lesson 1 is to install Project 1 in your favorite development environment (any IDE, for example, we use Eclipse), and run it. You should get a trace similar to that shown on the next page. If you do not like java, well, you may reprogram it in the language of your choice.
+Top: the _Sequential System_ represents the hierarchical sequential regularity learning mechanism that we have been developing thus far.
 
-To install Project 1, you can either:
+Center: _Spatial Memory_ keeps track of the position (relative to the agent) of enacted interactions over the short term. The orange arrowhead represents the agent's position at the center of spatial memory, oriented towards the right. The blue square and the green triangle represent interactions that have been enacted in the front right of the agent. When the agent moves, spatial memory is updated to reflect the relative displacement of enacted interactions, as we will develop on the next page. This egocentric spatial memory is inspired by the [Superior Colliculus](https://en.wikipedia.org/wiki/Superior_colliculus) in the mammal's brain.
 
-Check out the project from the svn repository using your favorite svn tool (for example, we use subclipse in Eclipse). For now, you can ignore all the code that is not listed below, or copy/paste or download the java files from the links below.
-Project 1:
+Spatial memory is only short-term. It is not intended to construct a long-term map of the environment, but only to keep track of the relative positions where interactions have been recently enacted, in order to detect spatial overlap. For example, the spatial overlap between the interactions _turning towards a prey_ (green trapezoid) and _eating a prey_ (blue square) allows the agent to infer that it is the same _object_ that it has seen earlier and then eaten. The agent can thus associate these two interactions in a _bundle_ that represents the category of entities corresponding to preys.
 
+Left: the _Ontology_ mechanism records _bundles_ of interactions based on their spatial overlap observed in spatial memory. For example, the blue circle represents the bundle that represents preys; it gathers the interactions that are afforded by preys. The large red square represents the wall object that the agent can experience through the _bump_ interaction (small red square), but that it cannot see in the example in Video 41.
 
-```
-Program.cs
-existence / Existence.cs
-existence / Existence010.cs ← the main program that implements the algorithm in Table 13.
-coupling / Experiment.cs
-coupling / Result.cs
-coupling / interaction / Interaction.cs ← a tuple ‹experiment, result› is called an interaction.
-coupling / interaction / Interaction010.cs
-```
-##Behavioral analysis of an embodied system based on its activity trace
+Once constructed, bundles allow the evocation of types of objects in spatial memory. In turn, evoked types of objects propose the interactions that they afford. For example, over time, the fact of seeing a prey in a certain region of space evokes the eat interaction in this region.
 
-Table 14 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
+Note that the term _Ontology Mechanism_ does not mean to imply that the agent has access to the ontological essence of entities in its environment. Instead, this term denotes the fact that the agent constructs its own ontology of the world on the basis of its interaction experiences.
 
+Right: _Behavior Selection_ mechanism balances the propositions made by the sequential system and by spatial memory, and then selects the next sequence of interactions to try to enact. For example, if the eat interaction is evoked in spatial memory in front of the agent, then the behavior selection mechanism may select eat as the next intended interaction to try to enact.
 
-```
-Table 14: activity trace of a rudimentary embodied system.
+## Demonstrations of a developmental cognitive architecture
 
-0: e1r1 FRUSTRATED
-1: e1r1 SELF-SATISFIED
-2: e1r1 SELF-SATISFIED
-3: e1r1 SELF-SATISFIED
-4: e1r1 BORED
-5: e2r2 FRUSTRATED
-6: e2r2 SELF-SATISFIED
-7: e2r2 SELF-SATISFIED
-8: e2r2 SELF-SATISFIED
-9: e2r2  BORED
-10: e1r1 SELF-SATISFIED
-```
+Video 63-1 demonstrates the ECA architecture presented in Figure 62. It uses a similar experiment as the one used in the E-puck Experiment in Video 53, and in the Little Loop Experiment in Video 55.
 
-Your activity, for Lesson 1, is to understand the trace in Table 14. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
+[VIDEO](https://www.youtube.com/watch?v=HCDf3Vzl7GM)
+Video 63-1: Demonstration of the enactive cognitive architecture in the Little Loop Problem.
 
-## Readings about the embodied paradigm.
+Video 63-2 (below) demonstrates the ECA architecture when the agent has a visual system similar to that in Video 41. In this video, the two gray sharks implement ECA, whereas the blue fish are simply moving on a straight ligne to illustrate a dynamic environment. In addition to preys (blue fish), sharks can also see other salient objects: flowers, colored bricks of walls, and other sharks (but not dark green walls because they blend into the background).
 
-For more information about the embodied paradigm, here is a short list of selected readings:
+Due to their interactional motivation, the sharks tend to move towards salient objects (as in Video 41, interactions consisting of getting closer to salient objects have a predefined positive valence).
 
-The Wikipedia article on Embodied Cognition.
-* Georgeon & Cordier (2014). Inverting the interaction cycle to model embodied agents. Fifth International Conference on Biologically Inspired Cognitive Architectures (BICA2014). Boston.
+Once they reach a salient object, the sharks can experience specific interactions: they can eat a fish, bump into a wall, or cuddle with another shark (flowers afford the _move forward_ interaction as empty cells, the sharks just swim through them).
 
-We wrote this paper after this lesson; it develops the same ideas in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
-* A book often considered as one of the founding references for embodied cognition: Varela, Thompson, and Rosch (1991). The Embodied Mind: Cognitive Science and Human Experience Cambridge, MA: The MIT Press.
+As explained in Page 62, the ontology mechanism associates interactions when they overlap in space. As a result, the sharks learn bundles of interactions that represent fish, brick walls, other sharks, and flowers. Once these bundles are learned, the behavior selection mechanism favors moving towards fish or other sharks because they afford interactions that have a positive valence (eating and cuddling).
 
-In contrast, here is the famous big book that you do NOT need to read for this course:
+[VIDEO](https://www.youtube.com/watch?v=LjOck5ts_2g)
+Video 63-2: Demonstration of the enactive cognitive architecture in a continuous, open, and dynamic environment.
 
-* Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library. However, you will not need it for this course.
+## Formalism for a spatio-sequential policy coupling
 
-You will find that it is at odds with the embodied paradigm by page iv (page 4 of the preface!) where it posits "the problem of AI is to describe and build agents that receive percepts from the environment and perform actions" (if you don't see the tension, 
+The architecture in Figure 62 raises the issue of localizing interactions in space, and of updating spatial memory as the agent moves. For example, if the agent touched an object to the right, then turned left, the agent must update its spatial memory to keep track of the fact that the _touch right_ interaction had been enacted in a position that is now behind the agent.
 
-This ends Lesson 1.
+To address this issue, we designed the _spatio-sequential policy_ coupling shown in Figure 63, as an extension of the RI model introduced in Figure 51.
+
+![Figure-64](/images/064-1.png)
+Figure 64: Spatio-sequential policy coupling. The agent sends a data structure called Intention to the environment, containing the intended interaction it. In return, the agent receives a data structure called Obtention, containing the enacted interaction et, the enacted interaction's position relative to the agent σt, and the geometrical transformation resulting from the agent's displacement τt.
+
+The spatio-sequential policy coupling extends the RI model by adding information $σ_t$ and $τ_t$ to provide the agent with spatial information related to the enaction of $e_t$.
+
+$σ_t$ specifies a point in the space surrounding the agent where $e_t$ can be approximately situated. In a two-dimensional environment, $σ_t ∈ ℝ^2$ represents the Cartesian coordinates of this point in the agent's egocentric referential.
+
+$τ_t$ specifies a geometrical transformation that approximately represents the agent's movement in space resulting from the enaction of $e_t$. In a two-dimensional environment, $τ_t = (θ_t, ρ_t)$ with $θ_t ∈ ℝ$ being the angle of rotation of the environment relative to the agent, and $ρ_t ∈ ℝ^2$ the two dimensional vector of translation of the environment relative to the agent.
+
+The intuition for σt is that the agent has sensory information available to it that helps it situate an interaction in space. For example, humans are known to use eye convergence, kinesthetic information, and interaural time delay (among other forms of sensory information) to infer the spatial origin of their visual, tactile, and auditory experiences.
+
+The intuition for τt is that the agent has sensory information available that helps it keep track of its own displacements in space. Humans are known to use vestibular and optic flow information to realize such tracking.
+
+In videos 63-1 and 63-2, these sensors were simulated by a function that directly passed σt and τt from the environment to the agent.
+
+In automata, $σ_t$ and $τ_t$ can be derived from spatial sensors such as telemeters and accelerometers. The automaton, however, would need to calibrate its spatial sensors to generate $σ_t$ and $τ_t$ with enough precision. If the spatial sensors cannot be satisfactorily calibrated, then the agent's spatial memory would need to implement more complex geometrical operations than simple affine transformations. We still need to investigate how an automaton can autonomously calibrate its spatial sensors, or how spatial memory can implement more complex geometrical operations to deal with uncalibrated sensors.
+
+Notably, the policy coupling in Figure 64 also opens the way to including more information in the _Intention_ data structure. This data structure could include more than one intended interaction on each interaction cycle, allowing the robot to control different body parts simultaneously. For example, a two-wheel robot could control each of its wheels separately, by sending an intended interaction associated with each wheel. This would allow generating more sophisticated behaviors than in the experiment of Video 53, in which the _move forward_ and _turn_ interactions controlled the two wheels simultaneously in a predefined manner.
+
+The _Intention_ data structure could also include spatial information allowing the agent to specify the position in which it intends to enact an interaction. This position would correspond to an _intended_ $σ_t$, identical to the _obtained_ $σ_t$ in the _Obtention_ data structure. For example, we imagine a different implementation of the experiment in Video 63-1, in which the agent could choose where it intends to enact the touching interaction by specifying its intended position (e.g., [1,0]: (front), [0,1]: (left), etc.).
+
+## Implementation
+
+Lesson 6 does not propose any programming activities. The principles in Lesson 6 can be implement in many different ways. It is being contemplated these different possibilities as no stable solution has presented itself.
+
+We, nonetheless, can offer the code that we used to record the demonstrations on Page 63:
+
+1. Video 63-1 was recorded using revision 186 of the Vacuum Environment Project, and revision 261 of the Ernest Agent Project.
+
+2. Video 63-2 was recorded using revision 165 of the Vacuum Environment Project, and revision 225 of the Ernest Agent Project.
+
+We refer you to Page 58 for recommendations on how to use this code. You can also follow our blog for other versions and demonstrations, and to get updates on our work. See also our publications presented on Page 66 for a description of our latest implementation, and a discussion on the issues that remain to be addressed.
+
+We hope that you now have the necessary background to continue on your own. From this point, any programming work you may do would constitute the original exploration of unknown territory and an innovative contribution to research. :-)
+
+## Selected readings on cognitive architectures
+
+The article that reports our current implementation of the Enactive Cognitive Architecture (ECA), similar to that used in the demonstrations on Page 63:
+
+* Georgeon, Marshall, and Manzotti (2013). ECA: An enactivist cognitive architecture based on sensorimotor modeling. Biologically Inspired Cognitive Architectures, 6:46-57.
+
+As a basis for comparison, you can get a sense of the number and variety of BICAs that are out there (but we don't know any of them who would claim affiliation to the embodiment and developmental paradigm):
+
+* The BICA society's repository of cognitive architectures.
+
+To move on towards higher-level intelligence, we expect that internal simulation of courses of events will be decisive, and ECA supports this. In particular, we believe in the hypothesis supported by Prof. Buzsáki that spatial navigation might ground higher-level reasoning:
+
+* Buzsáki & Moser (2013), Memory, navigation and theta rhythm in the hippocampal-entorhinal system, Nature Neuroscience, 16(2):130-8.
+
+This ends Lesson 6.
