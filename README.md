@@ -1,12 +1,12 @@
 # ideal
 
-This branch contains the "main" or "foundational module" of the reinforcement-like behaviour illustrated by the algorithm.
+An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module.
 
 Be forwarned that it is not _exactly_ like reinforcement learning, a shade that yields significantly different effects.
 
 ## Code module
 
-Below you will find a description of the code base where and how to begin programming the _ideal_ algorithm in its entirety.
+Below you will find a description of the code base where and how to begin programming the _ideal_ algorithm in its entirety by building intellectual concepts of how and _why_ it works as it does.
 
 # Section 1: An introduction to the embodied paradigm
 
