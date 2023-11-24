@@ -39,13 +39,14 @@ Figure 52: Recursive learning in radical interactionism.
 
 At the beginning of decision cycle $t_d$ (dashed loop in Figure 52), the agent's decisional mechanism chooses the intended composite interaction $i_{cd}$ from amongst the set $C_d$ of composite interactions known at time $t_d$. The enaction of $i_{cd}$ consists of trying to enact the $k$ primitive interactions $i_{p1} ... i_{pk}$ that constitute $i_{cd} one after another (solid loops). If the enaction of $i_{pj}$ fails ($e_{pj} ≠ i_{pj}$) then the enaction of $i_{cd}$ is interrupted. The decisional mechanism then receives the actually enacted composite interaction $e_{cd}$ corresponding to the sequence $⟨e_{p1}, . . . , e_{pj}⟩, j ≤ k$. From the perspective of the decisional mechanism, $e_{cd}$ thus seems to be enacted as a single interaction in a virtual "environment known by the agent at time $t_d$" (dashed-line box). Because the primitive loop (plain line) and the decisional loop (dashed line) use the same entities (interactions), the learning mechanism that applies to the primitive loop can apply in the same way to the decisional loop, which allows recursive learning of increasingly complex composite interactions.
 
-Because each instance of agent learns different composite interactions depending on its individual experience, the cognitive part of each agent (the "decisional mechanism" in Figure 52) develops its own individual vision of the world (the environment known at time td). As a result, over time, each instance of agent interprets the world in its own way and makes individual decisions, which leads to individual sense-making and free will. This has been specifically argued by a branch of cognitive science called theory of enaction (e.g., references in Page 47).
+Because each instance of agent learns different composite interactions depending on its individual experience, the cognitive part of each agent (the "decisional mechanism" in Figure 52) develops its own individual vision of the world (the environment known at time $t_d$). As a result, over time, each instance of agent interprets the world in its own way and makes individual decisions, which leads to individual sense-making and free will. This has been specifically argued by a branch of cognitive science called theory of enaction (e.g., references in Page 47).
 
-## Radical interactionist robot
-By building upon the self-programming architecture presented in Figure 43, Figure 53 presents the architecture of a developmental robot based on RI.
+## A radical interactionist program
 
-![053-1.png](/.attachments/053-1-de24015a-3004-45b2-9880-965776accea6.png)
-Figure 53: Architecture of a developmental robot based on radical interactionism. The dashed arrows between the robot's program and the physical world do not represent data transfer but physical effects.
+By building upon the self-programming architecture presented in Figure 43, Figure 53 presents the architecture of a developmental program based on RI.
+
+![Figure-53](/images/053-1.png)
+Figure 53: Architecture of a developmental program based on radical interactionism. The dashed arrows between the program and the physical world do not represent data transfer but physical effects.
 
 Figure 53 modifies Figure 43 to incorporate RI: now, the coupling between the agent and the environment (Line 2) uses primitive interactions instead of experiments and results. In the case of a simulated environment, the designer designs the environment (below Line 2) to process _intended primitive interactions_ and to return _enacted primitive interactions_ as we will do in the implementation on Page 58.
 
@@ -134,7 +135,7 @@ The agent's active perception comes from the fact that it learns to use sensorim
 
 You can also play with the online demo in this page: [Small Loop](http://liris.cnrs.fr/ideal/demo/small-loop/). It allows you to remodel the environment by changing walls into empty cells and vice versa by clicking on the grid. If you rerun the agent in a different environment, you will observe that it may learn different behaviors. This is because it may program itself differently depending on its individual experience. This training effect, made possible by self-programming, is also shown in this video.
 
-At the end of Lesson 5, we invite participants interested in programming to reproduce this experiment with the algorithm provided on Page 58.
+At the end of Lesson 5, participants interested in programming to reproduce this experiment with the algorithm provided on Page 58.
 
 ## Selected readings on radical interactionism
 
