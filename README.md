@@ -1,11 +1,9 @@
 # ideal
 An ideal algorithm for control in the manner of Cybernetics. This branch contains details of interactional motivation.
 
-## This branch
+## Code module
 
-This branch contains the module 020 that expands upon the code in the main branch.
-
-## Instructive Wiki
+This branch contains the module 020 that expands upon the code to create continuity from the main branch.
 
 # Section 2: An introduction to the sensorimotor paradigm
 
