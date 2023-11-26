@@ -19,9 +19,9 @@ The primary "take home" message that establishes the paradigm is:
 
 The agent is not a passive observer of reality, but rather constructs a perception of reality through active interaction. The term embodied means that the agent must be a part of reality for this active interaction to happen.
 
-Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Lesson 1, however, we wish to introduce how this idea translates into the practical design of artificial agents and robots.
+Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Section 1, however, we wish to introduce how this idea translates into the practical design of artificial agents and robots.
 
-## Agent and robot design according to the embodied paradigm
+## 1.2: Agent and robot design according to the embodied paradigm
 
 The embodied paradigm suggests shifting perspective from:
 - the traditional view in which the agent interprets input data as if it represented the environment (Figure 12/left),
@@ -39,7 +39,7 @@ In the traditional view, we design the agent's input (called observation o in Fi
 
 In the embodied view, we design the agent's input (called result r in Figure 12/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state (r = f (e,s) in Figure 12/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
 
-## Agent implementation according to the embodied paradigm
+## 1.3: Agent implementation according to the embodied paradigm
 
 Table 13 presents the algorithm of a rudimentary embodied system.
 
@@ -77,7 +77,7 @@ If you have no interest in programming, then you can skip the rest of this page 
 
 If you an have interest in programming, but do not wish to do the optional programming activities, then we recommend you browse through Project 1 below, just to get a sense of how the code is organized.
 
-If you wish to do the optional programming activities, then your activity for lesson 1 is to install Project 1 in your favorite development environment (any IDE, for example, we use Eclipse), and run it. You should get a trace similar to that shown on the next page. If you do not like java, well, you may reprogram it in the language of your choice.
+If you wish to do the optional programming activities, then your activity for Section 1 is to install Project 1 in your favorite development environment (any IDE, for example, we use Eclipse), and run it. You should get a trace similar to that shown on the next page. If you do not like java, well, you may reprogram it in the language of your choice.
 
 To install Project 1, you can either:
 
@@ -94,7 +94,7 @@ coupling / Result.cs
 coupling / interaction / Interaction.cs ← a tuple ‹experiment, result› is called an interaction.
 coupling / interaction / Interaction010.cs
 ```
-##Behavioral analysis of an embodied system based on its activity trace
+## 1.4: Behavioral analysis of an embodied system based on its activity trace
 
 Table 14 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
 
@@ -115,22 +115,22 @@ Table 14: activity trace of a rudimentary embodied system.
 10: e1r1 SELF-SATISFIED
 ```
 
-Your activity, for Lesson 1, is to understand the trace in Table 14. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
+Your activity, for Section 1, is to understand the trace in Table 14. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
 
-## Readings about the embodied paradigm.
+## 1.5: Readings about the embodied paradigm.
 
 For more information about the embodied paradigm, here is a short list of selected readings:
 
 The Wikipedia article on Embodied Cognition.
 * Georgeon & Cordier (2014). Inverting the interaction cycle to model embodied agents. Fifth International Conference on Biologically Inspired Cognitive Architectures (BICA2014). Boston.
 
-We wrote this paper after this lesson; it develops the same ideas in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
+This paper develops the same ideasas this section in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
 * A book often considered as one of the founding references for embodied cognition: Varela, Thompson, and Rosch (1991). The Embodied Mind: Cognitive Science and Human Experience Cambridge, MA: The MIT Press.
 
-In contrast, here is the famous big book that you do NOT need to read for this course:
+In contrast, here is the famous book that you do NOT need to read, but it is interesting.
 
-* Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library. However, you will not need it for this course.
+* Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library.
 
-You will find that it is at odds with the embodied paradigm by page iv (page 4 of the preface!) where it posits "the problem of AI is to describe and build agents that receive percepts from the environment and perform actions" (if you don't see the tension, 
+You will find that it is at odds with the embodied paradigm by page iv (of the preface!) where it posits "_the problem of AI is to describe and build agents that receive percepts from the environment and perform actions_" - if you don't see the conflict, please read $1.2 again.
 
-This ends Lesson 1.
+This ends Section 1.
