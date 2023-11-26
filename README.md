@@ -24,27 +24,27 @@ Those of you who have a background in cognitive science or psychology are probab
 ## 1.2: Agent and robot design according to the embodied paradigm
 
 The embodied paradigm suggests shifting perspective from:
-- the traditional view in which the agent interprets input data as if it represented the environment (Figure 12/left),
+- the traditional view in which the agent interprets input data as if it represented the environment (Figure 1.2/left),
 to:
-- the embodied view in which the agent constructs a perception of the environment through the active experience of interaction (Figure 12/right).
+- the embodied view in which the agent constructs a perception of the environment through the active experience of interaction (Figure 1.2/right).
 
 ![Figure-12](/images/012-1.png)
-Figure 12: Embodied model (right) compared to the traditional model (left). In the traditional model, the cycle conceptually starts with observing the environment (black circle on the environment) and ends by acting on the environment (black arrow on the environment). In the embodied model, the cycle conceptually starts with the agent performing an experiment (black circle on the agent), and ends by the agent receiving the result of the experiment (black arrow on the agent).
+Figure 1.2: Embodied model (right) compared to the traditional model (left). In the traditional model, the cycle conceptually starts with observing the environment (black circle on the environment) and ends by acting on the environment (black arrow on the environment). In the embodied model, the cycle conceptually starts with the agent performing an experiment (black circle on the agent), and ends by the agent receiving the result of the experiment (black arrow on the agent).
 
 Most representations of the cycle agent/environment do not make explicit the conceptual starting point and end point of the cycle. Since the cycle revolves indefinitely, why should we care anyway?
 
 We should care because, depending on the conceptual starting and end points, we design the agent's algorithm, the robot's sensors, or the simulated environment differently.
 
-In the traditional view, we design the agent's input (called observation o in Figure 12/left) as if it represented the environment's state. In the case of simulated environments, we implement o as a function of s, where s is the state of the environment (o = f(s) in Figure 12/left). In the case of robots, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
+In the traditional view, we design the agent's input (called observation o in Figure 1.2/left) as if it represented the environment's state. In the case of simulated environments, we implement o as a function of s, where s is the state of the environment ($o = f(s)$ in Figure 1.2/left). In the case of robots, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
 
-In the embodied view, we design the agent's input (called result r in Figure 12/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state (r = f (e,s) in Figure 12/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
+In the embodied view, we design the agent's input (called result r in Figure 1.2/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state ($r = f (e,s)$ in Figure 1.2/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
 
 ## 1.3: Agent implementation according to the embodied paradigm
 
-Table 13 presents the algorithm of a rudimentary embodied system.
+Table 1.3 presents the algorithm of a rudimentary embodied system.
 
 ```
-Table 13: algorithm of a rudimentary embodied system.
+Table 1.3: algorithm of a rudimentary embodied system.
 
 01   experiment = e1
 02   Loop(cycle++)
@@ -69,7 +69,7 @@ Table 13: algorithm of a rudimentary embodied system.
 ```
 
 
-Table 13, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the anticipate(experiment) function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: e1 always yields r1, and other experiments always yield r2. Line 11: the agent records the tuple ⟨experiment, result⟩ in memory. Lines 12 to 17: if the result was anticipated correctly then the agent is self-satisfied, otherwise it is frustrated. Lines 18 and 19: if the agent has been self-satisfied for too long (arbitrarily 3 cycles), then it becomes bored.
+Table 1.3, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the anticipate(experiment) function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: e1 always yields r1, and other experiments always yield r2. Line 11: the agent records the tuple ⟨experiment, result⟩ in memory. Lines 12 to 17: if the result was anticipated correctly then the agent is self-satisfied, otherwise it is frustrated. Lines 18 and 19: if the agent has been self-satisfied for too long (arbitrarily 3 cycles), then it becomes bored.
 
 Notably, this system implements a single program called Existence which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as we promised in the previous page.
 
@@ -88,7 +88,7 @@ Project 1:
 ```
 Program.cs
 existence / Existence.cs
-existence / Existence010.cs ← the main program that implements the algorithm in Table 13.
+existence / Existence010.cs ← the main program that implements the algorithm in Table 1.3.
 coupling / Experiment.cs
 coupling / Result.cs
 coupling / interaction / Interaction.cs ← a tuple ‹experiment, result› is called an interaction.
@@ -96,11 +96,11 @@ coupling / interaction / Interaction010.cs
 ```
 ## 1.4: Behavioral analysis of an embodied system based on its activity trace
 
-Table 14 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
+Table 1.4 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
 
 
 ```
-Table 14: activity trace of a rudimentary embodied system.
+Table 1.4: activity trace of a rudimentary embodied system.
 
 0: e1r1 FRUSTRATED
 1: e1r1 SELF-SATISFIED
@@ -115,7 +115,7 @@ Table 14: activity trace of a rudimentary embodied system.
 10: e1r1 SELF-SATISFIED
 ```
 
-Your activity, for Section 1, is to understand the trace in Table 14. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
+Your activity, for Section 1, is to understand the trace in Table 1.4. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
 
 ## 1.5: Readings about the embodied paradigm.
 
