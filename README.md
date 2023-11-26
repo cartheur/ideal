@@ -124,13 +124,13 @@ For more information about the embodied paradigm, here is a short list of select
 The Wikipedia article on Embodied Cognition.
 * Georgeon & Cordier (2014). Inverting the interaction cycle to model embodied agents. Fifth International Conference on Biologically Inspired Cognitive Architectures (BICA2014). Boston.
 
-This paper develops the same ideasas this section in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
+This paper develops the same ideas as this section in a deeper and more academic form. It will also point you to other classical references in the domain of developmental learning.
 * A book often considered as one of the founding references for embodied cognition: Varela, Thompson, and Rosch (1991). The Embodied Mind: Cognitive Science and Human Experience Cambridge, MA: The MIT Press.
 
 In contrast, here is the famous book that you do NOT need to read, but it is interesting.
 
 * Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library.
 
-You will find that it is at odds with the embodied paradigm by page iv (of the preface!) where it posits "_the problem of AI is to describe and build agents that receive percepts from the environment and perform actions_" - if you don't see the conflict, please read $1.2 again.
+You will find that it is at odds with the embodied paradigm by page iv (of the preface!) where it posits "_the problem of AI is to describe and build agents that receive percepts from the environment and perform actions_" - if you don't see the conflict, please read §1.2 again.
 
 This ends Section 1.
