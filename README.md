@@ -131,6 +131,6 @@ In contrast, here is the famous book that you do NOT need to read, but it is int
 
 * Russell and Norvig's Artificial Intelligence: A Modern Approach is arguably the first book everybody interested in AI should acquire for their library.
 
-You will find that it is at odds with the embodied paradigm by page iv (of the preface!) where it posits "_the problem of AI is to describe and build agents that receive percepts from the environment and perform actions_" - if you don't see the conflict, please read §1.2 again.
+You will find that it is at odds with the embodied paradigm by page iv (of the preface) where it posits "_the problem of AI is to describe and build agents that receive percepts from the environment and perform actions_" - if you don't see the conflict, please read §1.2 again.
 
 This ends Section 1.
