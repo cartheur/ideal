@@ -58,8 +58,8 @@ Figure 4.2:
 2) The agent finds episodes of interest made of sequences of interactions. The symbols above Line 1 represent episodes delimited by curly brackets. These episodes are learned hierarchically in a bottom-up way; higher-level episodes are made of sequences of lower-level episodes.
 3) At a certain level of abstraction (white vertical half-circle), the current sequence of episodes matches previously learned sequences and re-activates them.
 4) Re-activated sequences propose subsequent episodes. These are, thus, the episodes that are afforded by the current context.
-5) Afforded episodes are categorized as experiments (gray symbols). These experiments are proposed for selection.
-6) The agent chooses an experiment from amongst the proposed experiments (gray arrow).
+5) Afforded episodes are categorized as experiments (grey symbols). These experiments are proposed for selection.
+6) The agent chooses an experiment from amongst the proposed experiments (grey arrow).
 7) The agent tries to enact the sequence of primitive interactions that correspond to the chosen experiment. The success or failure of this tentative enaction depends on the environment. If the activated sequences do indeed represent a regularity of interaction, then it is probable that the tentative enaction will succeed (white arrow). However, it is not certain.
 
 The self-programming effect occurs when the chosen experiment corresponds to a composite interaction. In this case, the decision engages the agent into executing several steps of interaction.
