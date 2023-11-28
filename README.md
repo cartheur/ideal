@@ -22,7 +22,7 @@ You may have noticed that we have been designing the proactive and reactive comp
 ![Figure-71](/images/071-1.png)
 Figure 7.1: Pathway to designing increasingly intelligent developmental cognitive couplings.
 
-In Lesson 1, we began with a very simple coupling (Existence010 in Figure 7.1). We simply illustrated the fact that the proactive part of this coupling (then called the agent) had no direct access to the state of the reactive part (then called the environment).
+In Lesson 1, we began with a very simple coupling (`Existence010` in Figure 7.1). We simply illustrated the fact that the proactive part of this coupling (then called _the agent_) had no direct access to the state of the reactive part (then called the environment).
 
 In Lesson 3, we reached a more complex cognitive coupling `Existence030` in which the reactive part offered simple sequential regularities, and the proactive part discovered, memorized, and exploited these regularities to satisfy inborn preferences. The cognitive coupling and the policy coupling where still superposed: we still considered the proactive component as being the agent and the reactive component as being the environment.
 
