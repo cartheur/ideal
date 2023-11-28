@@ -19,16 +19,16 @@ We draw inspiration from natural cognitive systems to design self-programming ag
 
 ## Why self-programming is important?
 
-There are profound theoretical reasons why self-programming is decisive to achieve artificial intelligence. Page 45 will refer you to some articles that elaborate on these reasons, specifically coming from the theory of enaction.
+There are profound theoretical reasons why self-programming is decisive to achieve artificial intelligence. §4.5 will refer you to some articles that elaborate on these reasons, specifically coming from the theory of enaction.
 
 Nevertheless, we can already give a simple and intuitive answer. If we build two identical robots, it would be no fun if these two robots generated similar behaviors in the same circumstances. As they develop, we would like them to assess situations differently, make different choices, and carry out different behaviors. Only when we see these significant behavioral differences emerge will we be willing to consider each robot as an intelligent being as opposed to a mere automaton.
 
 Since assessing the situation, making choices, and carrying out behaviors is the role of programs, we will only manage to make significant behavioral differences emerge autonomously if the robot can program itself autonomously.
 
-Of course, defining "significant behavioral differences" is challenging. We recorded Video 41 to give an example. It was already presented in the IDEAL MOOC home page, but we invite you to watch it again.
+Of course, defining "significant behavioral differences" is challenging. We recorded Video 4.1 to give an example.
 
 [VIDEO](https://www.youtube.com/watch?v=91kKzybt8XY&t=2s)
-Video 41: Example of self-programming. These two agents implement the same initial algorithm. Yet, because they go through different individual experiences, they find different strategies to catch a prey.
+Video 4.1: Example of self-programming. These two agents implement the same initial algorithm. Yet, because they go through different individual experiences, they find different strategies to catch a prey.
 
 As has already been said, self-programming raises many questions.
 
@@ -46,14 +46,14 @@ Constructivist epistemology, presented in Lesson 3, provides us with a possible 
 
 `Self-programming consists of the re-enaction of regularities of interaction.`
 
-## Exploiting regularities through self-programming
+## 4.2: Exploiting regularities through self-programming
 
-We already introduced the problem of learning regularities on Page 32. There was, however, no self-programming in this exemple because the system could not re-enact the learned regularities as full sequences of interactions. Figure 42 builds upon the regularity learning mechanism to present our design principles for self-programming.
+We already introduced the problem of learning regularities in §3.2. There was, however, no self-programming in this exemple because the system could not re-enact the learned regularities as full sequences of interactions. Figure 42 builds upon the regularity learning mechanism to present our design principles for self-programming.
 
 ![Figure-42](/images/042-1.png)
-Figure 42: Hierarchical regularity learning for self-programming.
+Figure 4.2: Hierarchical regularity learning for self-programming.
 
-Figure 42: 1) The time line at the bottom represents the stream of interactions that occur over time as the system interacts. Symbols in this time line represent enacted interactions as in the bottom line of Figure 32. 2) The agent finds episodes of interest made of sequences of interactions. The symbols above Line 1 represent episodes delimited by curly brackets. These episodes are learned hierarchically in a bottom-up way; higher-level episodes are made of sequences of lower-level episodes. 3) At a certain level of abstraction (white vertical half-circle), the current sequence of episodes matches previously learned sequences and re-activates them. 4) Re-activated sequences propose subsequent episodes. These are, thus, the episodes that are afforded by the current context. 5) Afforded episodes are categorized as experiments (gray symbols). These experiments are proposed for selection. 6) The agent chooses an experiment from amongst the proposed experiments (gray arrow). 7) The agent tries to enact the sequence of primitive interactions that correspond to the chosen experiment. The success or failure of this tentative enaction depends on the environment. If the activated sequences do indeed represent a regularity of interaction, then it is probable that the tentative enaction will succeed (white arrow). However, it is not certain.
+Figure 4.2: 1) The time line at the bottom represents the stream of interactions that occur over time as the system interacts. Symbols in this time line represent enacted interactions as in the bottom line of Figure 32. 2) The agent finds episodes of interest made of sequences of interactions. The symbols above Line 1 represent episodes delimited by curly brackets. These episodes are learned hierarchically in a bottom-up way; higher-level episodes are made of sequences of lower-level episodes. 3) At a certain level of abstraction (white vertical half-circle), the current sequence of episodes matches previously learned sequences and re-activates them. 4) Re-activated sequences propose subsequent episodes. These are, thus, the episodes that are afforded by the current context. 5) Afforded episodes are categorized as experiments (gray symbols). These experiments are proposed for selection. 6) The agent chooses an experiment from amongst the proposed experiments (gray arrow). 7) The agent tries to enact the sequence of primitive interactions that correspond to the chosen experiment. The success or failure of this tentative enaction depends on the environment. If the activated sequences do indeed represent a regularity of interaction, then it is probable that the tentative enaction will succeed (white arrow). However, it is not certain.
 
 The self-programming effect occurs when the chosen experiment corresponds to a composite interaction. In this case, the decision engages the agent into executing several steps of interaction.
 
@@ -63,12 +63,12 @@ The agent represents its current context in terms of previously learned abstract
 
 This learning process is incremental and open-ended; it only stops when it runs out of memory for recording new sequences. Memory could be optimized, for example, by deleting (forgetting) sequences that have not been used for a while, but we did not implement this for the sake of simplicity. More fundamentally, regularities should be used to construct a coherent model of the world; we will examine this issue further in Lesson 6.
 
-## Architecture of a recursive self-programming agent
+## 4.3: Architecture of a recursive self-programming agent
 
-By building upon the regularity learning algorithm presented on Page 33, Table 43 presents our first algorithm for self-programming agents.
+By building upon the regularity learning algorithm presented in §3.3, Table 4.3 presents our first algorithm for self-programming agents.
 
 ```
-Table 43: Algorithm of a recursive self-programming agent.
+Table 4.3: Algorithm of a recursive self-programming agent.
 
 001   createPrimitiveInteraction(e1, r1, -1)
 002   createPrimitiveInteraction(e1, r2, 1)
@@ -107,28 +107,28 @@ Table 43: Algorithm of a recursive self-programming agent.
 205         return r1
 ```
 
-Table 43, lines 001-014: The main loop of the algorithm is very similar to that on Page 33. 001-004: Initialization of the primitive interactions. 006: Get the list of anticipations. Now, the `anticipate()` function also returns anticipations for abstract experiments corresponding to enacting composite interactions. 007: Choose the next experiment from among primitive and abstract experiments in the list of anticipations. 008: Get the intended primitive or composite interaction from the selected primitive or abstract experiment.
+Table 43, lines 001-014: The main loop of the algorithm is very similar to that in §3.3. 001-004: Initialization of the primitive interactions. 006: Get the list of anticipations. Now, the `anticipate()` function also returns anticipations for abstract experiments corresponding to enacting composite interactions. 007: Choose the next experiment from among primitive and abstract experiments in the list of anticipations. 008: Get the intended primitive or composite interaction from the selected primitive or abstract experiment.
 
-Line 009: The enaction of the intended interaction is now delegated to the recursive function `enact(intendedInteraction)`. The intended interaction constitutes the learned program that the agent intends to execute, and the `enact()` function implements the engine that executes it. Let us emphasize the fact that the agent now chooses an _interaction to enact_ rather than an _experiment to perform_ (as it was the case on Page 33). In return, the agent receives an _enacted interaction_ rather than a result. This design choice follows from constructivist epistemology which suggests that sensorimotor patterns of interaction constitute the basic elements from which the agent constructs knowledge of the world.
+Line 009: The enaction of the intended interaction is now delegated to the recursive function `enact(intendedInteraction)`. The intended interaction constitutes the learned program that the agent intends to execute, and the `enact()` function implements the engine that executes it. Let us emphasize the fact that the agent now chooses an _interaction to enact_ rather than an _experiment to perform_ (as it was the case in §3.3). In return, the agent receives an _enacted interaction_ rather than a result. This design choice follows from constructivist epistemology which suggests that sensorimotor patterns of interaction constitute the basic elements from which the agent constructs knowledge of the world.
 
 Line 010: Learns composite interactions and abstract experiments from the experience gained from enacting the enacted interaction. The `learn()` function will be further explained in the subseqeunt construction section. Lines 011 to 014: like before, specify that the agent is pleased if the enacted interaction's valence is positive, and pained otherwise. The valence of a composite interaction is equal to the sum of the valences of its primitive interactions, meaning that enacting a full sequence of interactions has the same motivational valence as enacting all its elements successively.
 
-Lines 101-116: The function `enact(intendedInteraction)` is used recursively to control the enaction of the intended interaction all the way down to the primitive interactions. It returns the enacted interaction. 102-105: If the intended interaction is primitive then it is enacted in the environment. 103: Specifies that the experiment is the intended primitive interaction's experiment. 104: The environment returns the result of this experiment. 105: The function returns the enacted primitive interaction made from the experiment and its result. 106-112: Control the enaction of a composite intended interaction. Enacting a composite interaction consists of successively enacting its pre-interaction and its post-interaction. 107: Call itself to enact the pre-interaction. 108-109: If the enacted pre-interaction differs from the intended pre-interaction the `enact()` function is interrupted and returns the enacted pre-interaction. 110-111: if the enaction of the pre-interaction was a success, then the `enact()` function proceeds to the enaction of the post-interaction. 112 The function returns the enacted composite interaction made of the enacted pre-interaction and of the enacted post-interaction.
+Lines 101-116: The function `enact(intendedInteraction)` is used recursively to control the enaction of the intended interaction all the way down to the primitive interactions. It returns the enacted interaction. 102-105: If the intended interaction is primitive then it is enacted in the environment. 103: Specifies that the experiment is the intended primitive interaction's experiment. 104: The environment returns the result of this experiment. 105: The function returns the enacted primitive interaction made from the experiment and its result. 106-112: Control the enaction of a composite intended interaction. Enacting a composite interaction consists of successively enacting its pre-interaction and its post-interaction. 107: Call itself to enact the pre-interaction. 108-109: If the enacted pre-interaction differs from the intended pre-interaction the `enact()` function is interrupted and returns the enacted pre-interaction. 110-111: if the enaction of the pre-interaction was a success, then the `enact()` function proceeds to the enaction of the post-interaction. Line 112 the function returns the enacted composite interaction made of the enacted pre-interaction and of the enacted post-interaction.
 
-Lines 201-205 implement the environment. This environment is the simplest we could imagine that requires the agent to program itself if it wants to be `PLEASED`. The result r2 occurs when the current experiment equals the previous experiment but differs from the penultimate experiment, and r1 otherwise. Since r2 is the only result that produces interactions that have a positive valence, and since the agent can at best obtain r2 every second step, it must learn to alternate between two e1 and two e2 experiments: `e1→r1` `e1→r2` `e2→r1` `e2→r2`, etc. The agent must not base its decision on the anticipation of what it can get in the next step, but on the anticipation of what it can get in the next two steps.
+Lines 201-205 implement the environment. This environment is the simplest we could imagine that requires the agent to program itself if it wants to be `PLEASED`. The result `r2` occurs when the current experiment equals the previous experiment but differs from the penultimate experiment, and r1 otherwise. Since `r2` is the only result that produces interactions that have a positive valence, and since the agent can at best obtain `r2` every second step, it must learn to alternate between two `e1` and two `e2` experiments: `e1→r1` `e1→r2` `e2→r1` `e2→r2`, etc. The agent must not base its decision on the anticipation of what it can get in the next step, but on the anticipation of what it can get in the next two steps.
 
 Figure 43 illustrates the architecture of this algorithm.
 
 ![Figure-43](/images/043-1.png)
-Figure 43: Self-programming agent architecture.
+Figure 4.3: Self-programming agent architecture.
 
-The whole program is called _Existence_. The lower dashed line (Line 2) separates the part of existence corresponding to the agent (above Line 2) from the part corresponding to the environment (below Line 2, implemented by the function `environment.GetResult(experiment))`. The upper dashed line (Line 1) separates the proactive part of existence (above Line 1) from the reactive part of existence (below Line 1). The program that implements the proactive part is called the _Decider_; you can consider this as the "cognitive part" of the agent. It corresponds to the main loop in Table 43: lines 005 to 014. The reactive part of the existence includes both the _Enacter_ (above Line 2) and the environment (below Line 2). The enacter (function `enact()`) controls the enaction of the intended interaction by sending a sequence of experiments to the environment. The enacter receives a result after each experiment. After the last experiment, the enacter returns the enacted composite interaction to the decider.
+The whole program is called _Existence_. The lower dashed line (Line 2) separates the part of existence corresponding to the agent (above Line 2) from the part corresponding to the environment (below Line 2, implemented by the function `environment.GetResult(experiment)`). The upper dashed line (Line 1) separates the proactive part of existence (above Line 1) from the reactive part of existence (below Line 1). The program that implements the proactive part is called the _Decider_; you can consider this as the "cognitive part" of the agent. It corresponds to the main loop in Table 43: lines 005 to 014. The reactive part of the existence includes both the _Enacter_ (above Line 2) and the environment (below Line 2). The enacter (function `enact()`) controls the enaction of the intended interaction by sending a sequence of experiments to the environment. The enacter receives a result after each experiment. After the last experiment, the enacter returns the enacted composite interaction to the decider.
 
 As the agent develops, it constructs abstract possibilities of interaction (composite interactions) that it can enact with reference to the reactive part. From the agent's cognitive point of view (the proactive part), the reactive part appears as an _abstract environment_ -- abstracted away from the real environment by the agent itself. Line 1 represents what we call the _cognitive coupling_ between the agent and its environment.
 
 In Lessons 5 and 6, we will discuss the question of increasing the complexity associated with these different levels of coupling.
 
-## The construction of reality in the developmental agent
+## 4.4: The construction of reality in the developmental agent
 
 ## Anticipating the effects of composite interactions
 
@@ -136,18 +136,18 @@ As showed in the algorithm in Table 33-3, the `anticipate()` function returns a 
 
 For the `anticipate()` function to work similarly with composite interactions as it does with primitive interactions, composite interactions must also be associated with experiments. In fact, the system must learn that a composite interaction corresponds to an abstract experiment performed with reference to an _abstract environment_ (the _reactive part_) that returns an _abstract result_.
 
-See how this problem fits nicely with the constructivist learning challenge (introduced in the readings on Page 36): learning to interpret sensorimotor interactions as consisting of performing experiments on an external reality, and to interpret the results of these experiments as information about that reality.
+See how this problem fits nicely with the constructivist learning challenge (introduced in the readings in §3.6): learning to interpret sensorimotor interactions as consisting of performing experiments on an external reality, and to interpret the results of these experiments as information about that reality.
 
-The rest of this page presents the first-step towards addressing this challenge. We will develop this question further in the next lesson.
+The rest of this section presents the first-step towards addressing this challenge. We will develop this question further in the next lesson.
 
 ## Recursively learning composite interactions
 
-Figure 44 illustrates the implementation of the `learnCompositeInteraction()` function so as to implement recursive learning of a hierarchy of composite interactions.
+Figure 4.4 illustrates the implementation of the `learnCompositeInteraction()` function so as to implement recursive learning of a hierarchy of composite interactions.
 
 ![Figure-44](/images/044-1.png)
-Figure 44: Recursive learning of composite interactions.
+Figure 4.4: Recursive learning of composite interactions.
 
-Figure 44 distinguishes between the _Interaction Time_ (arrow at the bottom corresponding to the agent/environment coupling) and the _Decision Time_ (staircase shaped arrow corresponding to the proactive/reactive coupling that rises over time). The learning occurs at the level of the Decision Time to learn higher-level composite interactions on top of enacted composite interactions. In grey rectangles indicate the composite interactions that are learned or reinforced at the end of decision cycle $t_d$. The system learns the composite interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩ made of the sequence of the previous enacted composite interaction $e_{cd-1}$ and the last enacted composite interaction $e_{cd}$. This is similar to Page 32 except that the learning can apply to composite interactions rather than primitive interactions only. Additionally, the system learns the composite interaction ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩. This way, if $e_{cd-2}$ is enacted again, ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩ will be re-activated and will propose to enact its post-interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩. The system has thus learned to re-enact ⟨ $e_{cd-1}$, $e_{cd}$⟩ as a sequence, hence the self-programming effect. The higher-level composite interaction ⟨⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩, $e_{cd}$ ⟩ is also learned so that it can be re-activated in the context when ⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩ is enacted again, and propose its post-interaction $e_{cd}$.
+Figure 4.4 distinguishes between the _Interaction Time_ (arrow at the bottom corresponding to the agent/environment coupling) and the _Decision Time_ (staircase shaped arrow corresponding to the proactive/reactive coupling that rises over time). The learning occurs at the level of the Decision Time to learn higher-level composite interactions on top of enacted composite interactions. In grey rectangles indicate the composite interactions that are learned or reinforced at the end of decision cycle $t_d$. The system learns the composite interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩ made of the sequence of the previous enacted composite interaction $e_{cd-1}$ and the last enacted composite interaction $e_{cd}$. This is similar to §3.2 except that the learning can apply to composite interactions rather than primitive interactions only. Additionally, the system learns the composite interaction ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩. This way, if $e_{cd-2}$ is enacted again, ⟨ $e_{cd-2}$, ⟨ $e_{cd-1}$, $e_{cd}$ ⟩⟩ will be re-activated and will propose to enact its post-interaction ⟨ $e_{cd-1}$, $e_{cd}$ ⟩. The system has thus learned to re-enact ⟨ $e_{cd-1}$, $e_{cd}$⟩ as a sequence, hence the self-programming effect. The higher-level composite interaction ⟨⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩, $e_{cd}$ ⟩ is also learned so that it can be re-activated in the context when ⟨ $e_{cd-2}$, $e_{cd-1}$ ⟩ is enacted again, and propose its post-interaction $e_{cd}$.
 
 ## Associating abstract experiments and results with composite interactions
 
@@ -159,15 +159,15 @@ If the `chooseExperiment()` function chooses experiment $e_a$, then the system t
 
 The next time the system considers choosing experiment $e_a$, it will compute the proclivity for $e_a$ based on the anticipation of succeeding enacting $i_c$ and getting result $r_a$, balanced with the anticipation of actually enacting $e_c$ and getting result $r_f$.
 
-As a result of this mechanism, composite interactions can have two forms: the sequential form `⟨pre-interaction,post-interaction⟩` and the abstract form `⟨experiment,result⟩`. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the `|` symbol: `⟨EXPERIMENT|RESULT⟩`. We will use this notation in the trace in Page 46.
+As a result of this mechanism, composite interactions can have two forms: the sequential form `⟨pre-interaction,post-interaction⟩` and the abstract form `⟨experiment,result⟩`. We differentiate between these two forms by noting abstract experiments and results in initial caps separated by the `|` symbol: `⟨EXPERIMENT|RESULT⟩`. We will use this notation in the trace in §4.6.
 
 This mechanism is a critical step to implementing self-programming agents. Nevertheless, it opens many questions that remain to be addressed. For example, how to organize experiments and results to construct a coherent model of reality?
 
-## Implementing a self-programming agent
+## 4.5: Implementing a self-programming agent
 
-If you have no interest in programming then you can skip this page and proceed to the next page.
+If you have no interest in programming then you can skip this section and proceed to the next.
 
-Project 4 implements the algorithm described on Page 43 and Page 44 to let you run your first self-programming agent.
+Project 4 implements the algorithm described in §4.3 and §4.4 to let you run your first self-programming agent.
 
 ```
 Program.cs ← Edit to instantiate Existence040.
@@ -178,19 +178,19 @@ coupling / interaction / Interaction040 ← Now, interactions have an experiment
 
 For Lesson 4, your programming activities are:
 
-1. Change `Program.cs` to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next page
+1. Change Program.cs to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next section
 2. Change `Existence040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be pleased.
 
 Lesson 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less (first-level composite interactions).
 
 However, `Existence040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next lesson with _Radical Interactionism_, which removes the notion of primitive experiments and considers all experiments as abstract.
 
-## Behavioral analysis of a self-programming agent
+## 4.6: Behavioral analysis of a self-programming agent
 
-Table 46 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to pages 44 and 45 to understand this trace. Observe that the system learns to be always `PLEASED` from Decision 23 (on Line 197) by alternatively enacting the composite interactions ⟨e2r1e2r2⟩ and ⟨e1r1e1r2⟩.
+Table 4.6 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to §4.4 and §4.5 to understand this trace. Observe that the system learns to be always `PLEASED` from Decision 23 (on Line 197) by alternatively enacting the composite interactions ⟨e2r1e2r2⟩ and ⟨e1r1e1r2⟩.
 
 ```
-Table 46: Activity trace of a rudimentary self-programming agent.
+Table 4.6: Activity trace of a rudimentary self-programming agent.
 
 001    propose e1 proclivity 0
 002    propose e2 proclivity 0
@@ -409,11 +409,11 @@ Lines 1-2: predefined experiments are proposed with a default proclivity of `0`.
 
 Line 8: the first composite interaction `⟨e1r1e1r2⟩` is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted `⟨E1R1E1R2|` (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨`e1r1e1r2`⟩ (Line 202).
 
-On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to the tentative enaction of composite interaction `⟨e1r2e1r1⟩`. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result `|E1R1⟩` is created, as well as the enacted interaction `⟨E1R2E1R1|E1R1⟩`, using the notation introduced on Page 44.
+On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to the tentative enaction of composite interaction `⟨e1r2e1r1⟩`. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result `|E1R1⟩` is created, as well as the enacted interaction `⟨E1R2E1R1|E1R1⟩`, using the notation introduced in §4.4.
 
-## Selected readings on self-programming
+## 4.7: Selected readings on self-programming
 
-* The best reference I know to explain why self-programming is a prerequisite for autonomous sense-making is Froese & Ziemke (2009). Enactive artificial intelligence: Investigating the systemic organization of life and mind. Journal of Artificial Intelligence, 173(3-4): 466-500. This article invokes the concept of constitutive autonomy, which, I argue, can be achieved through self-programming.
+* The best reference to explain why self-programming is a prerequisite for autonomous sense-making is Froese & Ziemke (2009). Enactive artificial intelligence: Investigating the systemic organization of life and mind. Journal of Artificial Intelligence, 173(3-4): 466-500. This article invokes the concept of constitutive autonomy, which, I argue, can be achieved through self-programming.
 * Georgeon & Marshall (2013). Demonstrating sensemaking emergence in artificial agents: A method and an example. International Journal of Machine Consciousness, 5(2), pp 131-144.
 * An issue of AGI devoted to self-programming. Great reference to support self-programming! Thórisson, Nivel, Sanz, & Wang (2013). Approaches and Assumptions of Self-Programming in Achieving Artificial General Intelligence. Journal of Artificial General Intelligence. 3(3), 1-10.
 
