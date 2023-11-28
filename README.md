@@ -26,7 +26,7 @@ Figure 3.1 presents the principles of a rudimentary system that learns and explo
 ![Figure-32](/images/032-1.png)
 Figure 3.1: Rudimentary learning of regularities of interaction.
 
-On time step `t`, the agent _enacts_ the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting $e_t$ and receiving a result $r_t$ (§2.1). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions `i = ⟨e,r⟩` will be called primitive interactions to differentiate them from composite interactions.
+On time step `t`, the agent _enacts_ the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting $e_t$ and receiving a result $r_t$ (§2.1). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions $i = ⟨e,r⟩$ will be called primitive interactions to differentiate them from composite interactions.
 
 The enacted primitive interaction it activates previously learned composite interactions when it matches their pre-interaction. For example, if $i_t = a$ and if the composite interaction `⟨a,b⟩` has been learned before time `t`, then the composite interaction `⟨a,b⟩` is activated, meaning it is recalled from memory. Activated composite interactions propose their post-interaction's experiment, in this case: `b`'s experiment. If the sequence `⟨a,b⟩` corresponds to a regularity of interaction, then it is probable that the sequence `⟨a,b⟩` can be enacted again. Therefore, the agent can anticipate that performing `b`'s experiment will likely produce `b`'s result. The agent can thus base its choice of the next experiment on this anticipation.
 
@@ -161,10 +161,10 @@ Lesson 3 shows that `Existence031` can adapt to three different environments (`E
 
 ## 3.4: Behavioral analysis of a rudimentary constructivist agent
 
-Table 3.5 shows the trace that you should see in your console if you ran Project 3. If you did not run it, you can refer to the pseudocode presented in Tables 3.1 and 3.2 to understand this trace.
+Table 3.4 shows the trace that you should see in your console if you ran Project 3. If you did not run it, you can refer to the pseudocode presented in Tables 3.1 and 3.2 to understand this trace.
 
 ```
-Table 3.5: Activity trace of a rudimentary interactionally motivated regulartity learning agent.
+Table 3.4: Activity trace of a rudimentary interactionally motivated regulartity learning agent.
 
 Enacted e1r2,1
 0: PLEASED
@@ -187,7 +187,7 @@ learn e1r2e2r2
 5: PLEASED
 ```
 
-Your activity, for Lesson 3, is to understand the trace in Table 3.5. On Cycle 0, why did the agent choose `e1`? Why did it receive `r2`? On Cycle 1, why did it choose `e1` again? Why did it receive `r1`? On Cycle 3, why did it choose `e2` and received `r2`? What will the agent do after cycle 5, and what will be its mood?
+Your activity, for Lesson 3, is to understand the trace in Table 3.4. On Cycle 0, why did the agent choose `e1`? Why did it receive `r2`? On Cycle 1, why did it choose `e1` again? Why did it receive `r1`? On Cycle 3, why did it choose `e2` and received `r2`? What will the agent do after cycle 5, and what will be its mood?
 
 ## 3.5: Selected readings on constructivist epistemology for artificial intelligence
 
