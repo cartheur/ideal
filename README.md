@@ -15,7 +15,7 @@ In §4.3, we introduced three concepts:
 
 At the beginning of each decision cycle, the proactive part decides on an intended sensorimotor interaction to try to enact with reference to the reactive part. At the end of the decision cycle, the reactive part returns the actually enacted sensorimotor interaction to the proactive part (Figure 4.3).
 
-In lesson 5, we redesign the policy coupling (agent/environment) to be more consistent with the cognitive coupling. We replace the concepts of primitive _experiments_ and _results_ with the concepts of primitive _intended interactions_ and _enacted interactions_. We call this change the _Radical Interactionism_ (RI) conceptual commitment. Figure 5.1 compares the RI model with the embodied model introduced in §1.2 that we have been using thus far.
+In Lesson 5, we redesign the policy coupling (agent/environment) to be more consistent with the cognitive coupling. We replace the concepts of primitive _experiments_ and _results_ with the concepts of primitive _intended interactions_ and _enacted interactions_. We call this change the _Radical Interactionism_ (RI) conceptual commitment. Figure 5.1 compares the RI model with the embodied model introduced in §1.2 that we have been using thus far.
 
 ![Figure-51](/images/051-1.png)
 Figure 5.1: From embodiment (left) to radical interactionism (right).
@@ -132,7 +132,7 @@ Instead of using plain-text traces to analyze our agent's activity as we did in 
 
 Importantly, Video 5.5 shows the emergence of active perception as the agent finds regularities of interaction and programs itself. The emergence of active perception radically differentiates the developmental approach from traditional AI approaches because it considers perception as a functional adaptation rather than as a mere interpretation of input data.
 
-Video 55 also presents a summary explanation of our fully recursive self-programming algorithm based upon Figure 4.2 and our work since then. The experiment was designed to demonstrate this recursivity by offering hierarchical regularities of interaction in the policy coupling between the agent and the environment.
+Video 5.5 also presents a summary explanation of our fully recursive self-programming algorithm based upon Figure 4.2 and our work since then. The experiment was designed to demonstrate this recursivity by offering hierarchical regularities of interaction in the policy coupling between the agent and the environment.
 
 [VIDEO](https://www.youtube.com/watch?v=LVZ0cPpmSu8)
 Video 5.5: Demonstrating the emergence of active perception from regularities of interaction.
