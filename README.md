@@ -9,13 +9,13 @@ There are no code modules for this branch.
 
 ## Introduction to developmental cognitive architectures
 
-In §5.F3, we raised the issue of designing agents that can deal with more complex possibilities of interaction. We defined three levels of coupling:
+In §5.3, we raised the issue of designing agents that can deal with more complex possibilities of interaction. We defined three levels of coupling:
 
 1) cognitive coupling, 
 2) policy coupling, and, 
 3) physical coupling.
 
-So far, we have been working with a policy coupling that is discrete and small: for example, a set of 10 primitive interactions in Video 5.5. A legitimate question is: what would happen if the policy coupling contained a greater number of primitive interactions, or even if the policy coupling was modeled as a continuous space rather than a discrete set? More broadly, how does the algorithm scale up when the policy coupling gets more complex?
+So far, we have been working with a policy coupling that is discrete and small: for example, a set of ten primitive interactions in Video 5.5. A legitimate question is: what would happen if the policy coupling contained a greater number of primitive interactions, or even if the policy coupling was modeled as a continuous space rather than a discrete set? More broadly, how does the algorithm scale up when the policy coupling gets more complex?
 
 The answer is simple: the algorithm that we have been using thus far can't scale up when the complexity of the policy coupling increases arbitrarily. The scaling limitation is because the time to discover and exploit regularities of interaction increases exponentially as the number of primitive interactions increases, and as length of the regularities that are afforded by the policy coupling grows.
 
