@@ -64,7 +64,7 @@ Figure 4.2:
 
 The self-programming effect occurs when the chosen experiment corresponds to a composite interaction. In this case, the decision engages the agent into executing several steps of interaction.
 
-Self-programming results in a bottom-up automatization of behaviors so that the agent constructs increasingly abstract behaviors and delegates the control of their enaction to an automatic subsystem of its cognitive system. The agent can focus on the abstract behavior (Decision Time arrow in Figure 4.2) which helps it to deal with the complexity of its environment and recursively construct even higher levels of abstraction.
+Self-programming results in a bottom-up automatization of behaviors so that the agent constructs increasingly abstract behaviors and delegates the control of their enaction to an automatic subsystem of its cognitive system. The agent can focus on the abstract behavior (_Decision Time_ arrow in Figure 4.2) which helps it to deal with the complexity of its environment and recursively construct even higher levels of abstraction.
 
 The agent represents its current context in terms of previously learned abstract episodes of interaction. This amounts to modeling the environment in terms of abstract affordances, as, for example, Gibson suggests in his [theory of affordances](http://en.wikipedia.org/wiki/Affordance).
 
@@ -114,7 +114,7 @@ Table 4.3: Algorithm of a recursive self-programming agent.
 205         return r1
 ```
 
-Table 43, lines 001-014: The main loop of the algorithm is very similar to that in §3.3. 001-004: Initialization of the primitive interactions. 006: Get the list of anticipations. Now, the `anticipate()` function also returns anticipations for abstract experiments corresponding to enacting composite interactions. 007: Choose the next experiment from among primitive and abstract experiments in the list of anticipations. 008: Get the intended primitive or composite interaction from the selected primitive or abstract experiment.
+Table 4.3, lines 001-014: The main loop of the algorithm is very similar to that in §3.3. 001-004: Initialization of the primitive interactions. 006: Get the list of anticipations. Now, the `anticipate()` function also returns anticipations for abstract experiments corresponding to enacting composite interactions. 007: Choose the next experiment from among primitive and abstract experiments in the list of anticipations. 008: Get the intended primitive or composite interaction from the selected primitive or abstract experiment.
 
 Line 009: The enaction of the intended interaction is now delegated to the recursive function `enact(intendedInteraction)`. The intended interaction constitutes the learned program that the agent intends to execute, and the `enact()` function implements the engine that executes it. Let us emphasize the fact that the agent now chooses an _interaction to enact_ rather than an _experiment to perform_ (as it was the case in §3.3). In return, the agent receives an _enacted interaction_ rather than a result. This design choice follows from constructivist epistemology which suggests that sensorimotor patterns of interaction constitute the basic elements from which the agent constructs knowledge of the world.
 
@@ -124,12 +124,12 @@ Lines 101-116: The function `enact(intendedInteraction)` is used recursively to 
 
 Lines 201-205 implement the environment. This environment is the simplest we could imagine that requires the agent to program itself if it wants to be `PLEASED`. The result `r2` occurs when the current experiment equals the previous experiment but differs from the penultimate experiment, and r1 otherwise. Since `r2` is the only result that produces interactions that have a positive valence, and since the agent can at best obtain `r2` every second step, it must learn to alternate between two `e1` and two `e2` experiments: `e1→r1` `e1→r2` `e2→r1` `e2→r2`, etc. The agent must not base its decision on the anticipation of what it can get in the next step, but on the anticipation of what it can get in the next two steps.
 
-Figure 43 illustrates the architecture of this algorithm.
+Figure 4.3 illustrates the architecture of this algorithm.
 
 ![Figure-43](/images/043-1.png)
 Figure 4.3: Self-programming agent architecture.
 
-The whole program is called _Existence_. The lower dashed line (Line 2) separates the part of existence corresponding to the agent (above Line 2) from the part corresponding to the environment (below Line 2, implemented by the function `environment.GetResult(experiment)`). The upper dashed line (Line 1) separates the proactive part of existence (above Line 1) from the reactive part of existence (below Line 1). The program that implements the proactive part is called the _Decider_; you can consider this as the "cognitive part" of the agent. It corresponds to the main loop in Table 43: lines 005 to 014. The reactive part of the existence includes both the _Enacter_ (above Line 2) and the environment (below Line 2). The enacter (function `enact()`) controls the enaction of the intended interaction by sending a sequence of experiments to the environment. The enacter receives a result after each experiment. After the last experiment, the enacter returns the enacted composite interaction to the decider.
+The whole program is called _Existence_. The lower dashed line (Line 2) separates the part of existence corresponding to the agent (above Line 2) from the part corresponding to the environment (below Line 2, implemented by the function `environment.GetResult(experiment)`). The upper dashed line (Line 1) separates the proactive part of existence (above Line 1) from the reactive part of existence (below Line 1). The program that implements the proactive part is called the _Decider_; you can consider this as the "cognitive part" of the agent. It corresponds to the main loop in Table 4.3: lines 005 to 014. The reactive part of the existence includes both the _Enacter_ (above Line 2) and the environment (below Line 2). The enacter (function `enact()`) controls the enaction of the intended interaction by sending a sequence of experiments to the environment. The enacter receives a result after each experiment. After the last experiment, the enacter returns the enacted composite interaction to the decider.
 
 As the agent develops, it constructs abstract possibilities of interaction (composite interactions) that it can enact with reference to the reactive part. From the agent's cognitive point of view (the proactive part), the reactive part appears as an _abstract environment_ -- abstracted away from the real environment by the agent itself. Line 1 represents what we call the _cognitive coupling_ between the agent and its environment.
 
@@ -158,7 +158,7 @@ Figure 4.4 distinguishes between the _Interaction Time_ (arrow at the bottom cor
 
 ## Associating abstract experiments and results with composite interactions
 
-When a new composite interaction $i_c$ is added to the set Id of known interactions at time $t_d$, a new abstract experiment ea is added to the set Ed of known experiments at time $t_d$, and a new abstract result $r_a$ is added to the set $R_d$ of known results at time $t_d$, such that $i_c = ⟨e_a,r_a⟩$.
+When a new composite interaction $i_c$ is added to the set $I_d$ of known interactions at time $t_d$, a new abstract experiment $e_a$ is added to the set $E_d$ of known experiments at time $t_d$, and a new abstract result $r_a$ is added to the set $R_d$ of known results at time $t_d$, such that $i_c = ⟨e_a,r_a⟩$.
 
 Abstract experiments are called _abstract_ because the environment cannot process them directly. The environment (or robot's interface) is only programmed to interpret a predefined set of experiments that we now call _concrete_. To perform an abstract experiment $e_a$, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction $i_c$ from which the abstract experiment $e_a$ was constructed.
 
