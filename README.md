@@ -9,7 +9,7 @@ There are no code modules for this branch.
 
 ## Introduction to developmental cognitive architectures
 
-In §5.3, we raised the issue of designing agents that can deal with more complex possibilities of interaction. We defined three levels of coupling:
+In §5.3, the issue was raised of designing agents that can deal with more complex possibilities of interaction. There was defined three levels of coupling:
 
 1) cognitive coupling, 
 2) policy coupling, and, 
@@ -33,11 +33,11 @@ The terms _ontological_ and _ontology_ have the advantage of carrying with them 
 
 For the purposes of this course, let us take from these philosophical discussions that ontological knowledge is always pragmatical. That is to say, people or groups of people construct ontological knowledge, and this construction process is fundamentally influenced by their motivations. In contrast with traditional AI, designers of developmental agents do not encode the agent with presupposed ontological knowledge, because, if they did so, the agent's ontological knowledge would not be grounded in the agent's experiences and motivations (it would not be the agent's knowledge but the designer's knowledge). Instead, the developmental AI approach aims at designing agents capable of constructing their own ontological knowledge on the basis of their experiences interacting with the world and with reference to their own motivations.
 
-Let us also take from these philosphical discussions that entities of the world exist in the three-dimensional real space. This leads us to the conclusion that developmental agents should not only be sensitive to temporal regularities (as are our algorithms thus far), but also to spatial regularities; hence the key concept of Lesson 6:
+Let us also take from these philosphical discussions that entities of the world exist in the three-dimensional real space. This leads us to the conclusion that developmental agents should not only be sensitive to temporal regularities (as are our algorithms thus far), but also to spatial regularities; hence the key concept of Section 6:
 
 `Spatio-temporal regularities of interaction lead to ontological knowledge of the world.`
 
-To design agents that can construct ontological knowledge from spatio-sequential regularities of interaction, we draw inspiration from natural organisms. Natural organisms generally have inborn brain structures that encode space, preparing them to detect and learn spatio-sequential regularities of interaction. We design the policy coupling of our agents by pulling lessons from these natural brain structures, which leads us to a biologically-inspired developmental cognitive architecture.
+To design agents that can construct ontological knowledge from spatio-sequential regularities of interaction, we draw inspiration from natural organisms. Natural organisms generally have inborn brain structures that encode space, preparing them to detect and learn spatio-sequential regularities of interaction. We design the policy coupling of our agents by pulling sections from these natural brain structures, which leads us to a biologically-inspired developmental cognitive architecture.
 
 ## 6.2: Developmental cognitive architecture
 
@@ -45,7 +45,7 @@ There are many inborn brain structures that encode spatial information. For exam
 
 To remain consistent with constructivist epistemology, spatial memory should not encode presupposed ontological knowledge about the environment. Recall that the agent never knows which entities "as such" exist in the world, but only knows possibilities of interaction. Accordingly, our spatial memory only encodes the knowledge that certain interactions have been or can be enacted in certain regions of space. Using again the terms _experiment_ and _result_, the agent knows that, if it performed a certain experiment in a certain region of space, it would obtain a certain result, but the agent does not know the essence of the entity that occupies this region of space.
 
-Radical interactionism, introduced in Lesson 5, facilitates the implementation of a constructivist spatial memory. In the RI formalism, spatial memory simply maintains the position of enacted interactions relative to the agent. Figure 6.2 shows our cognitive architecture implemented with RI.
+Radical interactionism, introduced in Section 5, facilitates the implementation of a constructivist spatial memory. In the RI formalism, spatial memory simply maintains the position of enacted interactions relative to the agent. Figure 6.2 shows our cognitive architecture implemented with RI.
 
 ![Figure-62](/images/062-1.png)
 Figure 6.2: The Enactive Cognitive Architecture (ECA).
@@ -113,7 +113,7 @@ The _Intention_ data structure could also include spatial information allowing t
 
 ## 6.5: Implementation
 
-Lesson 6 does not propose any programming activities. The principles in Lesson 6 can be implement in many different ways. It is being contemplated these different possibilities as no stable solution has presented itself.
+Section 6 does not propose any programming activities. The principles in Section 6 can be implement in many different ways. It is being contemplated these different possibilities as no stable solution has presented itself.
 
 We, nonetheless, can offer the code that we used to record the demonstrations in §6.3:
 
@@ -139,4 +139,4 @@ To move on towards higher-level intelligence, we expect that internal simulation
 
 * Buzsáki & Moser (2013), Memory, navigation and theta rhythm in the hippocampal-entorhinal system, Nature Neuroscience, 16(2):130-8.
 
-This ends Lesson 6.
+This ends Section 6.
