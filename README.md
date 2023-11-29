@@ -7,17 +7,15 @@ This branch contains the modules 030, 031, and 032 that expand upon the code fro
 
 # Section 3: An introduction to constructivist epistemology (theory of knowledge)
 
-The key concept that we want to convey in Lesson 3 is:
+The key concept to convey in Section 3 is:
 
 `Cognitive agents must discover, learn, and exploit regularities of interaction.`
 
-_Regularities of interaction_ (in short, _regularities_) are patterns of interaction that occur consistently. Regularities depend on the coupling between the agent and the environment. That is, they depend both on the structure of the environment, and on the possibilities of interaction that the agent has at its disposal.
+_Regularities of interaction_ -- or simply, _regularities_ -- are patterns of interaction that occur consistently. Regularities depend on the coupling between the agent and the environment. That is, they depend both on the structure of the environment and on the possibilities of interaction that the agent has at its disposal.
 
-At least since Immanuel Kant, philosophers have widely agreed on the fact that cognitive systems can never know "the world as such", but only the world as it appears to them through sensorimotor interactions. For example, in some situations, if you spread your arm repeatedly, and if you consistently experience the same sensorimotor pattern, you may infer that there is something constant _out there_ that always makes this same sensorimotor pattern possible. Note that regularities can be experienced through arbitrarily complex _instruments_, which may range from a stick in your hand to complex experimental settings such as those used by physicists to interact with _something out there_ known as the Higgs boson.
+This statement emanates from Immanuel Kant, whose _Critique of Pure Reason_ and refinements by Arthur Schopenhauer _On the Fourfold Root of the Principle of Sufficient Reason_ and _The World as Will and Representation_, of the proof that cognitive systems can never know "the world as such" but only the world as it appears to them through sensorimotor interactions. For example, in some situations, if you spread your arm repeatedly, and if you consistently experience the same sensorimotor pattern, you may infer that there is something constant _out there_ an environemnt exteral to the self that consistently makes this same sensorimotor pattern possible. Regularities can be experienced through arbitrarily complex _instruments_, which may range from a stick or rope in your hand (depending on your contextual expression) to complex experimental settings such as those used by physicists to interact with _something out there_, phenomena known as electromagnetism.
 
-These philosophical ideas translate into AI when we acknowledge the fact that knowledge is constructed from regularities of interactions rather than recorded from input data. Designing a system that would construct complete knowledge of the world out there and exploit this model for the better is a part of AI's long-term objective.
-
-To take this problem gradually, Lesson 3 begins with implementing an agent that can detect simple sequential regularities and exploit them to satisfy its rudimentary motivational system.
+These philosophical ideas translate into machine intelligence when we acknowledge the fact that knowledge is constructed from regularities of interactions rather than recorded from input data. Designing a system that would construct complete knowledge of the world out there and exploit this model is the lesser-known but more powerful long-term objective. To absorb this problem gradually, Section 3 begins with implementing an agent that can detect simple sequential regularities and exploit them to satisfy its rudimentary motivational system.
 
 ## 3.1: Learning regularities of interaction
 
@@ -26,11 +24,11 @@ Figure 3.1 presents the principles of a rudimentary system that learns and explo
 ![Figure-32](/images/032-1.png)
 Figure 3.1: Rudimentary learning of regularities of interaction.
 
-On time step `t`, the agent _enacts_ the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting $e_t$ and receiving a result $r_t$ (§2.1). The agent records the two-step sequence `⟨it-1,it⟩` made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a composite interaction. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s pre-interaction, and it is called $⟨i_t-1,i_t⟩$'s post-interaction. From now on, low-level interactions $i = ⟨e,r⟩$ will be called primitive interactions to differentiate them from composite interactions.
+On time step $t$, the agent _enacts_ the interaction $i_t = ⟨e_t,r_t⟩$. Enacting it means experimenting $e_t$ and receiving a result $r_t$ (§2.1). The agent records the two-step sequence $⟨i_t-1,i_t⟩$ made by the previously enacted interaction $i_t-1$ and of $i_t$. The sequence of interactions $⟨i_t-1,i_t⟩$ is called a _composite interaction_. $i_t-1$ is called $⟨i_t-1,i_t⟩$'s _pre-interaction_, and it is called $⟨i_t-1,i_t⟩$'s _post-interaction_. Low-level interactions $i = ⟨e,r⟩$ will be called _primitive interactions_ to differentiate them from composite interactions.
 
-The enacted primitive interaction it activates previously learned composite interactions when it matches their pre-interaction. For example, if $i_t = a$ and if the composite interaction `⟨a,b⟩` has been learned before time `t`, then the composite interaction `⟨a,b⟩` is activated, meaning it is recalled from memory. Activated composite interactions propose their post-interaction's experiment, in this case: `b`'s experiment. If the sequence `⟨a,b⟩` corresponds to a regularity of interaction, then it is probable that the sequence `⟨a,b⟩` can be enacted again. Therefore, the agent can anticipate that performing `b`'s experiment will likely produce `b`'s result. The agent can thus base its choice of the next experiment on this anticipation.
+The enacted primitive interaction it activates previously learned composite interactions when it matches their pre-interaction. For example, if $i_t = a$ and if the composite interaction $⟨a,b⟩$ has been learned before time $t$, then the composite interaction $⟨a,b⟩$ is activated, meaning it is recalled from memory. Activated composite interactions propose their post-interaction's experiment, in this case: $b$'s experiment. If the sequence $⟨a,b⟩$ corresponds to a regularity of interaction, then it is probable that the sequence $⟨a,b⟩$ can be enacted again. Therefore, the agent can anticipate that performing $b$'s experiment will likely produce $b$'s result. The agent can thus base its choice of the next experiment on this anticipation.
 
-Note that the enacted primitive interaction it may activate more than one composite interaction, each of them proposing different experiments. We create an interactionally motivated agent by implementing a decision mechanism that uses the agent's capacity of anticipation to choose experiments that will likely result in interactions that have a positive valence, and avoid experiments that will likely result in interactions that have a negative valence.
+Note that the enacted primitive interaction it may activate more than one composite interaction, each of them proposing different experiments. We create an interactionally-motivated agent by implementing a decision mechanism that uses the agent's capacity of anticipation to choose experiments that will likely result in interactions that have a positive valence, and avoid experiments that will likely result in interactions that have a negative valence.
 
 ## 3.2: Algorithm for learning regularities of interaction
 
@@ -38,8 +36,7 @@ Here is a rudimentary interactionally motivated algorithm that enables the agent
 
 Table 3.1 presents its main loop while Tables 3.2 and 3.3 present subroutines.
 
-In Table 3.1, we chose a set of valences and a particular environment to demonstrate this learning mechanism: this agent is pleased when it receives result `r2`, but it must learn that the environment returns `r2` only if it alternates experiments `e1` and `e2` every second cycle. Your programming activities will consist of experimenting with other valences and other environments.
-
+In Table 3.1, we chose a set of valences and a particular environment to demonstrate this learning mechanism: This agent is pleased when it receives result `r2`, but it must learn that the environment returns `r2` only if it alternates experiments `e1` and `e2` every second cycle. Your programming activities will consist of experimenting with other valences and other environments.
 
 ```
 Table 3.1: Main loop of an interactionally motivated algorithm that learns two-step sequences of interaction.
@@ -99,7 +96,7 @@ Table 3.2: Pseudocode of a simple version.
 25         return another experiment than anticipation[0].interaction.experiment
 ```
 
-The `anticipate()` function checks for known composite interactions whose pre-interactions match the last enacted primitive interaction; we call these the activated composite interactions. A new object, _anticipation_, is created for each activated composite interaction. The activated composite interaction's post-interaction is associated with this anticipation as the anticipation's _proposed interaction_. The `selectExperiment()` function sorts the list of anticipations by decreasing valence of their proposed interaction. Then, it takes the fist anticipation (index [0]), which has the highest valence in the list. If this valence is positive, then the agent wants to re-enact this proposed interaction, leading to the agent choosing this proposed interaction's experiment.
+The `anticipate()` function checks for known composite interactions whose pre-interactions match the last enacted primitive interaction; we call these the activated composite interactions. A new object, _anticipation_, is created for each activated composite interaction. The activated composite interaction's post-interaction is associated with this anticipation as the anticipation's _proposed interaction_. The `selectExperiment()` function sorts the list of anticipations by decreasing valence of their proposed interaction. Then, it takes the fist anticipation $index [0]$, which has the highest valence in the list. If this valence is positive, then the agent wants to re-enact this proposed interaction, leading to the agent choosing this proposed interaction's experiment.
 
 This solution works in a very simple environment that generates no competing anticipations. However, for environments that may generate competing anticipations, we want the agent to be able to balance competing anticipations based on their probabilities of realization. We may have an environment that, in a given context, makes all the four interactions likely to happen but with different probabilities. For example, in the context in which `e1r1` was enacted, both `e1` and `e2` may result sometimes in `r1` and sometimes in `r2`. But, e1 is more likely to result in `r2` than `e2`. To handle this kind of environment, we associate a weight to composite interactions, as shown in Table 3.3.
 
@@ -142,26 +139,26 @@ Project 3 (files to modify or to add to Project 2)
 
 ```
 Program.cs ← Uncomment the instructions to instantiate Existence030 or Existence031.
-existence / Existence030 ← The program that implements the algorithm in Tables 3.1 and 3.2.
-existence / Existence031 ← The program that implements the algorithm in Tables 3.1 and 3.3.
-agent / Anticipation ← An anticipation generated by the method computeAnticipations().
-agent / Anticipation030 ← A simple anticipation based on the afforded interactions.
-agent / Anticipation031 ← A more complex anticipation based on weighted composite interactions.
-coupling / interaction / Interaction030 ← Now, Interactions can be primitive or composite.
-coupling / interaction / Interaction031 ← Interaction031s have a weight.
+existence / Existence030.cs ← The program that implements the algorithm in Tables 3.1 and 3.2.
+existence / Existence031.cs ← The program that implements the algorithm in Tables 3.1 and 3.3.
+agent / Anticipation.cs ← An anticipation generated by the method computeAnticipations().
+agent / Anticipation030.cs ← A simple anticipation based on the afforded interactions.
+agent / Anticipation031.cs ← A more complex anticipation based on weighted composite interactions.
+coupling / interaction / Interaction030.cs ← Now, Interactions can be primitive or composite.
+coupling / interaction / Interaction031.cs ← Interaction031s have a weight.
 ```
 
 For Lesson 3, your programming activities are:
 
 1. Change Program.cs to instantiate `Existence030` and run it. Observe that the trace is similar to that in the next section.
 2. Change `Existence030` to instantiate Environment010 instead of `Environment030` and run it. Observe that the modified `Existence030` also learns to get pleased when it implements `Environment010` instead of `Environment030`.
-3. Change `Program.cs` to instantiate `Existence031` and run it. Observe that it learns to be pleased in `Environment031`.
+3. Change Program.cs to instantiate `Existence031` and run it. Observe that it learns to be pleased in `Environment031`.
 4. Change `Existence031` to instantiate `Environment010` and then `Environment030` and run it. Observe that the modified `Existence031` also learns to be pleased when it implements `Environment010`, `Environment030`, and `Environment031`.
 Lesson 3 shows that `Existence031` can adapt to three different environments (`Environment010`, `Environment030`, `Environment031`). However, `Existence031` will fail in environments that require learning regularities longer than two interaction cycles. Future lessons teach to design agents that can learn and exploit arbitrarily long regularities of interaction.
 
 ## 3.4: Behavioral analysis of a rudimentary constructivist agent
 
-Table 3.4 shows the trace that you should see in your console if you ran Project 3. If you did not run it, you can refer to the pseudocode presented in Tables 3.1 and 3.2 to understand this trace.
+Table 3.4 shows the trace that you should see in your console if you ran Project 3. If you did not run it, refer to the pseudocode in Tables 3.1 and 3.2 to understand this trace.
 
 ```
 Table 3.4: Activity trace of a rudimentary interactionally motivated regulartity learning agent.
