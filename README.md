@@ -72,7 +72,7 @@ Table 1.3: Algorithm of a rudimentary embodied system.
 20      print cycle, experiment, result, mood
 ```
 
-Table 1.3, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the `anticipate(experiment)` function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: `e1` always yields `r1`, and other experiments always yield `r2`. Line 11: the agent records (posits) the tuple `⟨experiment, result⟩` into memory. Lines 12 to 17: if the result was anticipated correctly then the agent is `SELF-SATISFIED`, otherwise it is `FRUSTRATED`. Lines 18 and 19: if the agent has been self-satisfied for too long -- arbitrarily set to three cycles -- then it becomes `BORED`.
+Table 1.3, Lines 03 to 05: if the agent is `BORED`, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the `anticipate(experiment)` function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: `e1` always yields `r1` and other experiments always yield `r2`. Line 11: the agent records (posits) the tuple `⟨experiment, result⟩` into memory. Lines 12 to 17: if the result was anticipated correctly then the agent is `SELF-SATISFIED`, otherwise it is `FRUSTRATED`. Lines 18 and 19: if the agent has been self-satisfied for too long -- arbitrarily set to three cycles -- then it becomes `BORED`.
 
 Notably, this system implements a single program called _Existence_ which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as promised in the previous section.
 
@@ -80,7 +80,7 @@ If you have no interest in programming, then you can skip the rest of this secti
 
 If you an have interest in programming, but do not wish to do the optional programming activities, it is recommended you browse through Project 1 below, just to get a sense of the meaning inherent in the code.
 
-If you wish to do the optional programming activities, then your activity for Section 1 is to install Project 1 in your favorite development environment -- any IDE, for example, VsCode is used here, and run it. You should get a trace similar to that shown in the next section.
+If you wish to do the optional programming activities, then your activity for Section 1 is to install Project 1 in your favorite development environment -- any IDE, for example VSCode, and run it. You should get a trace similar to that shown in the subsequent section.
 
 To install Project 1, clone this repository using the command `git clone https://github.com/cartheur/ideal`. Note that it is on the `01-embodied-paradigm` branch.
 
@@ -97,7 +97,7 @@ coupling / interaction / Interaction010.cs
 ```
 ## 1.4: Behavioral analysis of an embodied system based on its activity trace
 
-Table 1.4 shows the trace that you should see in the console if you ran Project 1. If you did not run it, review the algorithm presented on the previous section to understand the trace.
+Table 1.4 shows the trace that you should see in the console if you ran Project 1. If you did not run it, review the algorithm presented in the previous section to understand the trace.
 
 ```
 Table 1.4: activity trace of a rudimentary embodied system.
