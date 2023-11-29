@@ -7,6 +7,10 @@ An _ideal_ algorithm for control in the manner of Cybernetics. This branch conta
 
 Be forwarned that it is not _exactly_ like reinforcement learning, a shade that yields significantly different effects.
 
+## Table of Contents
+
+This wiki is organized into seven separate sections that have a code repository for each part. 
+
 ## Code module
 
 Below you will find a description of the code base where and how to begin programming the _ideal_ algorithm in its entirety by building intellectual concepts of how and _why_ it works as it does.
@@ -17,9 +21,9 @@ The primary "take home" message that establishes the paradigm is:
 
 `Do not consider the agent's input data as the agent's perception of its environment.`
 
-The agent is not a passive observer of reality, but rather constructs a perception of reality through active interaction. The term embodied means that the agent must be a part of reality for this active interaction to happen.
+The agent is not a passive observer of reality, but rather constructs a perception of reality through active interaction. The term _embodied_ means that the agent must be a part of reality for this active interaction to happen.
 
-Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Section 1, however, we wish to introduce how this idea translates into the practical design of artificial agents and robots.
+Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Section 1, however, we wish to introduce how this idea translates into the practical design of artificial agents, robots, and automata that are, in essence, a running program executed on computer hardware.
 
 ## 1.2: Agent and robot design according to the embodied paradigm
 
@@ -35,9 +39,9 @@ Most representations of the cycle agent/environment do not make explicit the con
 
 We should care because, depending on the conceptual starting and end points, we design the agent's algorithm, the robot's sensors, or the simulated environment differently.
 
-In the traditional view, we design the agent's input (called observation o in Figure 1.2/left) as if it represented the environment's state. In the case of simulated environments, we implement o as a function of s, where s is the state of the environment ($o = f(s)$ in Figure 1.2/left). In the case of robots, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
+In the traditional view, we design the agent's input, called observation $o$ in Figure 1.2/left, as if it represented the environment's state. In the case of simulated environments, we implement $o$ as a function of $s$, where $s$ is the state of the environment, as $o = f(s)$ in Figure 1.2/left. In the case of automata, we process the sensor data as if it represented the state of the real world, even though this state is not accessible. This is precisely what the embodied paradigm suggests to avoid because it amounts to considering the agent's input as a representation of the world.
 
-In the embodied view, we design the agent's input (called result r in Figure 1.2/right) as a result of an experiment initiated by the agent. In simulated environments, we implement r as a function of the experiment and of the state ($r = f (e,s)$ in Figure 1.2/right). In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as we do in the next page. When designing robots, we process the sensor data as representing the result of an experiment initiated by the robot.
+In the embodied view, we design the agent's input, called result $r$ in Figure 1.2/right, as a result of an experiment initiated by the agent. In simulated environments, we implement $r$ as a function of the experiment and of the state $r = f (e,s)$ in Figure 1.2/right. In a given state of the environment, the result may vary according to the experiment. We may even implement environments that have no state, as is propopsed in the next section. When designing robots and automata (those kinds of programs in Smart Cities), we process the sensor data as representing the result of an experiment initiated by the system.
 
 ## 1.3: Agent implementation according to the embodied paradigm
 
