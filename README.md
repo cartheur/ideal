@@ -25,15 +25,15 @@ Our demonstration in Video 5.3 shows that our algorithm can interact with the re
 
 Indeed, we must deal with the complexity of the physical coupling because this complexity is imposed by the real world. The complexity of the policy coupling, however, is not imposed. We are free to design the policy coupling to suite our needs. We need a well-designed policy coupling that makes learning smarter behaviors possible when the robot interacts with the real world at the physical coupling level.
 
-Note that it is fortunate that we do not need to face an arbitrarily complex policy coupling because we have no reason to believe that an algorithm capable of scaling up with this complexity would even be possible. In contrast, the example of natural cognitive systems (animals and humans) illustrates that it is possible to deal with the complexity associated with the physical coupling. Even animals with modest computational resources (e.g., animals with small brains like insects and small vertebrates) exhibit relatively smart behaviors and complex learning in the real world.
+Note that it is fortunate that we do not need to face an arbitrarily complex policy coupling because we have no reason to believe that an algorithm capable of scaling up with this complexity would even be possible. In contrast, the example of natural cognitive systems -- animals and humans -- illustrates that it is possible to deal with the complexity associated with the physical coupling. Even animals with modest computational resources, e.g., animals with small brains like insects and small vertebrates, exhibit relatively smart behaviors and complex learning in the real world.
 
 In §4.2, we discussed why the agent should construct a coherent model of the world on the basis of regularities of interactions that it discovers. The agent must learn that regularities of interaction are caused by entities that exist in the world. Knowledge of entities that exist in the world is called _ontological knowledge_.
 
 The terms _ontological_ and _ontology_ have the advantage of carrying with them centuries of discussions about the question "what is there in the world?", and about the possibility of even answering this question. See the Wikipedia article about [Ontology (philosophy)](https://en.wikipedia.org/wiki/Ontology), or [Willard Van Orman Quine's article](https://en.wikisource.org/wiki/On_What_There_Is) that examines this question not without humor. The Wikipedia article about [Ontology (information science)](https://en.wikipedia.org/wiki/Ontology_%28information_science%29) also gives an overview of how a designer can pre-encode ontological knowledge in a traditional AI system.
 
-For the purposes of this course, let us take from these philosophical discussions that ontological knowledge is always pragmatical. That is to say, people or groups of people construct ontological knowledge, and this construction process is fundamentally influenced by their motivations. In contrast with traditional AI, designers of developmental agents do not encode the agent with presupposed ontological knowledge, because, if they did so, the agent's ontological knowledge would not be grounded in the agent's experiences and motivations (it would not be the agent's knowledge but the designer's knowledge). Instead, the developmental AI approach aims at designing agents capable of constructing their own ontological knowledge on the basis of their experiences interacting with the world and with reference to their own motivations.
+For the purposes of this course, let us take from these philosophical discussions that ontological knowledge is always pragmatical. That is to say, people or groups of people construct ontological knowledge, and this construction process is fundamentally influenced by their motivations. In contrast with traditional AI, designers of developmental agents do not encode the agent with presupposed ontological knowledge, because, if they did so, the agent's ontological knowledge would not be grounded in the agent's experiences and motivations -- it would not be the agent's knowledge but the designer's knowledge. Instead, the developmental machine intelligence approach aims at designing agents capable of constructing their own ontological knowledge on the basis of their experiences interacting with the world and with reference to their own motivations.
 
-Let us also take from these philosphical discussions that entities of the world exist in the three-dimensional real space. This leads us to the conclusion that developmental agents should not only be sensitive to temporal regularities (as are our algorithms thus far), but also to spatial regularities; hence the key concept of Section 6:
+Let us also take from these philosphical discussions that entities of the world exist in the three-dimensional real space. This leads us to the conclusion that developmental agents should not only be sensitive to temporal regularities (as are the algorithms thus far), but also to spatial regularities; hence the key concept of Section 6:
 
 `Spatio-temporal regularities of interaction lead to ontological knowledge of the world.`
 
@@ -41,7 +41,7 @@ To design agents that can construct ontological knowledge from spatio-sequential
 
 ## 6.2: Developmental cognitive architecture
 
-There are many inborn brain structures that encode spatial information. For example, Gross & Graziano's (1995) Multiple representations of space in the brain discusses the encoding of spatial knowledge in primates. From these kinds of studies, we conclude that it is reasonable to endow our agent with a hard-coded spatial memory, rather then expecting spatial memory to emerge spontaneously. In so doing, we hard-code presupposed knowledge about the environment, namely, knowledge that the environment has a three-dimensional structure. By making this assumption, we restrict our scope to agents that indeed exist in a three-dimensional world, such as physical robots. We could probably not encode the same assumption with agents that exist in fancy abstract worlds, for example bots that crawl the internet.
+There are many inborn brain structures that encode spatial information. For example, Gross & Graziano's (1995) Multiple representations of space in the brain discusses the encoding of spatial knowledge in primates. From these kinds of studies, we conclude that it is reasonable to endow our agent with a hard-coded spatial memory, rather then expecting spatial memory to emerge spontaneously. In so doing, we hard-code presupposed knowledge about the environment, namely, knowledge that the environment has a three-dimensional structure. By making this assumption, we restrict our scope to agents that indeed exist in a three-dimensional world, such as automata and physical robots. We could probably not encode the same assumption with agents that exist in fancy abstract worlds, for example bots that crawl the internet.
 
 To remain consistent with constructivist epistemology, spatial memory should not encode presupposed ontological knowledge about the environment. Recall that the agent never knows which entities "as such" exist in the world, but only knows possibilities of interaction. Accordingly, our spatial memory only encodes the knowledge that certain interactions have been or can be enacted in certain regions of space. Using again the terms _experiment_ and _result_, the agent knows that, if it performed a certain experiment in a certain region of space, it would obtain a certain result, but the agent does not know the essence of the entity that occupies this region of space.
 
@@ -73,13 +73,13 @@ Video 6.1 demonstrates the ECA architecture presented in Figure 6.2. It uses a s
 [VIDEO](https://www.youtube.com/watch?v=HCDf3Vzl7GM)
 Video 6.1: Demonstration of the enactive cognitive architecture in the Little Loop Problem.
 
-Video 6.2 (below) demonstrates the ECA architecture when the agent has a visual system similar to that in Video 4.1. In this video, the two gray sharks implement ECA, whereas the blue fish are simply moving on a straight ligne to illustrate a dynamic environment. In addition to preys (blue fish), sharks can also see other salient objects: flowers, colored bricks of walls, and other sharks (but not dark green walls because they blend into the background).
+Video 6.2 demonstrates the ECA architecture when the agent has a visual system similar to that in Video 4.1. In this video, the two grey sharks implement ECA, whereas the blue fish are simply moving on a straight ligne to illustrate a dynamic environment. In addition to preys (blue fish), sharks can also see other salient objects: flowers, colored bricks of walls, and other sharks (but not dark green walls because they blend into the background).
 
-Due to their interactional motivation, the sharks tend to move towards salient objects (as in Video 4.1, interactions consisting of getting closer to salient objects have a predefined positive valence).
+Due to their interactional motivation, the sharks tend to move towards salient objects -- as in Video 4.1, interactions consisting of getting closer to salient objects have a predefined positive valence.
 
-Once they reach a salient object, the sharks can experience specific interactions: they can eat a fish, bump into a wall, or cuddle with another shark (flowers afford the _move forward_ interaction as empty cells, the sharks just swim through them).
+Once they reach a salient object, the sharks can experience specific interactions: They can eat a fish, bump into a wall, or cuddle with another shark, flowers afford the _move forward_ interaction as empty cells, the sharks just swim through them.
 
-As explained in §6.2, the ontology mechanism associates interactions when they overlap in space. As a result, the sharks learn bundles of interactions that represent fish, brick walls, other sharks, and flowers. Once these bundles are learned, the behavior selection mechanism favors moving towards fish or other sharks because they afford interactions that have a positive valence (eating and cuddling).
+As explained in §6.2, the ontology mechanism associates interactions when they overlap in space. As a result, the sharks learn bundles of interactions that represent fish, brick walls, other sharks, and flowers. Once these bundles are learned, the behavior selection mechanism favors moving towards fish or other sharks because they afford interactions that have a positive valence such as eating and cuddling.
 
 [VIDEO](https://www.youtube.com/watch?v=LjOck5ts_2g)
 Video 6.2: Demonstration of the enactive cognitive architecture in a continuous, open, and dynamic environment.
@@ -91,7 +91,7 @@ The architecture in Figure 6.2 raises the issue of localizing interactions in sp
 To address this issue, we designed the _spatio-sequential policy_ coupling shown in Figure 6.3, as an extension of the RI model introduced in Figure 5.1.
 
 ![Figure-64](/images/064-1.png)
-Figure 6.4: Spatio-sequential policy coupling. The agent sends a data structure called Intention to the environment, containing the intended interaction it. In return, the agent receives a data structure called Obtention, containing the enacted interaction et, the enacted interaction's position relative to the agent σt, and the geometrical transformation resulting from the agent's displacement τt.
+Figure 6.4: Spatio-sequential policy coupling. The agent sends a data structure called _Intention_ to the environment, containing the intended interaction $i_t$. In return, the agent receives a data structure called _Obtention_, containing the enacted interaction $e_t$, the enacted interaction's position relative to the agent $σ_t$, and the geometrical transformation resulting from the agent's displacement $τ_t$.
 
 The spatio-sequential policy coupling extends the RI model by adding information $σ_t$ and $τ_t$ to provide the agent with spatial information related to the enaction of $e_t$.
 
@@ -99,35 +99,33 @@ $σ_t$ specifies a point in the space surrounding the agent where $e_t$ can be a
 
 $τ_t$ specifies a geometrical transformation that approximately represents the agent's movement in space resulting from the enaction of $e_t$. In a two-dimensional environment, $τ_t = (θ_t, ρ_t)$ with $θ_t ∈ ℝ$ being the angle of rotation of the environment relative to the agent, and $ρ_t ∈ ℝ^2$ the two dimensional vector of translation of the environment relative to the agent.
 
-The intuition for σt is that the agent has sensory information available to it that helps it situate an interaction in space. For example, humans are known to use eye convergence, kinesthetic information, and interaural time delay (among other forms of sensory information) to infer the spatial origin of their visual, tactile, and auditory experiences.
+The intuition for σt is that the agent has sensory information available to it that helps it situate an interaction in space. For example, humans are known to use eye convergence, kinesthetic information, and interaural time delay -- among other forms of sensory information -- to infer the spatial origin of their visual, tactile, and auditory experiences.
 
-The intuition for τt is that the agent has sensory information available that helps it keep track of its own displacements in space. Humans are known to use vestibular and optic flow information to realize such tracking.
+The intuition for $τ_t$ is that the agent has sensory information available that helps it keep track of its own displacements in space. Humans are known to use vestibular and optic flow information to realize such tracking.
 
-In videos 6.1 and 6.2, these sensors were simulated by a function that directly passed σt and τt from the environment to the agent.
+In Videos 6.1 and 6.2 these sensors were simulated by a function that directly passed $σ_t$ and $τ_t$ from the environment to the agent.
 
 In automata, $σ_t$ and $τ_t$ can be derived from spatial sensors such as telemeters and accelerometers. The automaton, however, would need to calibrate its spatial sensors to generate $σ_t$ and $τ_t$ with enough precision. If the spatial sensors cannot be satisfactorily calibrated, then the agent's spatial memory would need to implement more complex geometrical operations than simple affine transformations. We still need to investigate how an automaton can autonomously calibrate its spatial sensors, or how spatial memory can implement more complex geometrical operations to deal with uncalibrated sensors.
 
 Notably, the policy coupling in Figure 6.4 also opens the way to including more information in the _Intention_ data structure. This data structure could include more than one intended interaction on each interaction cycle, allowing the robot to control different body parts simultaneously. For example, a two-wheel robot could control each of its wheels separately, by sending an intended interaction associated with each wheel. This would allow generating more sophisticated behaviors than in the experiment of Video 5.3, in which the _move forward_ and _turn_ interactions controlled the two wheels simultaneously in a predefined manner.
 
-The _Intention_ data structure could also include spatial information allowing the agent to specify the position in which it intends to enact an interaction. This position would correspond to an _intended_ $σ_t$, identical to the _obtained_ $σ_t$ in the _Obtention_ data structure. For example, we imagine a different implementation of the experiment in Video 6.1, in which the agent could choose where it intends to enact the touching interaction by specifying its intended position (e.g., [1,0]: (front), [0,1]: (left), etc.).
+The _Intention_ data structure could also include spatial information allowing the agent to specify the position in which it intends to enact an interaction. This position would correspond to an _intended_ $σ_t$, identical to the _obtained_ $σ_t$ in the _Obtention_ data structure. For example, we imagine a different implementation of the experiment in Video 6.1, in which the agent could choose where it intends to enact the touching interaction by specifying its intended position, e.g., [1,0]: (front), [0,1]: (left),...etc.
 
 ## 6.5: Implementation
 
 Section 6 does not propose any programming activities. The principles in Section 6 can be implement in many different ways. It is being contemplated these different possibilities as no stable solution has presented itself.
 
-We, nonetheless, can offer the code that we used to record the demonstrations in §6.3:
+Nonetheless, some notions are offered in §6.3:
 
-1. Video 6.1 was recorded using revision 186 of the Vacuum Environment Project, and revision 261 of the Ernest Agent Project.
+1. Video 6.1 using revision 186 of the Vacuum Environment Project, and revision 261 of the Ernest Agent Project.
 
-2. Video 6.2 was recorded using revision 165 of the Vacuum Environment Project, and revision 225 of the Ernest Agent Project.
+2. Video 6.2 using revision 165 of the Vacuum Environment Project, and revision 225 of the Ernest Agent Project.
 
-We refer you to §5.8 for recommendations on how to use this code. You can also follow our blog for other versions and demonstrations, and to get updates on our work. See also our publications presented in §6.6 for a description of our latest implementation, and a discussion on the issues that remain to be addressed.
-
-We hope that you now have the necessary background to continue on your own. From this point, any programming work you may do would constitute the original exploration of unknown territory and an innovative contribution to research. :-)
+Refer to §5.8 for recommendations on how to use this code. It is sinerely hoped that you now have the necessary background to continue on your own. From this point, any programming work you may do would constitute the original exploration of unknown territory and an innovative contribution to research. :-)
 
 ## 6.6: Selected readings on cognitive architectures
 
-The article that reports our current implementation of the Enactive Cognitive Architecture (ECA), similar to that used in the demonstrations in §6.3:
+An article on a recent implementation of the Enactive Cognitive Architecture (ECA), similar to that used in the demonstrations in §6.3:
 
 * Georgeon, Marshall, and Manzotti (2013). ECA: An enactivist cognitive architecture based on sensorimotor modeling. Biologically Inspired Cognitive Architectures, 6:46-57.
 
