@@ -9,7 +9,17 @@ Be forwarned that it is not _exactly_ like reinforcement learning, a shade that 
 
 ## Table of Contents
 
-This wiki is organized into seven separate sections that have a code repository for each part. 
+This wiki is organized into seven separate sections that have a code repository for each part. The subseqeunt four have code that builds upon the previous section as concepts are added together. This is a better approach than presenting everything at once because it is very easy to get lost in contemplating the meaning expressed by the algorithm and its program. Therefore, each of the seven sections appear in branches to this repository and by procedually navigating to each, you will obtain the knowledge of the ideal system.
+
+* 01-embodied-paradigm
+* [02-interactional-motivation](https://github.com/cartheur/ideal/tree/02-interactional-motivation)
+* [03-constructivist-epistemology](https://github.com/cartheur/ideal/tree/03-constructivist-epistemology)
+* [04-self-programming](https://github.com/cartheur/ideal/tree/04-self-programming)
+* [05-radical-interactionism](https://github.com/cartheur/ideal/tree/05-radical-interactionism)
+* [06-cognitive-architectures](https://github.com/cartheur/ideal/tree/06-cognitive-architectures)
+* [07-research-pathway](https://github.com/cartheur/ideal/tree/07-research-pathway)
+
+It is strongly recommended to fully understand each section before moving on to the next.
 
 ## Code module
 
