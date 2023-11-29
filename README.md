@@ -25,10 +25,10 @@ Nevertheless, we can already give a simple and intuitive answer. If we build two
 
 Since assessing the situation, making choices, and carrying out behaviors is the role of programs, we will only manage to make significant behavioral differences emerge autonomously if the robot can program itself autonomously.
 
-Of course, defining "significant behavioral differences" is challenging. We recorded Video 4.1 to give an example.
+Of course, defining "significant behavioral differences" is challenging. Video 4.1 gives an example.
 
 [VIDEO](https://www.youtube.com/watch?v=91kKzybt8XY&t=2s)
-Video 4.1: Example of self-programming. These two agents implement the same initial algorithm. Yet, because they go through different individual experiences, they find different strategies to catch a prey.
+Video 4.1: Example of self-programming. These two agents implement the same initial algorithm, yet, because they go through different individual experiences, they find different strategies to catch a prey.
 
 As has already been said, self-programming raises many questions.
 
