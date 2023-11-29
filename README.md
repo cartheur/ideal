@@ -9,17 +9,17 @@ This branch contains module 040 that expands upon the code from the continuity o
 
 ## Defining self-programming
 
-We define a self-programming agent as an agent that can autonomously acquire executable code and re-execute this code appropriately.
+A _self-programming_ agent or automata is a program that can autonomously acquire executable code and re-execute this code appropriately.
 
-Similar to other machine learning agents, self-programming agents record data in memory as they learn. Traditional machine learning agents, however, run a predefined program that exploits this data as parameters. Self-programming agents also run a predefined program, but this program can control the execution of learned data as sequences of instructions.
+Similar to other attempts at machine learning agents, self-programming agents record data in memory as they learn. Traditional machine learning agents, however, run a predefined program that exploits this data as parameters. Self-programming agents also run a predefined program, but this program can control the execution of learned data as sequences of instructions.
 
-To understand the full implication of this definition, it is important to take a cognitive science perspective rather than a software development perspective. A natural cognitive system (an animal) does not have a compiler or an interpreter to exploit a programming language. The only thing at its disposal that remotely resembles an instruction set is the set of interaction possibilities it has with the world around it. The only thing at its disposal that remotely resembles an execution engine is its cognitive system which allows it to execute and learn sequences of interactions with the world.
+To understand the full implication of this definition, it is important to take a cognitive science perspective rather than a software development perspective. A natural cognitive system, such as one that is expressed by an animal, does not have a compiler or an interpreter to exploit a programming language. The only thing at its disposal that remotely resembles an instruction set is the set of interaction possibilities it has with the world around it. The only thing at its disposal that remotely resembles an execution engine is its cognitive system which allows it to execute and learn sequences of interactions with the world.
 
-We draw inspiration from natural cognitive systems to design self-programming agents. Like biological systems, these agents program themselves using the instruction set at their disposal (the set of interaction possibilities they have with the world), and the execution engine at their disposal (their cognitive system that executes and learns sequences of interactions with the world).
+We draw inspiration from natural cognitive systems to design self-programming agents. Like biological systems, these agents program themselves using the instruction set at their disposal, manifest as the set of interaction possibilities they have with the world, and the hardware execution engine at their disposal, manifest as their cognitive system that executes and learns sequences of interactions with the world.
 
 ## Why self-programming is important?
 
-There are profound theoretical reasons why self-programming is decisive to achieve artificial intelligence. §4.5 will refer you to some articles that elaborate on these reasons, specifically coming from the theory of enaction.
+There are profound theoretical reasons why self-programming is decisive to achieve machine intelligence. §4.5 will refer you to some articles that elaborate on these reasons, specifically coming from the _theory of enaction_.
 
 Nevertheless, we can already give a simple and intuitive answer. If we build two identical robots, it would be no fun if these two robots generated similar behaviors in the same circumstances. As they develop, we would like them to assess situations differently, make different choices, and carry out different behaviors. Only when we see these significant behavioral differences emerge will we be willing to consider each robot as an intelligent being as opposed to a mere automaton.
 
@@ -36,13 +36,13 @@ As has already been said, self-programming raises many questions.
 
 An obvious question is why the system should choose to learn a specific program rather than another. We must implement driving principles to give a direction to the system's development, without specifying a final goal so that the system can keep learning new programs indefinitely.
 
-Interactional motivation, presented in Lesson 2, provides us with a possible answer to this challenge because it allows us to specify inborn behavioral preferences without specifying a predefined goal. An interactionally motivated self-programming agent will choose to learn programs that can help it enact interactions that have a high positive valence, while avoiding situations where interactions with a negative valence are likely to happen.
+Interactional motivation, presented in Section 2, provides us with a possible answer to this challenge because it allows us to specify inborn behavioral preferences without specifying a predefined goal. An interactionally motivated self-programming agent will choose to learn programs that can help it enact interactions that have a high positive valence, while avoiding situations where interactions with a negative valence are likely to happen.
 
-Interactional motivation is not the only principle that can drive self-programming, but it is the approach we will continue using in the examples in Lesson 4.
+Interactional motivation is not the only principle that can drive self-programming, but it is the approach we will continue using in the examples in Section 4.
 
 ## Where do the learned programs come from?
 
-Constructivist epistemology, presented in Lesson 3, provides us with a possible answer to this question: the learned programs can come from the same place where all of the agent's knowledge comes from: regularities of interaction. This leads us to Lesson 4's key concept:
+Constructivist epistemology, presented in Section 3, provides us with a possible answer to this question: the learned programs can come from the same place where all of the agent's knowledge comes from: regularities of interaction. This leads us to Section 4's key concept:
 
 `Self-programming consists of the re-enaction of regularities of interaction.`
 
@@ -68,7 +68,7 @@ Self-programming results in a bottom-up automatization of behaviors so that the 
 
 The agent represents its current context in terms of previously learned abstract episodes of interaction. This amounts to modeling the environment in terms of abstract affordances, as, for example, Gibson suggests in his [theory of affordances](http://en.wikipedia.org/wiki/Affordance).
 
-This learning process is incremental and open-ended; it only stops when it runs out of memory for recording new sequences. Memory could be optimized, for example, by deleting (forgetting) sequences that have not been used for a while, but we did not implement this for the sake of simplicity. More fundamentally, regularities should be used to construct a coherent model of the world; we will examine this issue further in Lesson 6.
+This learning process is incremental and open-ended; it only stops when it runs out of memory for recording new sequences. Memory could be optimized, for example, by deleting (forgetting) sequences that have not been used for a while, but we did not implement this for the sake of simplicity. More fundamentally, regularities should be used to construct a coherent model of the world; an issue to be examined further in Section 6.
 
 ## 4.3: Architecture of a recursive self-programming agent
 
@@ -133,7 +133,7 @@ The whole program is called _Existence_. The lower dashed line (Line 2) separate
 
 As the agent develops, it constructs abstract possibilities of interaction (composite interactions) that it can enact with reference to the reactive part. From the agent's cognitive point of view (the proactive part), the reactive part appears as an _abstract environment_ -- abstracted away from the real environment by the agent itself. Line 1 represents what we call the _cognitive coupling_ between the agent and its environment.
 
-In Lessons 5 and 6, we will discuss the question of increasing the complexity associated with these different levels of coupling.
+In Sections 5 and 6, we will discuss the question of increasing the complexity associated with these different levels of coupling.
 
 ## 4.4: The construction of reality in the developmental agent
 
@@ -145,7 +145,7 @@ For the `anticipate()` function to work similarly with composite interactions as
 
 See how this problem fits nicely with the constructivist learning challenge (introduced in the readings in §3.6): learning to interpret sensorimotor interactions as consisting of performing experiments on an external reality, and to interpret the results of these experiments as information about that reality.
 
-The rest of this section presents the first-step towards addressing this challenge. We will develop this question further in the next lesson.
+The rest of this section presents the first-step towards addressing this challenge. We will develop this question further in the next.
 
 ## Recursively learning composite interactions
 
@@ -178,23 +178,23 @@ Project 4 implements the algorithm described in §4.3 and §4.4 to let you run y
 
 ```
 Program.cs ← Edit to instantiate Existence040.
-existence / Existence040
-coupling / Experiment040 ← Now, experiments have an intended interaction.
-coupling / interaction / Interaction040 ← Now, interactions have an experiment to perform.
+existence / Existence040.cs
+coupling / Experiment040.cs ← Now, experiments have an intended interaction.
+coupling / interaction / Interaction040.cs ← Now, interactions have an experiment to perform.
 ```
 
-For Lesson 4, your programming activities are:
+For Section 4, your programming activities are:
 
-1. Change Program.cs to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next section
-2. Change `Existence040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be pleased.
+1. Change Program.cs to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next section.
+2. Change `Existence040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be `PLEASED`.
 
-Lesson 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less (first-level composite interactions).
+Section 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less (first-level composite interactions).
 
-However, `Existence040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next lesson with _Radical Interactionism_, which removes the notion of primitive experiments and considers all experiments as abstract.
+However, `Existence040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next section with _Radical Interactionism_, which removes the notion of primitive experiments and considers all experiments as abstract.
 
 ## 4.6: Behavioral analysis of a self-programming agent
 
-Table 4.6 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to §4.4 and §4.5 to understand this trace. Observe that the system learns to be always `PLEASED` from Decision 23 (on Line 197) by alternatively enacting the composite interactions ⟨e2r1e2r2⟩ and ⟨e1r1e1r2⟩.
+Table 4.6 shows the trace that you should see in your console if you ran Project 4. If you did not run it, you can refer to §4.4 and §4.5 to understand this trace. Observe that the system learns to be always `PLEASED` from Decision 23 (on Line 197) by alternatively enacting the composite interactions `⟨e2r1e2r2⟩` and `⟨e1r1e1r2⟩`.
 
 ```
 Table 4.6: Activity trace of a rudimentary self-programming agent.
@@ -424,4 +424,4 @@ On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to 
 * Georgeon & Marshall (2013). Demonstrating sensemaking emergence in artificial agents: A method and an example. International Journal of Machine Consciousness, 5(2), pp 131-144.
 * An issue of AGI devoted to self-programming. Great reference to support self-programming! Thórisson, Nivel, Sanz, & Wang (2013). Approaches and Assumptions of Self-Programming in Achieving Artificial General Intelligence. Journal of Artificial General Intelligence. 3(3), 1-10.
 
-This ends Lesson 4.
+This ends Section 4.
