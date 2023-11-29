@@ -83,7 +83,7 @@ You can observe in the trace that, as long as the agent is not `BORED`, it choos
 
 You will find that there is not a unique solution to associate these two motivational principles. For example, you will have to choose where the boredom comes from; it may come from enacting always the same interaction or simply from always being pleased. It is likely that different developers will implement different agents that generate different behaviors, and this is perfectly fine. You can just follow the _ideal guideline_: Implement the simplest you can.
 
-If you are re-implementing this project in a different language, it is not necessary to reproduce the hierarchy of classes. You can simply modify your previous version to integrate the changes shown in Project 2. The hierarchy of classes has only been done for pedagogical purpose, to highlight the changes from one version to the next. This incremental approach will be followed throughout the next sections.
+Note that it is not necessary to reproduce the hierarchy of classes in a single codebase by combining the branches. You can simply modify your previous version to integrate the changes shown in Project 2. The hierarchy of classes is done for pedagogical purposes to highlight the changes from one version to the next making knowledge more bit-wise. This incremental approach will be followed throughout the next sections.
 
 ## 2.4: Behavioral analysis of an interactionally motivated agent
 
