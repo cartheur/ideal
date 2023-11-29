@@ -160,7 +160,7 @@ Figure 4.4 distinguishes between the _Interaction Time_ (arrow at the bottom cor
 
 When a new composite interaction $i_c$ is added to the set $I_d$ of known interactions at time $t_d$, a new abstract experiment $e_a$ is added to the set $E_d$ of known experiments at time $t_d$, and a new abstract result $r_a$ is added to the set $R_d$ of known results at time $t_d$, such that $i_c = ⟨e_a,r_a⟩$.
 
-Abstract experiments are called _abstract_ because the environment cannot process them directly. The environment (or robot's interface) is only programmed to interpret a predefined set of experiments that we now call _concrete_. To perform an abstract experiment $e_a$, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction $i_c$ from which the abstract experiment $e_a$ was constructed.
+Abstract experiments are called _abstract_ because the environment cannot process them directly. The environment (or an automata's interface) is only programmed to interpret a predefined set of experiments now termed _concrete_. To perform an abstract experiment $e_a$, the agent must perform a series of concrete experiments and check their results. That is, the agent must try to enact the composite interaction $i_c$ from which the abstract experiment $e_a$ was constructed.
 
 If the `chooseExperiment()` function chooses experiment $e_a$, then the system tries to enact $i_c$. If this tentative enaction fails and results in the enacted composite interaction $e_c ∈ I_{d+1}$, then the system creates the abstract result $r_f ∈ R_{d+1}$, so that $e_c = ⟨e_a,r_f⟩$.
 
@@ -188,7 +188,7 @@ For Section 4, your programming activities are:
 1. Change Program.cs to instantiate `Existence040` and run it. Make sure that you obtain the trace shown in the next section.
 2. Change `Existence040` to instantiate `Environment010` and then `Environment030` instead of `Environment040` and run it. Observe that the modified `Existence040` can still learn to be `PLEASED`.
 
-Section 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less (first-level composite interactions).
+Section 4 shows that `Existence040` can adapt to three different environments (`Environment010`, `Environment030`, and `Environment040`). In fact, it can adapt to environments that require enacting sequences consisting of two steps or less -- first-level composite interactions.
 
 However, `Existence040` makes bad decisions in environments that require longer sequences. This is because the algorithm does not yet process abstract experiments in the exact same way as primitive experiments, which stops it from being fully recursive. We will address this problem in the next section with _Radical Interactionism_, which removes the notion of primitive experiments and considers all experiments as abstract.
 
@@ -414,7 +414,7 @@ Table 4.6: Activity trace of a rudimentary self-programming agent.
 ```
 Lines 1-2: predefined experiments are proposed with a default proclivity of `0`. Proposals are sorted by decreasing proclivity. The first proposed experiment is selected: `e1`. Lines 3-4: Decision 0: The interaction `e1r1` is enacted. The system is `PAINED` because this interaction has a negative valence (`-1`).
 
-Line 8: the first composite interaction `⟨e1r1e1r2⟩` is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted `⟨E1R1E1R2|` (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction ⟨`e1r1e1r2`⟩ (Line 202).
+Line 8: the first composite interaction `⟨e1r1e1r2⟩` is learned from the primitive interaction e1r1 enacted on Decision 0 (Line 3) and the primitive interaction `e1r2` enacted on Decision 1 (Line 7). Simultaneously, the system records an abstract experiment noted `⟨E1R1E1R2|` (not in the trace). This experiment will be proposed for the first time on Decision 16 (Line 136) but not selected. It is proposed again on Decision 24 (Line 198) and selected, resulting in the successful enaction of composite interaction `⟨e1r1e1r2⟩` (Line 202).
 
 On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to the tentative enaction of composite interaction `⟨e1r2e1r1⟩`. This tentative enaction failed due to obtaining result `r1` instead of the expected result `r2`, thus resulting in the enaction of primitive interaction `e1r1` instead (Line 64). The abstract result `|E1R1⟩` is created, as well as the enacted interaction `⟨E1R2E1R1|E1R1⟩`, using the notation introduced in §4.4.
 
@@ -422,6 +422,6 @@ On Decision 8, the experiment `⟨E1R2E1R1|` was selected (Line 58), leading to 
 
 * The best reference to explain why self-programming is a prerequisite for autonomous sense-making is Froese & Ziemke (2009). Enactive artificial intelligence: Investigating the systemic organization of life and mind. Journal of Artificial Intelligence, 173(3-4): 466-500. This article invokes the concept of constitutive autonomy, which, I argue, can be achieved through self-programming.
 * Georgeon & Marshall (2013). Demonstrating sensemaking emergence in artificial agents: A method and an example. International Journal of Machine Consciousness, 5(2), pp 131-144.
-* An issue of AGI devoted to self-programming. Great reference to support self-programming! Thórisson, Nivel, Sanz, & Wang (2013). Approaches and Assumptions of Self-Programming in Achieving Artificial General Intelligence. Journal of Artificial General Intelligence. 3(3), 1-10.
+* An issue of AGI devoted to self-programming and a great reference to support the ideal of self-programming. Thórisson, Nivel, Sanz, & Wang (2013). Approaches and Assumptions of Self-Programming in Achieving Artificial General Intelligence. Journal of Artificial General Intelligence. 3(3), 1-10.
 
 This ends Section 4.
