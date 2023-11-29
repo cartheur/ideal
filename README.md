@@ -67,9 +67,9 @@ Notably, if more interactions were specified, the agent would stick to the first
 
 If you have no interest in programming, then you can skip the rest of this section and proceed to the next.
 
-If you are doing the programming activities, then begin with running Existence020.cs (below), which implements the algorithm in Table 23, and observe that you obtain the trace shown in Table 2.4.
+If you are doing the programming activities, then begin with running Existence020, which implements the algorithm in Table 2.3, and observe that you obtain the trace shown in Table 2.4.
 
-Project 2 [sensimotor branch] (files to modify or to add to Project 1):
+Project 2 files to modify or to add to Project 1:
 
 ```
 Program.cs ← Uncomment the instruction to run Existence020 instead of Existence010.
