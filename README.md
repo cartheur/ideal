@@ -13,7 +13,7 @@ The key concept to convey in Section 3 is:
 
 _Regularities of interaction_ -- or simply, _regularities_ -- are patterns of interaction that occur consistently. Regularities depend on the coupling between the agent and the environment. That is, they depend both on the structure of the environment and on the possibilities of interaction that the agent has at its disposal.
 
-This statement emanates from Immanuel Kant, whose _Critique of Pure Reason_ and refinements by Arthur Schopenhauer _On the Fourfold Root of the Principle of Sufficient Reason_ and _The World as Will and Representation_, of the proof that cognitive systems can never know "the world as such" but only the world as it appears to them through sensorimotor interactions. For example, in some situations, if you spread your arm repeatedly, and if you consistently experience the same sensorimotor pattern, you may infer that there is something constant _out there_ an environemnt exteral to the self that consistently makes this same sensorimotor pattern possible. Regularities can be experienced through arbitrarily complex _instruments_, which may range from a stick or rope in your hand (depending on your contextual expression) to complex experimental settings such as those used by physicists to interact with _something out there_, phenomena known as electromagnetism.
+This statement emanates from Immanuel Kant, whose _Critique of Pure Reason_ and refinements by Arthur Schopenhauer _On the Fourfold Root of the Principle of Sufficient Reason_ and _The World as Will and Representation_, of the proof that cognitive systems can never know "the world as such" but only the world as it appears to them through sensorimotor interactions. For example, in some situations, if you extend your forarm at your elbow repeatedly where you consistently experience the same sensorimotor pattern, you will infer that there is something constant _out there_ -- an environemnt exteral to the self that consistently makes this same sensorimotor pattern possible. Regularities can be experienced through arbitrarily complex _instruments_, which may range from a stick or rope in your hand (depending on your contextual expression) to complex experimental settings such as those used by physicists to interact with _something out there_, phenomena known as electromagnetism.
 
 These philosophical ideas translate into machine intelligence when we acknowledge the fact that knowledge is constructed from regularities of interactions rather than recorded from input data. Designing a system that would construct complete knowledge of the world out there and exploit this model is the lesser-known but more powerful long-term objective. To absorb this problem gradually, Section 3 begins with implementing an agent that can detect simple sequential regularities and exploit them to satisfy its rudimentary motivational system.
 
@@ -68,7 +68,7 @@ Table 3.1, lines 01 to 04 initialize the primitive interactions (similar to §2.
 
 Lines 09 to 13 implement the environment. This new environment was designed to demonstrate the benefit of learning two-step regularities of interaction. If the experiment equals the previous experiment then result is `r1`, otherwise the result is `r2`.
 
-Lines 14 to 18: the enacted interaction is retrieved from memory; and the agent is pleased if its valence is positive (similar to §2.3). Line 19: the agent records the composite interaction as a tuple ‹`contextInteraction`, `enactedInteraction`› in memory.
+Lines 14 to 18: the enacted interaction is retrieved from memory; and the agent is pleased if its valence is positive (similar to §2.3). Line 19: the agent records the composite interaction as a tuple `‹contextInteraction, enactedInteraction›` in memory.
 
 Table 3.2 presents a simple version of the `learnCompositeInteraction()`, `anticipate()`, and `selectExperiment()` functions.
 
@@ -135,7 +135,7 @@ Now, the `learnCompositeInteraction()` function either records or reinforces com
 
 If you have no interest in programming, you can skip to the next section.
 
-Project 3 (files to modify or to add to Project 2)
+Project 3, files to modify or to add to Project 2:
 
 ```
 Program.cs ← Uncomment the instructions to instantiate Existence030 or Existence031.
@@ -148,13 +148,14 @@ coupling / interaction / Interaction030.cs ← Now, Interactions can be primitiv
 coupling / interaction / Interaction031.cs ← Interaction031s have a weight.
 ```
 
-For Lesson 3, your programming activities are:
+For Section 3, the programming activities are:
 
 1. Change Program.cs to instantiate `Existence030` and run it. Observe that the trace is similar to that in the next section.
 2. Change `Existence030` to instantiate Environment010 instead of `Environment030` and run it. Observe that the modified `Existence030` also learns to get pleased when it implements `Environment010` instead of `Environment030`.
 3. Change Program.cs to instantiate `Existence031` and run it. Observe that it learns to be pleased in `Environment031`.
 4. Change `Existence031` to instantiate `Environment010` and then `Environment030` and run it. Observe that the modified `Existence031` also learns to be pleased when it implements `Environment010`, `Environment030`, and `Environment031`.
-Lesson 3 shows that `Existence031` can adapt to three different environments (`Environment010`, `Environment030`, `Environment031`). However, `Existence031` will fail in environments that require learning regularities longer than two interaction cycles. Future lessons teach to design agents that can learn and exploit arbitrarily long regularities of interaction.
+
+Section 3 shows that `Existence031` can adapt to three different environments (`Environment010`, `Environment030`, `Environment031`). However, `Existence031` will fail in environments that require learning regularities longer than two interaction cycles. Future sections teach to design agents that can learn and exploit arbitrarily long regularities of interaction.
 
 ## 3.4: Behavioral analysis of a rudimentary constructivist agent
 
@@ -184,7 +185,7 @@ learn e1r2e2r2
 5: PLEASED
 ```
 
-Your activity, for Lesson 3, is to understand the trace in Table 3.4. On Cycle 0, why did the agent choose `e1`? Why did it receive `r2`? On Cycle 1, why did it choose `e1` again? Why did it receive `r1`? On Cycle 3, why did it choose `e2` and received `r2`? What will the agent do after cycle 5, and what will be its mood?
+Your activity, for Section 3, is to understand the trace in Table 3.4. On Cycle 0, why did the agent choose `e1`? Why did it receive `r2`? On Cycle 1, why did it choose `e1` again? Why did it receive `r1`? On Cycle 3, why did it choose `e2` and received `r2`? What will the agent do after cycle 5, and what will be its mood?
 
 ## 3.5: Selected readings on constructivist epistemology for artificial intelligence
 
@@ -193,4 +194,4 @@ Your activity, for Lesson 3, is to understand the trace in Table 3.4. On Cycle 0
 * A nice argument in favor of constructivist learning in robotics, which paraphrases Piaget's famous book, is: Ziemke T. (2001). The Construction of 'Reality' in the Robot: Constructivist Perspectives on Situated Artificial Intelligence and Adaptive Robotics. Foundations of Science, special issue on "The Impact of Radical Constructivism on Science", edited by A. Riegler, 2001, vol. 6, no. 1-3: 163-233.
 * For those who do read French, I hightly recommend Jean-Louis Le Moigne (1995). Les �pist�mologies constructivistes Que sais-je? Presse Universitaire de France. This short book discusses constructivist epistemology from a philosophical perspective, making it a helpful initial guide to constructivist thought and design.
 
-This ends Lesson 3.
+This ends Section 3.
