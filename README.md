@@ -25,7 +25,7 @@ The agent is not a passive observer of reality, but rather constructs a percepti
 
 Those of you who have a background in cognitive science or psychology are probably already familiar with this idea theoretically. In Section 1, however, we wish to introduce how this idea translates into the practical design of artificial agents, robots, and automata that are, in essence, a running program executed on computer hardware.
 
-## 1.2: Agent and robot design according to the embodied paradigm
+## 1.2: Agent, robot, and automata design according to the embodied paradigm
 
 The embodied paradigm suggests shifting perspective from:
 - the traditional view in which the agent interprets input data as if it represented the environment (Figure 1.2/left),
@@ -48,7 +48,7 @@ In the embodied view, we design the agent's input, called result $r$ in Figure 1
 Table 1.3 presents the algorithm of a rudimentary embodied system.
 
 ```
-Table 1.3: algorithm of a rudimentary embodied system.
+Table 1.3: Algorithm of a rudimentary embodied system.
 
 01   experiment = e1
 02   Loop(cycle++)
@@ -72,22 +72,19 @@ Table 1.3: algorithm of a rudimentary embodied system.
 20      print cycle, experiment, result, mood
 ```
 
+Table 1.3, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the `anticipate(experiment)` function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: `e1` always yields `r1`, and other experiments always yield `r2`. Line 11: the agent records (posits) the tuple `⟨experiment, result⟩` into memory. Lines 12 to 17: if the result was anticipated correctly then the agent is `SELF-SATISFIED`, otherwise it is `FRUSTRATED`. Lines 18 and 19: if the agent has been self-satisfied for too long -- arbitrarily set to three cycles -- then it becomes `BORED`.
 
-Table 1.3, Lines 03 to 05: if the agent is bored, it picks another experiment arbitrarily from amongst the predefined list of experiments at its disposal. Line 06: the anticipate(experiment) function searches memory for a previously learned tuple that matches the chosen experiment, and returns its result as the next anticipated result. Lines 07 to 10 implement the environment: e1 always yields r1, and other experiments always yield r2. Line 11: the agent records the tuple ⟨experiment, result⟩ in memory. Lines 12 to 17: if the result was anticipated correctly then the agent is self-satisfied, otherwise it is frustrated. Lines 18 and 19: if the agent has been self-satisfied for too long (arbitrarily 3 cycles), then it becomes bored.
+Notably, this system implements a single program called _Existence_ which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as promised in the previous section.
 
-Notably, this system implements a single program called Existence which does not explicitly differentiate the agent from the environment. Lines 07 to 10 are considered the environment, and the other lines the agent. The environment does not have a state, as we promised in the previous page.
+If you have no interest in programming, then you can skip the rest of this section and proceed to the next.
 
-If you have no interest in programming, then you can skip the rest of this page and proceed to the next page.
+If you an have interest in programming, but do not wish to do the optional programming activities, it is recommended you browse through Project 1 below, just to get a sense of the meaning inherent in the code.
 
-If you an have interest in programming, but do not wish to do the optional programming activities, then we recommend you browse through Project 1 below, just to get a sense of how the code is organized.
+If you wish to do the optional programming activities, then your activity for Section 1 is to install Project 1 in your favorite development environment -- any IDE, for example, VsCode is used here, and run it. You should get a trace similar to that shown in the next section.
 
-If you wish to do the optional programming activities, then your activity for Section 1 is to install Project 1 in your favorite development environment (any IDE, for example, we use Eclipse), and run it. You should get a trace similar to that shown on the next page. If you do not like java, well, you may reprogram it in the language of your choice.
+To install Project 1, clone this repository using the command `git clone https://github.com/cartheur/ideal`. Note that it is on the `01-embodied-paradigm` branch.
 
-To install Project 1, you can either:
-
-Check out the project from the svn repository using your favorite svn tool (for example, we use subclipse in Eclipse). For now, you can ignore all the code that is not listed below, or copy/paste or download the java files from the links below.
 Project 1:
-
 
 ```
 Program.cs
@@ -100,8 +97,7 @@ coupling / interaction / Interaction010.cs
 ```
 ## 1.4: Behavioral analysis of an embodied system based on its activity trace
 
-Table 1.4 shows the trace that you should see in the console if you ran Project 1. If you did not run it, we suggest you review the algorithm presented on the previous page to understand the trace.
-
+Table 1.4 shows the trace that you should see in the console if you ran Project 1. If you did not run it, review the algorithm presented on the previous section to understand the trace.
 
 ```
 Table 1.4: activity trace of a rudimentary embodied system.
@@ -119,9 +115,9 @@ Table 1.4: activity trace of a rudimentary embodied system.
 10: e1r1 SELF-SATISFIED
 ```
 
-Your activity, for Section 1, is to understand the trace in Table 1.4. What does "e1r1" mean on Cycle 0? Why is the agent frustrated on Cycles 0 and 5? Why is it bored on Cycle 4? Why is it not frustrated on Cycle 10?
+Your activity, for Section 1, is to understand the trace in Table 1.4. What does `e1r1` mean on Cycle 0? Why is the agent `FRUSTRATED` on Cycles 0 and 5? Why is it `BORED` on Cycle 4? Why is it not `FRUSTRATED` on Cycle 10?
 
-## 1.5: Readings about the embodied paradigm.
+## 1.5: Readings about the embodied paradigm
 
 For more information about the embodied paradigm, here is a short list of selected readings:
 
