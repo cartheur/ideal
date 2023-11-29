@@ -7,7 +7,7 @@ This branch contains the module 020 that expands upon the code to create continu
 
 # Section 2: An introduction to the sensorimotor paradigm
 
-The key concept that we want to convey in Section 2 is:
+The key concept to convey in Section 2 is:
 
 `Focus on sensorimotor interactions rather than separating perception from action.`
 
