@@ -81,9 +81,9 @@ Additionally, your programming activity is to modify Existence020.cs so that the
 
 You can observe in the trace that, as long as the agent is not `BORED`, it chooses experiments that result in interactions that have a positive valence, and when it gets bored, it chooses another experiment even though it knows that this experiment may result in a painful interaction.
 
-You will find that there is not a unique solution to associate these two motivational principles. For example, you will have to choose where the boredom comes from; it may come from enacting always the same interaction or simply from always being pleased. It is likely that different developers will implement different agents that generate different behaviors, and this is perfectly fine. You can just follow the _ideal guideline_: Implement the simplest you can.
+You will find that there is not a unique solution to associate these two motivational principles. For example, you will have to choose where the boredom comes from; it may come from enacting always the same interaction or simply from always being pleased. It is likely that different developers will implement different agents that generate different behaviors, and this is perfectly fine. Regardless of your approach, follow the _ideal guideline_: Implement the simplest you can.
 
-Note that it is not necessary to reproduce the hierarchy of classes in a single codebase by combining the branches. You can simply modify your previous version to integrate the changes shown in Project 2. The hierarchy of classes is done for pedagogical purposes to highlight the changes from one version to the next making knowledge more bit-wise. This incremental approach will be followed throughout the next sections.
+Note that it is not necessary to reproduce the hierarchy of classes in a single codebase by combining the branches. You can simply modify your previous version to integrate the changes shown in Project 2, or select each of the brances in VSCode. The hierarchy of classes is done for pedagogical purposes to highlight the changes from one version to the next making knowledge more bit-wise. This incremental approach will be followed throughout the next sections.
 
 ## 2.4: Behavioral analysis of an interactionally motivated agent
 
