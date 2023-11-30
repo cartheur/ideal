@@ -1,6 +1,6 @@
 # ideal
 
------   *I*mplementation of *DE*velopment*A*l *L*earning    -----
+### -----   *I*mplementation of *DE*velopment*A*l *L*earning    -----
 
 
 An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module. Where we start is the concept of the _embodied paradigm_.
