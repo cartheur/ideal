@@ -4,3 +4,5 @@ Development notes for ideal (all branches)
 21.05.2024
 	1342: To support the .initiative on the 01 branch, here are observations and thoughts as I work-through the codebase and evolve the concept as a(n ideal) hybridization of precise and imprecise computation.
 	1358: To reference this evolution properly, the java version is cartheur/ideal-java.
+	1415: It seems development has stopped with the unstable implmenetion on the 03 branch and the other subsequent branches are not completed.
+
