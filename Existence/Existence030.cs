@@ -5,8 +5,7 @@ using Ideal.Agent;
 namespace Ideal.Existence
 {
     /// <summary>
-    /// Existence030 is a sort of Existence020. It learns composite interactions(Interaction030).  It bases its next choice on anticipations that can be made from reactivated composite interactions.
-    /// Existence030 illustrates the benefit of basing the next decision upon the previous enacted Interaction.
+    /// Existence030 is a sort of Existence020. It learns composite interactions(Interaction030).  It bases its next choice on anticipations that can be made from reactivated composite interactions. Existence030 illustrates the benefit of basing the next decision upon the previous enacted Interaction.
     /// </summary>
     public class Existence030 : Existence020
     {
@@ -103,7 +102,7 @@ namespace Ideal.Existence
 
             if (anticipations.Count > 0)
             {
-                Interaction030 affordedInteraction = anticipations[0].GetInteraction() as Anticipation030;
+                Interaction030 affordedInteraction = (Anticipation030)anticipations[0].GetInteraction();
                 if (affordedInteraction.GetValence() >= 0)
                     intendedInteraction = affordedInteraction;
                 else

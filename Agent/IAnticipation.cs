@@ -8,7 +8,6 @@ namespace Ideal.Agent
     /// <seealso cref="IComparable&lt;IAnticipation&gt;" />
     public interface IAnticipation : IComparable<IAnticipation>
     {
-        void AddProclivity(int proclivity);
-        Anticipation030 GetInteraction();
+        //Anticipation030 GetInteraction();
     }
 }

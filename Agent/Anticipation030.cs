@@ -24,15 +24,5 @@ namespace Ideal.Agent
         {
             return ((int)((Anticipation030)anticipation).GetInteraction().GetValence()).CompareTo(_interaction.GetValence());
         }
-
-        public void AddProclivity(int proclivity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Anticipation030 IAnticipation.GetInteraction()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
