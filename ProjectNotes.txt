@@ -8,4 +8,6 @@ Development notes for ideal (all branches)
 24.11.2024
 	1841: This project brought into active status due to the need to move forth.
 	1842: Can we get some "debugging" for ideal-level-3? The request proper: "I have been taking care of other stuff hence didn't finish coding IDEAL-3, if that would help let me know.  When I do, I'd like some additional debug snapshots from your current code to make sure I am getting the same intermediate results."
+27.11.2024
+	1143: Dedicating time. Also a meeting between Greg and myself at 1600. Will discuss, among other things, the GA numbers for the financial profile excel.
 
