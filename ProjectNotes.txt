@@ -11,3 +11,6 @@ Development notes for ideal (all branches)
 27.11.2024
 	1143: Dedicating time. Also a meeting between Greg and myself at 1600. Will discuss, among other things, the GA numbers for the financial profile excel.
 	1145: Branch 03. Line 105. Stopped with: Interaction030 affordedInteraction = (Anticipation030)anticipations[0].GetInteraction(); from the refactoring exercise. Also, how can the internals of the algorithm me more transparent than output to log?
+30.11.2024
+	1237: Bringing ideal to arm64 since the most relevant format.
+	
