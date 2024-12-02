@@ -1,14 +1,14 @@
-﻿namespace Cartheur.Ideal.Coupling.Interaction
+﻿namespace Ideal.Coupling.Interaction
 {
     /// <summary>
     /// An interaction010 is the association of an experience with a result.
     /// </summary>
-    /// <seealso cref="Cartheur.Ideal.Coupling.Interaction.Interaction" />
+    /// <seealso cref="Ideal.Coupling.Interaction.Interaction" />
     public class Interaction010 : Interaction
     {
-        private readonly string _label;
-        protected Experiment experience;
-        protected Result result;
+        protected string _label;
+        protected Experiment _experience;
+        protected Result _result;
 
         public Interaction010(string label)
         {
@@ -20,29 +20,29 @@
             return _label;
         }
 
-        public Experiment GetExperience()
+        public virtual Experiment GetExperience()
         {
-            return experience;
+            return _experience;
         }
 
         public void SetExperience(Experiment experience)
         {
-            this.experience = experience;
+            _experience = experience;
         }
 
         public Result GetResult()
         {
-            return result;
+            return _result;
         }
 
         public void SetResult(Result result)
         {
-            this.result = result;
+            _result = result;
         }
 
-        public string ToString()
+        public override string ToString()
         {
-            return experience.GetLabel() + result.GetLabel();
+            return _experience.GetLabel() + _result.GetLabel();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Cartheur.Ideal.Coupling.Interaction
+﻿namespace Ideal.Coupling.Interaction
 {
     public interface Interaction
     {
