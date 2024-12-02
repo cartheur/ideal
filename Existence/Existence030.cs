@@ -72,7 +72,7 @@ namespace Ideal.Existence
             return interaction;
         }
 
-        protected new Interaction030 CreateInteraction(String label)
+        protected new Interaction030 CreateInteraction(string label)
         {
             return new Interaction030(label);
         }
@@ -102,7 +102,8 @@ namespace Ideal.Existence
 
             if (anticipations.Count > 0)
             {
-                Interaction030 affordedInteraction = (Anticipation030)anticipations[0].GetInteraction();
+                // Cast the first anticipation to Anticipation030 to access GetInteraction method.
+                Interaction030 affordedInteraction = ((Anticipation030)anticipations[0]).GetInteraction();
                 if (affordedInteraction.GetValence() >= 0)
                     intendedInteraction = affordedInteraction;
                 else
