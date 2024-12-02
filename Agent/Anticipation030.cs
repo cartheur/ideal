@@ -20,7 +20,7 @@ namespace Ideal.Agent
             return _interaction;
         }
 
-        public int CompareTo(IAnticipation anticipation)
+        public virtual int CompareTo(IAnticipation anticipation)
         {
             return ((int)((Anticipation030)anticipation).GetInteraction().GetValence()).CompareTo(_interaction.GetValence());
         }

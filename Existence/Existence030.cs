@@ -71,7 +71,7 @@ namespace Ideal.Existence
             return interaction;
         }
 
-        protected new Interaction030 CreateInteraction(string label)
+        protected override Interaction030 CreateInteraction(string label)
         {
             return new Interaction030(label);
         }
@@ -94,7 +94,7 @@ namespace Ideal.Existence
             return anticipations;
         }
 
-        protected virtual Interaction030 SelectInteraction(List<IAnticipation> anticipations)
+        public virtual Interaction030 SelectInteraction(List<IAnticipation> anticipations)
         {
             anticipations.Sort();
             Interaction intendedInteraction;

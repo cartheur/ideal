@@ -66,12 +66,12 @@ namespace Ideal.Existence
             return interaction;
         }
 
-        protected new Interaction020 CreateInteraction(string label)
+        protected override Interaction020 CreateInteraction(string label)
         {
             return new Interaction020(label);
         }
 
-        protected new Interaction020 GetInteraction(string label)
+        protected override Interaction020 GetInteraction(string label)
         {
             return (Interaction020)Interactions[(label)];
         }

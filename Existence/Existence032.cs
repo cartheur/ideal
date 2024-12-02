@@ -37,7 +37,7 @@ namespace Ideal.Existence
             return "" + this.GetMood();
         }
 
-        protected override Interaction032 SelectInteraction(List<IAnticipation> anticipations)
+        public override Interaction032 SelectInteraction(List<IAnticipation> anticipations)
         {
             anticipations.Sort();
             foreach (IAnticipation anticipation in anticipations)
@@ -72,7 +72,7 @@ namespace Ideal.Existence
 
             foreach (IAnticipation anticipation in anticipations)
             {
-                foreach (Interaction interaction in ((Interaction032)((Anticipation032)anticipation).GetInteraction()).GetAletnerateInteractions())
+                foreach (Interaction interaction in ((Interaction032)((Anticipation032)anticipation).GetInteraction()).GetAlternateInteractions())
                 {
                     foreach (Interaction activatedInteraction in activatedInteractions)
                     {
@@ -95,7 +95,7 @@ namespace Ideal.Existence
         protected override List<IAnticipation> GetDefaultAnticipations()
         {
             List<IAnticipation> anticipations = new List<IAnticipation>();
-            foreach (Interaction i in this.INTERACTIONS.Values)
+            foreach (Interaction i in anticipations)
             {
                 Interaction032 interaction = (Interaction032)i;
                 if (interaction.IsPrimitive())

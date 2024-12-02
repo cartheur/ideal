@@ -13,7 +13,7 @@ namespace Ideal.Existence
         protected Dictionary<string, Result> Results = new Dictionary<string, Result>();
         protected Dictionary<string, Interaction> Interactions = new Dictionary<string, Interaction>();
 
-        protected int BOREDOME_LEVEL = 4;
+        protected int BoredomLevel = 4;
 
         public string LABEL_E1 = "e1"; 
 	    public string LABEL_E2 = "e2"; 
@@ -66,7 +66,7 @@ namespace Ideal.Existence
         /// </summary>
         /// <param name="label">The label.</param>
         /// <returns></returns>
-        protected static Interaction010 CreateInteraction(string label)
+        protected virtual Interaction010 CreateInteraction(string label)
         {
             return new Interaction010(label);
         }
@@ -75,7 +75,7 @@ namespace Ideal.Existence
         /// </summary>
         /// <param name="label">The label of this interaction.</param>
         /// <returns>The interaction.</returns>
-        protected Interaction GetInteraction(string label)
+        protected virtual Interaction GetInteraction(string label)
         {
             return (Interaction)Interactions[label];
         }
@@ -233,7 +233,7 @@ namespace Ideal.Existence
                 SetMood(Mood.Frustrated);
                 SetSelfSatisfactionCounter(0);
             }
-            if (GetSelfSatisfactionCounter() >= BOREDOME_LEVEL)
+            if (GetSelfSatisfactionCounter() >= BoredomLevel)
                 SetMood(Mood.Bored);
 
             SetPreviousExperience(experience);

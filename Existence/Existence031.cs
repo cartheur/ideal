@@ -47,7 +47,7 @@ namespace Ideal.Existence
             }
         }
 
-        protected new Interaction031 CreateInteraction(string label)
+        protected override Interaction031 CreateInteraction(string label)
         {
             return new Interaction031(label);
         }
@@ -71,7 +71,7 @@ namespace Ideal.Existence
             return anticipations;
         }
 
-        protected List<IAnticipation> GetDefaultAnticipations()
+        protected virtual List<IAnticipation> GetDefaultAnticipations()
         {
             List<IAnticipation> anticipations = new List<IAnticipation>();
             foreach (Experiment experience in Experiences.Values)
