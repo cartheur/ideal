@@ -20,7 +20,7 @@ namespace Ideal.Existence
 	    public string LABEL_R1 = "r1";
 	    public string LABEL_R2 = "r2";
 
-	    public enum Mood { SELF_SATISFIED, FRUSTRATED, BORED, PAINED, PLEASED };
+	    public enum Mood { SelfSatisfied, Frustrated, Bored, Pained, Pleased };
         /// <summary>
         /// Initializes a new instance of the <see cref="Existence010"/> class.
         /// </summary>
@@ -207,11 +207,11 @@ namespace Ideal.Existence
         /// <returns>
         /// S string representing the "event of intelligence" that was performed.
         /// </returns>
-        public string Step()
+        public virtual string Step()
         {
 
             Experiment experience = GetPreviousExperience();
-            if (GetMood() == Mood.BORED)
+            if (GetMood() == Mood.Bored)
             {
                 experience = GetOtherExperience(experience);
                 SetSelfSatisfactionCounter(0);
@@ -225,16 +225,16 @@ namespace Ideal.Existence
 
             if (result == anticipatedResult)
             {
-                SetMood(Mood.SELF_SATISFIED);
+                SetMood(Mood.SelfSatisfied);
                 IncrementSelfSatisfactionCounter();
             }
             else
             {
-                SetMood(Mood.FRUSTRATED);
+                SetMood(Mood.Frustrated);
                 SetSelfSatisfactionCounter(0);
             }
             if (GetSelfSatisfactionCounter() >= BOREDOME_LEVEL)
-                SetMood(Mood.BORED);
+                SetMood(Mood.Bored);
 
             SetPreviousExperience(experience);
 

@@ -9,8 +9,8 @@ namespace Ideal
             // Change this line to instantiate another existence:
             //IExistence existence = new Existence010();
             //IExistence existence = new Existence020();
-            IExistence existence = new Existence030();
-            //Existence existence = new Existence031();
+            //IExistence existence = new Existence030();
+            IExistence existence = new Existence031(); // Check the Existence031 class for further options.
             //Existence existence = new Existence032();
             //Existence existence = new Existence040();
             //Existence existence = new Existence050();

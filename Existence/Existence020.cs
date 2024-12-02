@@ -25,10 +25,10 @@ namespace Ideal.Existence
             SetPreviousExperience(e1);
         }
 
-        public new string Step()
+        public override string Step()
         {
             Experiment experience = GetPreviousExperience();
-            if (GetMood() == Mood.PAINED)
+            if (GetMood() == Mood.Pained)
                 experience = GetOtherExperience(experience);
 
             Result result = ReturnResult010(experience);
@@ -36,9 +36,9 @@ namespace Ideal.Existence
             Interaction020 enactedInteraction = (Interaction020)AddOrGetPrimitiveInteraction(experience, result);
 
             if (enactedInteraction.GetValence() >= 0)
-                SetMood(Mood.PLEASED);
+                SetMood(Mood.Pleased);
             else
-                SetMood(Mood.PAINED);
+                SetMood(Mood.Pained);
 
             SetPreviousExperience(experience);
 

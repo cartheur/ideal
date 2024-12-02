@@ -23,7 +23,7 @@ namespace Ideal.Existence
             AddOrGetPrimitiveInteraction(e2, r2, 1);
         }
 
-        public new string Step()
+        public override string Step()
         {
             List<IAnticipation> anticipations = Anticipate();
             Experiment experience = SelectInteraction(anticipations).GetExperience();
@@ -34,9 +34,9 @@ namespace Ideal.Existence
             Console.WriteLine("Enacted " + enactedInteraction.ToString());
 
             if (enactedInteraction.GetValence() >= 0)
-                SetMood(Mood.PLEASED);
+                SetMood(Mood.Pleased);
             else
-                SetMood(Mood.PAINED);
+                SetMood(Mood.Pained);
 
             LearnCompositeInteraction(enactedInteraction);
             SetEnactedInteraction(enactedInteraction);

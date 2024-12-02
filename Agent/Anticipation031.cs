@@ -6,7 +6,7 @@ namespace Ideal.Agent
     /// An Anticipation030 is created for each proposed primitive interaction. An Anticipation030 is greater than another if its interaction has a greater valence than the other's.
     /// </summary>
     /// <seealso cref="Ideal.Agent.Anticipation" />
-    public class Anticipation031 : IAnticipation
+    public class Anticipation031 : IAnticipation, IComparable<IAnticipation>
     {
         int _proclivity;
         static Experiment Experience { get; set; }
@@ -21,14 +21,19 @@ namespace Ideal.Agent
             return Convert.ToInt32(((Anticipation031)anticipation).GetProclivity().CompareTo(_proclivity));
         }
 
-        public new bool Equals(object otherProposition)
-        {
-            return ((Anticipation031)otherProposition).GetExperience() == Experience;
-        }
-
         public Experiment GetExperience()
         {
             return Experience;
+        }
+
+        public override int GetHashCode()
+        {
+            return Experience.GetHashCode() ^ _proclivity.GetHashCode();
+        }
+
+        public override bool Equals(object otherProposition)
+        {
+            return ((Anticipation031)otherProposition).GetExperience() == Experience;
         }
 
         public void SetExperience(Experiment experience)
