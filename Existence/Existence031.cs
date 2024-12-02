@@ -95,7 +95,7 @@ namespace Ideal.Existence
 
         protected new Interaction031 GetInteraction(string label)
         {
-            return (Interaction031)Interactions[label];
+            return (Interaction031)Interactions[label];// this makes sense when the key is not found in the dictionary.
         }
 
         public new Interaction031 GetEnactedInteraction()
