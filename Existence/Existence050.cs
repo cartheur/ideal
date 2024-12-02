@@ -17,7 +17,7 @@ namespace Ideal.Existence
         {
             // You can instantiate another environment here.
             _environment = new Environment050(this);
-            //this.environment = new EnvironmentMaze(this);
+            //_environment = new EnvironmentMaze(this);
         }
 
         public override string Step()
@@ -93,7 +93,7 @@ namespace Ideal.Existence
             return anticipations;
         }
 
-        public Experiment050 AddOrGetAbstractExperience(Interaction040 interaction)
+        public override Experiment050 AddOrGetAbstractExperience(Interaction040 interaction)
         {
             string label = interaction.GetLabel().Replace('e', 'E').Replace('r', 'R').Replace('>', '|');
             if (!Experiences.ContainsKey(label))
@@ -106,7 +106,7 @@ namespace Ideal.Existence
             return (Experiment050)Experiences[label];
         }
 
-        public Interaction040 AddOrGetPrimitiveInteraction(string label, int valence)
+        public virtual Interaction040 AddOrGetPrimitiveInteraction(string label, int valence)
         {
             if (!Interactions.ContainsKey(label))
             {

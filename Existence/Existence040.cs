@@ -118,7 +118,7 @@ namespace Ideal.Existence
             return interaction;
         }
 
-        public Experiment040 AddOrGetAbstractExperience(Interaction040 interaction)
+        public virtual Experiment040 AddOrGetAbstractExperience(Interaction040 interaction)
         {
             string label = interaction.GetLabel().Replace('e', 'E').Replace('r', 'R').Replace('>', '|');
             if (!Experiences.ContainsKey(label))
