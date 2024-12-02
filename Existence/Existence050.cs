@@ -50,7 +50,7 @@ namespace Ideal.Existence
         /// Computes the list of anticipations.
         /// </summary>
         /// <returns>The list of aniticipations.</returns>
-        public List<Anticipation> Anticipate()
+        public override List<Anticipation> Anticipate()
         {
             List<Anticipation> anticipations = GetDefaultAnticipations();
             List<Interaction> activatedInteractions = this.GetActivatedInteractions();
@@ -100,13 +100,58 @@ namespace Ideal.Existence
                 Experiment050 abstractExperience = new Experiment050(label);
                 abstractExperience.SetIntendedInteraction(interaction);
                 interaction.SetExperience(abstractExperience);
-                EXPERIENCES[label] = abstractExperience;
+                Experiences[label] = abstractExperience;
             }
-            return (Experiment050)EXPERIENCES[label];
+            return (Experiment050)Experiences[label];
         }
 
+        public Interaction040 AddOrGetPrimitiveInteraction(string label, int valence)
+        {
+            if (!Interactions.ContainsKey(label))
+            {
+                Interaction040 _interaction = CreateInteraction(label);
+                _interaction.SetValence(valence);
+                Interactions.Add(label, _interaction);
+            }
+            Interaction040 interaction = (Interaction040)Interactions[label];
+            return interaction;
+        }
 
-        
+        protected List GetDefaultAnticipations()
+        {
+            List anticipations = new List<Anticipation031>();
+            foreach (Experiment experience in Experiences.Values)
+            {
+                Experiment040 defaultExperience = (Experiment040)experience;
+                if (defaultExperience.GetIntendedInteraction().IsPrimitive())
+                {
+                    Anticipation031 anticipation = new Anticipation031(experience, 0);
+                    anticipations.Add(anticipation);
+                }
+            }
+            return anticipations;
+        }
+
+        public override Interaction040 Enact(Interaction030 intendedInteraction)
+        {
+            if (intendedInteraction.IsPrimitive())
+                return (Interaction040)this.GetEnvironment().Enact(intendedInteraction);
+            else
+            {
+                // Enact the pre-interaction
+                Interaction040 enactedPreInteraction = Enact(intendedInteraction.GetPreInteraction());
+                if (!enactedPreInteraction.Equals(intendedInteraction.GetPreInteraction()))
+                    // if the preInteraction failed then the enaction of the intendedInteraction is interrupted here.
+                    return enactedPreInteraction;
+                else
+                {
+                    // Enact the post-interaction
+                    Interaction040 enactedPostInteraction = Enact(intendedInteraction.GetPostInteraction());
+                    return (Interaction040)AddOrGetCompositeInteraction(enactedPreInteraction, enactedPostInteraction);
+                }
+            }
+        }
+
     }
 }
 
