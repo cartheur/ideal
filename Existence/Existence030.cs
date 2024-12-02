@@ -60,8 +60,7 @@ namespace Ideal.Existence
         /// <param name="preInteraction">The composite interaction's pre-interaction.</param>
         /// <param name="postInteraction">The composite interaction's post-interaction.</param>
         /// <returns>The learned composite interaction.</returns>
-        public Interaction030 AddOrGetCompositeInteraction(
-            Interaction030 preInteraction, Interaction030 postInteraction)
+        public Interaction030 AddOrGetCompositeInteraction(Interaction030 preInteraction, Interaction030 postInteraction)
         {
             int valence = preInteraction.GetValence() + postInteraction.GetValence();
             Interaction030 interaction = (Interaction030)AddOrGetInteraction(preInteraction.GetLabel() + postInteraction.GetLabel());
@@ -80,7 +79,7 @@ namespace Ideal.Existence
         /// Computes the list of anticipations.
         /// </summary>
         /// <returns>The list of anticipations.</returns>      
-        public List<IAnticipation> Anticipate()
+        public virtual List<IAnticipation> Anticipate()
         {
             List<IAnticipation> anticipations = new List<IAnticipation>();
             if (GetEnactedInteraction() != null)
@@ -95,7 +94,7 @@ namespace Ideal.Existence
             return anticipations;
         }
 
-        protected Interaction030 SelectInteraction(List<IAnticipation> anticipations)
+        protected virtual Interaction030 SelectInteraction(List<IAnticipation> anticipations)
         {
             anticipations.Sort();
             Interaction intendedInteraction;

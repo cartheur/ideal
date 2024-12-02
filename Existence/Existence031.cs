@@ -52,7 +52,7 @@ namespace Ideal.Existence
             return new Interaction031(label);
         }
 
-        public new List<IAnticipation> Anticipate()
+        public override List<IAnticipation> Anticipate()
         {
             List<IAnticipation> anticipations = GetDefaultAnticipations();
 
