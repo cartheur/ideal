@@ -1,4 +1,4 @@
-﻿namespace Cartheur.Ideal.Coupling
+﻿namespace Ideal.Coupling
 {
     /// <summary>
     /// An experiment that can be chosen by the agent.
