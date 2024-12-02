@@ -16,8 +16,8 @@ namespace Ideal.Existence
 
             // Change the call to the function returnResult to change the environment.
 
-            //Result result = ReturnResult010(experience);
-            Result result = ReturnResult030(experience);
+            Result result = ReturnResult010(experience);
+            //Result result = ReturnResult030(experience);
             //Result result = ReturnResult031(experience);
 
             Interaction031 enactedInteraction = (Interaction031)GetInteraction(experience.GetLabel() + result.GetLabel());
@@ -88,8 +88,9 @@ namespace Ideal.Existence
             anticipations.Sort();
             foreach (IAnticipation anticipation in anticipations)
                 Console.WriteLine("propose " + anticipation.ToString());
-            // Return the selected experience (implementation not shown in the original code)
-            return null; // Placeholder return
+
+            Anticipation031 selectedAnticipation = (Anticipation031)anticipations[0];
+            return selectedAnticipation.GetExperience();
         }
 
         protected new Interaction031 GetInteraction(string label)
