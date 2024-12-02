@@ -183,7 +183,7 @@ namespace Ideal.Existence
             return anticipations;
         }
 
-        public Interaction040 Enact(Interaction030 intendedInteraction)
+        public virtual Interaction040 Enact(Interaction030 intendedInteraction)
         {
             if (intendedInteraction.IsPrimitive())
                 return EnactPrimitiveInteraction(intendedInteraction);

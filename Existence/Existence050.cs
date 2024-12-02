@@ -21,7 +21,7 @@ namespace Ideal.Existence
 
         public override string Step()
         {
-            List<Anticipation> anticipations = Anticipate();
+            List<IAnticipation> anticipations = Anticipate();
             Experiment050 experience = (Experiment050)SelectExperience(anticipations);
 
             Interaction040 intendedInteraction = experience.GetIntendedInteraction();
@@ -50,9 +50,9 @@ namespace Ideal.Existence
         /// Computes the list of anticipations.
         /// </summary>
         /// <returns>The list of aniticipations.</returns>
-        public override List<Anticipation> Anticipate()
+        public override List<IAnticipation> Anticipate()
         {
-            List<Anticipation> anticipations = GetDefaultAnticipations();
+            List<IAnticipation> anticipations = GetDefaultAnticipations();
             List<Interaction> activatedInteractions = this.GetActivatedInteractions();
 
             if (this.GetEnactedInteraction() != null)
@@ -154,4 +154,3 @@ namespace Ideal.Existence
 
     }
 }
-
