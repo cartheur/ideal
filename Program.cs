@@ -4,14 +4,14 @@ namespace Ideal
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             // Change this line to instantiate another existence:
             //IExistence existence = new Existence010();
             //IExistence existence = new Existence020();
             //IExistence existence = new Existence030();
-            //IExistence existence = new Existence031(); // Check the Existence031 class for further options.
-            IExistence existence = new Existence032(); // Check the Existence032 class for further options.
+            IExistence existence = new Existence031(); // Check the Existence031 class for further options.
+            //IExistence existence = new Existence032(); // Check the Existence032 class for further options.
             //Existence existence = new Existence040();
             //Existence existence = new Existence050();
             //Existence existence = new Existence051();
