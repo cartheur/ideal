@@ -44,5 +44,10 @@
         {
             return _experience.GetLabel() + _result.GetLabel();
         }
+
+        public int CompareTo(Interaction other)
+        {
+            throw new NotImplementedException("What are we comparing?");
+        }
     }
 }

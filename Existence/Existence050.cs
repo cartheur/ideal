@@ -7,16 +7,16 @@ namespace Ideal.Existence
 {
     public class Existence050 : Existence040
     {
-        private IEnvironment environment;
+        private IEnvironment _environment;
         protected IEnvironment GetEnvironment()
         {
-            return this.environment;
+            return _environment;
         }
 
         protected override void InitExistence()
         {
             // You can instantiate another environment here.
-            this.environment = new Environment050(this);
+            _environment = new Environment050(this);
             //this.environment = new EnvironmentMaze(this);
         }
 
@@ -36,16 +36,16 @@ namespace Ideal.Existence
             Console.WriteLine("Enacted " + enactedInteraction.ToString());
 
             if (enactedInteraction.GetValence() >= 0)
-                this.SetMood(Mood.Pleased);
+                SetMood(Mood.Pleased);
             else
-                this.SetMood(Mood.Pained);
+                SetMood(Mood.Pained);
 
-            this.LearnCompositeInteraction(enactedInteraction);
+            LearnCompositeInteraction(enactedInteraction);
 
-            this.SetPreviousSuperInteraction(this.GetLastSuperInteraction());
-            this.SetEnactedInteraction(enactedInteraction);
+            SetPreviousSuperInteraction(GetLastSuperInteraction());
+            SetEnactedInteraction(enactedInteraction);
 
-            return "" + this.GetMood();
+            return "" + GetMood();
         }
         /// <summary>
         /// Computes the list of anticipations.
@@ -54,7 +54,7 @@ namespace Ideal.Existence
         public override List<IAnticipation> Anticipate()
         {
             List<IAnticipation> anticipations = GetDefaultAnticipations();
-            List<Interaction> activatedInteractions = this.GetActivatedInteractions();
+            List<Interaction> activatedInteractions = GetActivatedInteractions();
 
             if (GetEnactedInteraction() != null)
             {
@@ -136,7 +136,7 @@ namespace Ideal.Existence
         public override Interaction040 Enact(Interaction030 intendedInteraction)
         {
             if (intendedInteraction.IsPrimitive())
-                return (Interaction040)this.GetEnvironment().Enact(intendedInteraction);
+                return (Interaction040)GetEnvironment().Enact(intendedInteraction);
             else
             {
                 // Enact the pre-interaction
