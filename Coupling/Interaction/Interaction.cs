@@ -1,6 +1,8 @@
-﻿namespace Ideal.Coupling.Interaction
+﻿using Ideal.Agent;
+
+namespace Ideal.Coupling.Interaction
 {
-    public interface Interaction
+    public interface Interaction : IComparable<Interaction>
     {
         /// <summary>
         /// Gets the label.

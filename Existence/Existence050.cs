@@ -1,13 +1,14 @@
 ﻿using Ideal.Agent;
 using Ideal.Coupling;
 using Ideal.Coupling.Interaction;
+using Ideal.Environment;
 
 namespace Ideal.Existence
 {
     public class Existence050 : Existence040
     {
-        private Environment environment;
-        protected Environment GetEnvironment()
+        private IEnvironment environment;
+        protected IEnvironment GetEnvironment()
         {
             return this.environment;
         }
@@ -55,7 +56,7 @@ namespace Ideal.Existence
             List<IAnticipation> anticipations = GetDefaultAnticipations();
             List<Interaction> activatedInteractions = this.GetActivatedInteractions();
 
-            if (this.GetEnactedInteraction() != null)
+            if (GetEnactedInteraction() != null)
             {
                 foreach (Interaction activatedInteraction in activatedInteractions)
                 {
@@ -74,7 +75,7 @@ namespace Ideal.Existence
                 }
             }
 
-            foreach (Anticipation anticipation in anticipations)
+            foreach (IAnticipation anticipation in anticipations)
             {
                 foreach (Interaction interaction in ((Experiment050)((Anticipation031)anticipation).GetExperience()).GetEnactedInteractions())
                 {
@@ -117,9 +118,9 @@ namespace Ideal.Existence
             return interaction;
         }
 
-        protected List GetDefaultAnticipations()
+        protected override List<IAnticipation> GetDefaultAnticipations()
         {
-            List anticipations = new List<Anticipation031>();
+            List<IAnticipation> anticipations = new List<IAnticipation>();
             foreach (Experiment experience in Experiences.Values)
             {
                 Experiment040 defaultExperience = (Experiment040)experience;
