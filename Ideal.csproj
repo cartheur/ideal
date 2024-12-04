@@ -7,4 +7,10 @@
     <Nullable>disable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Diagnostics\**" />
+    <EmbeddedResource Remove="Diagnostics\**" />
+    <None Remove="Diagnostics\**" />
+  </ItemGroup>
+
 </Project>
