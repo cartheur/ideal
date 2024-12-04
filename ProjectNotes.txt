@@ -19,3 +19,5 @@ Development notes for ideal (all branches)
 	2129: All modules implemented except the two game environments. Testing is needed to sort null references.
 03.12.2024
 	1312: Next task is to debug the errors in the dictionary and propagate changes through three, four, and five.
+04.12.2024
+	1126: The code is complete and an area of Trace/Tracer for the Environments in Branch 05 is hidden from the project, as a trace logger. Unfinished.
