@@ -10,10 +10,10 @@ namespace Ideal.Environment
         public Environment050(Existence050 existence)
         {
             this.existence = existence;
-            init();
+            Init();
         }
 
-        protected void init()
+        protected virtual void Init()
         {
             this.GetExistence().AddOrGetPrimitiveInteraction(this.GetExistence().LABEL_E1 + this.GetExistence().LABEL_R1, -1);
             Interaction040 i12 = this.GetExistence().AddOrGetPrimitiveInteraction(this.GetExistence().LABEL_E1 + this.GetExistence().LABEL_R2, 1);
@@ -52,7 +52,7 @@ namespace Ideal.Environment
             return this.penultimateInteraction;
         }
 
-        public Interaction Enact(Interaction intendedInteraction)
+        public virtual Interaction Enact(Interaction intendedInteraction)
         {
             Interaction enactedInteraction = null;
 
