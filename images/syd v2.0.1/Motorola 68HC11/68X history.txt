@@ -1,0 +1,11 @@
+) The 68000 family
+
+In 1978 Motorola introduced its first 16-bit CPU: the 68000. Unlike Intel's 8086/8088, which could address only one megabyte of physical RAM, the 68000 had 24 address lines that could access 16 megabytes of RAM directly -- it was an almost inconceivable amount of memory at the time. In addition, the 68000 ran faster than mainstream Intel processors of the day: 16 MHZ. Also, Motorola abandoned the idea of RAM-based registers and incorporated 16 general-purpose registers in the 68000. It would be four years until Intel could approach the technology of the 68000.
+
+Motorola entered the 32-bit CPU arena with the 68020. Like the 68000, the 68020 has 16 general-purpose registers, and can address four gigabytes of RAM directly. A first for the 68020 was the inclusion of an internal 256-byte instruction cache -- negligible by today's standards, but a true architectural advance at the time.
+
+The 68030 is Motorola's second generation 32-bit CPU. It is very similar to the '020, but is available in faster speeds, and with one 256-byte cache each for data and instructions.
+
+The 68040 is the third generation. It increases the data and instruction caches to 4 kilobytes each, and, for the first time, includes an on-board math coprocessor and memory-management unit.
+
+One of the latest members of the 680x0 family is the 68060. The 68060 is a superscalar design that has multiple instruction pipelines, and on-board memory and power management.
