@@ -21,3 +21,4 @@ Development notes for ideal (all branches)
 	1153: Upgrade to dotnet 9.0 for all branches.
 14.12.2024
 	1455: Demarcating notes here and in ideal-forth, the sister repository.
+	1515: Cannot have an anticipation without a prerequisite interaction.
