@@ -2,17 +2,14 @@
 Development notes for ideal (all branches)
 
 21.05.2024
-	1342: To support the .initiative on the 01 branch, here are observations and thoughts as I work-through the codebase and evolve the concept as a(n ideal) hybridization of precise and imprecise computation.
-	1358: To reference this evolution properly, the java version is cartheur/ideal-java.
+	1342: Total project notes kept solelyl on the 01 branch. Evolving my concept of a(n ideal) hybridization of precise and imprecise computation that can run anywhere.
 	1415: It seems development has stopped with the unstable implmenetion on the 03 branch and the other subsequent branches are not completed.
 24.11.2024
-	1841: This project brought into active status due to the need to move forth.
-	1842: Can we get some "debugging" for ideal-level-3? The request proper: "I have been taking care of other stuff hence didn't finish coding IDEAL-3, if that would help let me know.  When I do, I'd like some additional debug snapshots from your current code to make sure I am getting the same intermediate results."
+	1842: A note to add additional debugging from level-3 forward such as more verbosity.
 27.11.2024
-	1143: Dedicating time. Also a meeting between Greg and myself at 1600. Will discuss, among other things, the GA numbers for the financial profile excel.
 	1145: Branch 03. Line 105. Stopped with: Interaction030 affordedInteraction = (Anticipation030)anticipations[0].GetInteraction(); from the refactoring exercise. Also, how can the internals of the algorithm me more transparent than output to log?
 30.11.2024
-	1237: Bringing ideal to arm64 since the most relevant format.
+	1237: Bringing ideal to arm64 to emphasize our journey to the small and not the large and cumbersome.
 02.12.2024
 	1636: Branch 03. Fixed by a simple type-cast operation. Copilot spotted it.
 	1924: Found some instructionals here: https://projet.liris.cnrs.fr/ideal/mooc/
@@ -23,5 +20,4 @@ Development notes for ideal (all branches)
 	1126: The code is complete and an area of Trace/Tracer for the Environments in Branch 05 is hidden from the project, as a trace logger. Unfinished.
 	1153: Upgrade to dotnet 9.0 for all branches.
 14.12.2024
-	1455: Here to attend to development work.
-	
+	1455: Demarcating notes here and in ideal-forth, the sister repository.
