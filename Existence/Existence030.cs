@@ -25,7 +25,7 @@ namespace Ideal.Existence
 
         public override string Step()
         {
-            List<IAnticipation> anticipations = Anticipate();
+            List<IAnticipation> anticipations = Anticipate(); // <-- this cannot be null
             Experiment experience = SelectInteraction(anticipations).GetExperience();
 
             Result result = ReturnResult030(experience);
