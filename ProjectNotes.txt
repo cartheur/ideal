@@ -22,3 +22,5 @@ Development notes for ideal (all branches)
 14.12.2024
 	1455: Demarcating notes here and in ideal-forth, the sister repository.
 	1515: Cannot have an anticipation without a prerequisite interaction.
+18.12.2024
+	1108: Heiserman anticipated ideal (RL) but wasn't able to assign this level of technical detail.
