@@ -24,3 +24,6 @@ Development notes for ideal (all branches)
 	1515: Cannot have an anticipation without a prerequisite interaction.
 18.12.2024
 	1108: Heiserman anticipated ideal (RL) but wasn't able to assign this level of technical detail.
+08.01.2025
+	1147: This is the software that will be worked-upon, next to aiops.
+	
