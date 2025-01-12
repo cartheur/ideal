@@ -1,3 +1,7 @@
+Links:
+
+* [GPIB](https://github.com/wireless-power-laboratory/gpib) Controller Paradigm
+
 # ideal
 
 ### -----   *I*mplementation of *DE*velopment*A*l *L*earning    -----
