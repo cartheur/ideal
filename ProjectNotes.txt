@@ -12,7 +12,6 @@ Development notes for ideal (all branches)
 	1237: Bringing ideal to arm64 to emphasize our journey to the small and not the large and cumbersome.
 02.12.2024
 	1636: Branch 03. Fixed by a simple type-cast operation. Copilot spotted it.
-	1924: Found some instructionals here: https://projet.liris.cnrs.fr/ideal/mooc/
 	2129: All modules implemented except the two game environments. Testing is needed to sort null references.
 03.12.2024
 	1312: Next task is to debug the errors in the dictionary and propagate changes through three, four, and five.
@@ -24,6 +23,6 @@ Development notes for ideal (all branches)
 	1515: Cannot have an anticipation without a prerequisite interaction.
 18.12.2024
 	1108: Heiserman anticipated ideal (RL) but wasn't able to assign this level of technical detail.
-08.01.2025
-	1147: This is the software that will be worked-upon, next to aiops.
+19.01.2025
+	1147: aiops-ideal-power.
 	
