@@ -98,6 +98,8 @@ namespace Ideal.Existence
         {
             anticipations.Sort();
             Interaction intendedInteraction;
+            if (anticipations.Count == 0)
+                Anticipate();
 
             if (anticipations.Count > 0)
             {
@@ -161,9 +163,8 @@ namespace Ideal.Existence
         }
 
         /// <summary>
-        /// Environment030
-        /// * Results in R1 when the current experience equals the previous experience
-        /// * and in R2 when the current experience differs from the previous experience.
+        /// Of Environment030
+        /// Results in R1 when the current experience equals the previous experience and in R2 when the current experience differs from the previous experience.
         /// </summary>
         /// <param name="experience">The experience.</param>
         /// <returns></returns>       
