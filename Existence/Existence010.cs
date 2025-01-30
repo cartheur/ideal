@@ -94,7 +94,6 @@ namespace Cartheur.Ideal.Existence
                 Experiences.Add(label, CreateExperience(label));
             return Experiences.ContainsKey(label) ? Experiences[label] : null;
         }
-
         protected static Experiment CreateExperience(string label)
         {
             return new Experiment(label);
