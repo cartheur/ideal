@@ -25,4 +25,5 @@ Development notes for ideal (all branches)
 	1108: Heiserman anticipated ideal (RL) but wasn't able to assign this level of technical detail.
 19.01.2025
 	1147: Imperative is to get the evb-codebase complete and this project is the first new addition.
-	
+30.01.2025
+	1508: Cleaning some errant spaces in the codefiles. Attending to the design decisions on Branch 03.
