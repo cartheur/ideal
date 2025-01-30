@@ -205,11 +205,10 @@ namespace Cartheur.Ideal.Existence
         /// Perform one step of a "stream of intelligence".
         /// </summary>
         /// <returns>
-        /// S string representing the "event of intelligence" that was performed.
+        /// A string representing the "event of intelligence" that was performed.
         /// </returns>
         public string Step()
         {
-
             Experiment experience = GetPreviousExperience();
             if (GetMood() == Mood.BORED)
             {
@@ -218,9 +217,7 @@ namespace Cartheur.Ideal.Existence
             }
 
             Result anticipatedResult = Predict(experience);
-
             Result result = ReturnResult010(experience);
-
             AddOrGetPrimitiveInteraction(experience, result);
 
             if (result == anticipatedResult)
@@ -233,6 +230,7 @@ namespace Cartheur.Ideal.Existence
                 SetMood(Mood.FRUSTRATED);
                 SetSelfSatisfactionCounter(0);
             }
+
             if (GetSelfSatisfactionCounter() >= BOREDOME_LEVEL)
                 SetMood(Mood.BORED);
 
