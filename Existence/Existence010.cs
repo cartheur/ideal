@@ -230,7 +230,7 @@ namespace Cartheur.Ideal.Existence
                 SetSelfSatisfactionCounter(0);
             }
 
-            if (GetSelfSatisfactionCounter() >= BOREDOME_LEVEL)
+            if (GetSelfSatisfactionCounter() >= BOREDOM_LEVEL)
                 SetMood(Mood.BORED);
 
             SetPreviousExperience(experience);
