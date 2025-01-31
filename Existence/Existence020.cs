@@ -11,7 +11,7 @@ namespace Cartheur.Ideal.Existence
     /// </summary>
     public class Existence020 : Existence010
     {
-        protected void InitExistence()
+        protected new void InitExistence()
         {
             Experiment e1 = AddOrGetExperience(LABEL_E1);
             Experiment e2 = AddOrGetExperience(LABEL_E2);
