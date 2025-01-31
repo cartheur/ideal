@@ -13,7 +13,7 @@ namespace Cartheur.Ideal.Existence
         protected Dictionary<string, Result> Results = new Dictionary<string, Result>();
         protected Dictionary<string, Interaction> Interactions = new Dictionary<string, Interaction>();
 
-        protected int BOREDOM_LEVEL = 4;
+        protected int BoredomLevel = 4;
 
         public string LABEL_E1 = "e1"; 
 	    public string LABEL_E2 = "e2"; 
@@ -230,7 +230,7 @@ namespace Cartheur.Ideal.Existence
                 SetSelfSatisfactionCounter(0);
             }
 
-            if (GetSelfSatisfactionCounter() >= BOREDOM_LEVEL)
+            if (GetSelfSatisfactionCounter() >= BoredomLevel)
                 SetMood(Mood.BORED);
 
             SetPreviousExperience(experience);
