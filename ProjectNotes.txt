@@ -27,3 +27,5 @@ Development notes for ideal (all branches)
 	1147: Imperative is to get the evb-codebase complete and this project is the first new addition.
 30.01.2025
 	1508: Cleaning some errant spaces in the codefiles. Attending to the design decisions on Branch 03.
+06.02.2025
+	1804: Next relevant question is what does the first implementation look like - in context of motor control for leg-joints? Bonus points for forth.
