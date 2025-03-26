@@ -11,6 +11,13 @@ namespace Cartheur.Ideal.Existence
     /// </summary>
     public class Existence020 : Existence010
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Existence020"/> class.
+        /// </summary>
+        public Existence020() : base()
+        { 
+            InitExistence();
+        }
         protected new void InitExistence()
         {
             Experiment e1 = AddOrGetExperience(LABEL_E1);
