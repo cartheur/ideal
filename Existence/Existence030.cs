@@ -11,6 +11,14 @@ namespace Ideal.Existence
     {
         private Interaction030 enactedInteraction;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Existence030"/> class.
+        /// </summary>
+        public Existence030() : base()
+        { 
+            InitExistence();
+        }
+
         protected new void InitExistence()
         {
             Experiment e1 = AddOrGetExperience(LABEL_E1);
