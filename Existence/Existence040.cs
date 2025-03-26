@@ -14,6 +14,14 @@ namespace Ideal.Existence
         private Interaction040 previousSuperInteraction;
         private Interaction040 lastSuperInteraction;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Existence040"/> class.
+        /// </summary>
+        public Existence040() : base()
+        { 
+            InitExistence();
+        }
+
         protected override void InitExistence()
         {
             Experiment040 e1 = (Experiment040)AddOrGetExperience(LABEL_E1);
