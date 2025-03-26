@@ -4,7 +4,7 @@ using Ideal.Coupling.Interaction;
 namespace Ideal.Agent
 {
     /// <summary>
-    /// An Anticipation is created for each proposed primitive interaction. An Anticipation is greater than another if its interaction has a greater valence than the other's.
+    /// An Anticipation is created for each proposed primitive interaction. An Anticipation is greater than another if its interaction has a greater valence than the others'.
     /// </summary>
     /// <seealso cref="Ideal.Agent.IAnticipation" />
     public class Anticipation : IAnticipation
