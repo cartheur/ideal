@@ -9,7 +9,7 @@ namespace Ideal.Coupling
     public class Experiment040 : Experiment
     {
         // The experience's interaction.
-        private Interaction040? _intendedInteraction;
+        private Interaction040 _intendedInteraction;
         private bool _isAbstract = true;
 
         public Experiment040(string label) : base(label) { }
@@ -29,7 +29,7 @@ namespace Ideal.Coupling
             _intendedInteraction = intendedInteraction;
         }
 
-        public Interaction040? GetIntendedInteraction()
+        public Interaction040 GetIntendedInteraction()
         {
             return _intendedInteraction;
         }
