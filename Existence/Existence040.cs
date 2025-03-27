@@ -235,7 +235,7 @@ namespace Ideal.Existence
             return new Experiment040(label);
         }
 
-        public Interaction040 GetEnactedInteraction()
+        public new Interaction040 GetEnactedInteraction()
         {
             return (Interaction040)base.GetEnactedInteraction();
         }
