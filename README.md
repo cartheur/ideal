@@ -1,4 +1,7 @@
 # ideal
+
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=07-research-pathway)
+
 An ideal algorithm for control in the manner of Cybernetics. This last section discussed different kinds of reseach pathways forward.
 
 ## Code module
