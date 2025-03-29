@@ -1,4 +1,7 @@
 # ideal
+
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=05-radical-interactionism)
+
 An ideal algorithm for control in the manner of Cybernetics. This branch contains details of radical interactionism.
 
 ## Code module
