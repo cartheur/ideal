@@ -1,4 +1,7 @@
 # ideal
+
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=03-constructivist-epistemology)
+
 An ideal algorithm for control in the manner of Cybernetics. This branch contains details of constructivist epistemology.
 
 ## Code module
