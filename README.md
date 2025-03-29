@@ -1,5 +1,7 @@
 # ideal
 
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg)
+
 ### -----   *I*mplementation of *DE*velopment*A*l *L*earning    -----
 
 
