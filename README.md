@@ -1,4 +1,7 @@
 # ideal
+
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=02-interactional-motivation)
+
 An ideal algorithm for control in the manner of Cybernetics. This branch contains details of interactional motivation.
 
 ## Code module
