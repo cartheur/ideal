@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - 01-embodied-paradigm
   pull_request:
     branches:
-      - main
+      - 01-embodied-paradigm
 
 jobs:
   build:
