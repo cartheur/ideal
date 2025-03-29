@@ -1,6 +1,6 @@
 # ideal
 
-![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=01-embodied-paradigm)
 
 ### -----   *I*mplementation of *DE*velopment*A*l *L*earning    -----
 
