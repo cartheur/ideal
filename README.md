@@ -1,4 +1,7 @@
 # ideal
+
+![CI](https://github.com/cartheur/ideal/actions/workflows/ci.yml/badge.svg?branch=04-self-programming)
+
 An ideal algorithm for control in the manner of Cybernetics. This branch contains details of self programming.
 
 ## Code module
