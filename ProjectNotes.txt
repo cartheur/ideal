@@ -33,3 +33,5 @@ Development notes for ideal (all branches)
 	1653: Fixes have been implemented by the decision to "cascade" class constructors so that each subclass' constructor is called in series. The fix is applied through to Branch 04.
 27.03.2025
 	1100: Note that the "entry not found" error on Branch 04, Existence031, line 98: return (Interaction031)Interactions[label]; is correct in the context of self-programming. The code is creating its own new response and, of course, it is not in the present dictionary. How to compensate is an open question.
+10.04.2025
+	2104: Put Branch-01 through Branch-04 into ai-forth/ideal for the benefit of development.
