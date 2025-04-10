@@ -40,7 +40,7 @@
             this.result = result;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return experience.GetLabel() + result.GetLabel();
         }
