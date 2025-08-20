@@ -5,7 +5,9 @@
 ### -----   *I*mplementation of *DE*velopment*A*l *L*earning    -----
 
 
-An _ideal_ algorithm for control in the manner of Cybernetics. This branch contains the foundational module. Where we start is the concept of the _embodied paradigm_. One.
+An _ideal_ algorithm for intuitive control in the manner of Cybernetics - specifically W. Ross Ashby in _Design for a Brain_, 2nd Edition, 1960.
+
+This branch contains the foundational module. Where we start is the concept of the _embodied paradigm_.
 
 Be forwarned that it is not _exactly_ like reinforcement learning, a shade that yields significantly different effects.
 
