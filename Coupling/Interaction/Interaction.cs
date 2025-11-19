@@ -1,5 +1,8 @@
 ﻿namespace Cartheur.Ideal.Coupling.Interaction
 {
+    /// <summary>
+    /// Interaction is an interface that parameterizes pursuits of goals within a "stream of intelligence".
+    /// </summary>
     public interface Interaction
     {
         /// <summary>

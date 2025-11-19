@@ -1,14 +1,15 @@
 ﻿namespace Cartheur.Ideal.Existence
 {
     /// <summary>
-    /// An Existence is an Object that simulates a "stream of intelligence" when it is run step by step. Each call to the Step() method generates an "event of intelligence" that can be traced.
+    /// IExistence is an interface that yields the capability of a "stream of intelligence" to be run step-by-step.
     /// </summary>
     public interface IExistence
     {
         /// <summary>
         /// Perform one step of a "stream of intelligence".
         /// </summary>
-        /// <returns>S string representing the "event of intelligence" that was performed. </returns>
+        /// <returns>A string representing the "event of intelligence" that was performed.</returns>
+        /// <remarks>Each "event of intelligence" can be have tracing enabled.</remarks>
         public string Step();
     }
 }

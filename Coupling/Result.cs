@@ -1,7 +1,7 @@
 ﻿namespace Cartheur.Ideal.Coupling
 {
     /// <summary>
-    /// A result of an experience.
+    /// The result generated subsequent to an experience.
     /// </summary>
     public class Result
     {

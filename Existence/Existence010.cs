@@ -3,6 +3,10 @@ using Cartheur.Ideal.Coupling.Interaction;
 
 namespace Cartheur.Ideal.Existence
 {
+    /// <summary>
+    /// Programmatic outcome of a transpired experience.
+    /// </summary>
+    /// <seealso cref="Cartheur.Ideal.Existence.IExistence" />
     public class Existence010 : IExistence
     {
         private Mood mood;

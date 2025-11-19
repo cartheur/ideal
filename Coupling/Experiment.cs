@@ -1,7 +1,7 @@
 ﻿namespace Cartheur.Ideal.Coupling
 {
     /// <summary>
-    /// An experiment that can be chosen by the agent.
+    /// An experiment that can be chosen by the stated goal pursuit.
     /// </summary>
     public class Experiment
     {
