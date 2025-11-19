@@ -2,8 +2,8 @@
 Development notes for ideal (all branches)
 
 21.05.2024
-	1342: Total project notes kept solelyl on the 01 branch. Evolving my concept of a(n ideal) hybridization of precise and imprecise computation that can run anywhere.
-	1415: It seems development has stopped with the unstable implmenetion on the 03 branch and the other subsequent branches are not completed.
+	1342: Total project notes kept solely on the 01 branch. Evolving my concept of a(n ideal) hybridization of precise and imprecise computation that can run anywhere. Baseline stretched across the seven brancyhes is an earnest attempt at logical organization of complex topics. This codebase emanated in 2014.
+	1415: It seems development has stopped with the unstable implementation on the 03 branch and the other subsequent branches are not completed.
 24.11.2024
 	1842: A note to add additional debugging from level-3 forward such as more verbosity.
 27.11.2024
